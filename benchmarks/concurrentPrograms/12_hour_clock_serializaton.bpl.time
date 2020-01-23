@@ -1,0 +1,254 @@
+[TRACE] Using prover: /home/alexander/sharedData/uni/hice-dt/Boogie/Binaries/z3.exe
+Parsing /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/12_hour_clock_serializaton.bpl
+Coalescing blocks...
+#parameters: 9
+Generating VC of init
+Generating VC of post
+Generating VC of t1_serial
+Generating VC of t2_serial
+Generating VC of A_2
+Generating VC of A_1
+Verifying post: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  true
+}
+Added: Invariant:-2,2,2: negative
+Prover Time taken = 0.055683
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/12_hour_clock_serializaton.bpl
+Total learner time was 00:00:00.0019390
+Verifying post: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && hours <= -1 && hours <= -1 && -2 < hours && -1 < hours && hours <= 0 && hours <= 0 && -1 < hours && 0 < hours && hours <= 1 && hours <= 1 && 0 < hours && -2 < Morning && Morning <= -1 && Morning <= -1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && 0 < Morning && Morning <= 1 && Morning <= 1 && 0 < Morning && -2 < Evening && Evening <= -1 && Evening <= -1 && -2 < Evening && -1 < Evening && Evening <= 0 && Evening <= 0 && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && hours + Morning <= -1 && hours + Morning <= -1 && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 0 && hours + Morning <= 0 && -1 < hours + Morning && 0 < hours + Morning && hours + Morning <= 1 && hours + Morning <= 1 && 0 < hours + Morning && -2 < hours - Morning && hours - Morning <= -1 && hours - Morning <= -1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 0 && hours - Morning <= 0 && -1 < hours - Morning && 0 < hours - Morning && hours - Morning <= 1 && hours - Morning <= 1 && 0 < hours - Morning && -2 < hours + Evening && hours + Evening <= -1 && hours + Evening <= -1 && -2 < hours + Evening && -1 < hours + Evening && hours + Evening <= 0 && hours + Evening <= 0 && -1 < hours + Evening && 0 < hours + Evening && hours + Evening <= 1 && hours + Evening <= 1 && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= -1 && hours - Evening <= -1 && -2 < hours - Evening && -1 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 0 && -1 < hours - Evening && 0 < hours - Evening && hours - Evening <= 1 && hours - Evening <= 1 && 0 < hours - Evening && -2 < Morning + Evening && Morning + Evening <= -1 && Morning + Evening <= -1 && -2 < Morning + Evening && -1 < Morning + Evening && Morning + Evening <= 0 && Morning + Evening <= 0 && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && -1 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 0 && -1 < Morning - Evening && 0 < Morning - Evening && Morning - Evening <= 1 && Morning - Evening <= 1 && 0 < Morning - Evening
+}
+Prover Time taken = 0.002914
+Prover Time taken = 0.001439
+Prover Time taken = 0.00144
+Prover Time taken = 0.001529
+Verifying t1_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && hours <= -1 && hours <= -1 && -2 < hours && -1 < hours && hours <= 0 && hours <= 0 && -1 < hours && 0 < hours && hours <= 1 && hours <= 1 && 0 < hours && -2 < Morning && Morning <= -1 && Morning <= -1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && 0 < Morning && Morning <= 1 && Morning <= 1 && 0 < Morning && -2 < Evening && Evening <= -1 && Evening <= -1 && -2 < Evening && -1 < Evening && Evening <= 0 && Evening <= 0 && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && hours + Morning <= -1 && hours + Morning <= -1 && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 0 && hours + Morning <= 0 && -1 < hours + Morning && 0 < hours + Morning && hours + Morning <= 1 && hours + Morning <= 1 && 0 < hours + Morning && -2 < hours - Morning && hours - Morning <= -1 && hours - Morning <= -1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 0 && hours - Morning <= 0 && -1 < hours - Morning && 0 < hours - Morning && hours - Morning <= 1 && hours - Morning <= 1 && 0 < hours - Morning && -2 < hours + Evening && hours + Evening <= -1 && hours + Evening <= -1 && -2 < hours + Evening && -1 < hours + Evening && hours + Evening <= 0 && hours + Evening <= 0 && -1 < hours + Evening && 0 < hours + Evening && hours + Evening <= 1 && hours + Evening <= 1 && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= -1 && hours - Evening <= -1 && -2 < hours - Evening && -1 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 0 && -1 < hours - Evening && 0 < hours - Evening && hours - Evening <= 1 && hours - Evening <= 1 && 0 < hours - Evening && -2 < Morning + Evening && Morning + Evening <= -1 && Morning + Evening <= -1 && -2 < Morning + Evening && -1 < Morning + Evening && Morning + Evening <= 0 && Morning + Evening <= 0 && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && -1 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 0 && -1 < Morning - Evening && 0 < Morning - Evening && Morning - Evening <= 1 && Morning - Evening <= 1 && 0 < Morning - Evening
+}
+Prover Time taken = 0.010914
+Prover Time taken = 0.012293
+Prover Time taken = 0.010362
+Prover Time taken = 0.010478
+Verifying t2_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && hours <= -1 && hours <= -1 && -2 < hours && -1 < hours && hours <= 0 && hours <= 0 && -1 < hours && 0 < hours && hours <= 1 && hours <= 1 && 0 < hours && -2 < Morning && Morning <= -1 && Morning <= -1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && 0 < Morning && Morning <= 1 && Morning <= 1 && 0 < Morning && -2 < Evening && Evening <= -1 && Evening <= -1 && -2 < Evening && -1 < Evening && Evening <= 0 && Evening <= 0 && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && hours + Morning <= -1 && hours + Morning <= -1 && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 0 && hours + Morning <= 0 && -1 < hours + Morning && 0 < hours + Morning && hours + Morning <= 1 && hours + Morning <= 1 && 0 < hours + Morning && -2 < hours - Morning && hours - Morning <= -1 && hours - Morning <= -1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 0 && hours - Morning <= 0 && -1 < hours - Morning && 0 < hours - Morning && hours - Morning <= 1 && hours - Morning <= 1 && 0 < hours - Morning && -2 < hours + Evening && hours + Evening <= -1 && hours + Evening <= -1 && -2 < hours + Evening && -1 < hours + Evening && hours + Evening <= 0 && hours + Evening <= 0 && -1 < hours + Evening && 0 < hours + Evening && hours + Evening <= 1 && hours + Evening <= 1 && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= -1 && hours - Evening <= -1 && -2 < hours - Evening && -1 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 0 && -1 < hours - Evening && 0 < hours - Evening && hours - Evening <= 1 && hours - Evening <= 1 && 0 < hours - Evening && -2 < Morning + Evening && Morning + Evening <= -1 && Morning + Evening <= -1 && -2 < Morning + Evening && -1 < Morning + Evening && Morning + Evening <= 0 && Morning + Evening <= 0 && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && -1 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 0 && -1 < Morning - Evening && 0 < Morning - Evening && Morning - Evening <= 1 && Morning - Evening <= 1 && 0 < Morning - Evening
+}
+Prover Time taken = 0.015607
+Prover Time taken = 0.013228
+Prover Time taken = 0.011085
+Prover Time taken = 0.010875
+Verifying A_2: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && hours <= -1 && hours <= -1 && -2 < hours && -1 < hours && hours <= 0 && hours <= 0 && -1 < hours && 0 < hours && hours <= 1 && hours <= 1 && 0 < hours && -2 < Morning && Morning <= -1 && Morning <= -1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && 0 < Morning && Morning <= 1 && Morning <= 1 && 0 < Morning && -2 < Evening && Evening <= -1 && Evening <= -1 && -2 < Evening && -1 < Evening && Evening <= 0 && Evening <= 0 && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && hours + Morning <= -1 && hours + Morning <= -1 && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 0 && hours + Morning <= 0 && -1 < hours + Morning && 0 < hours + Morning && hours + Morning <= 1 && hours + Morning <= 1 && 0 < hours + Morning && -2 < hours - Morning && hours - Morning <= -1 && hours - Morning <= -1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 0 && hours - Morning <= 0 && -1 < hours - Morning && 0 < hours - Morning && hours - Morning <= 1 && hours - Morning <= 1 && 0 < hours - Morning && -2 < hours + Evening && hours + Evening <= -1 && hours + Evening <= -1 && -2 < hours + Evening && -1 < hours + Evening && hours + Evening <= 0 && hours + Evening <= 0 && -1 < hours + Evening && 0 < hours + Evening && hours + Evening <= 1 && hours + Evening <= 1 && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= -1 && hours - Evening <= -1 && -2 < hours - Evening && -1 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 0 && -1 < hours - Evening && 0 < hours - Evening && hours - Evening <= 1 && hours - Evening <= 1 && 0 < hours - Evening && -2 < Morning + Evening && Morning + Evening <= -1 && Morning + Evening <= -1 && -2 < Morning + Evening && -1 < Morning + Evening && Morning + Evening <= 0 && Morning + Evening <= 0 && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && -1 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 0 && -1 < Morning - Evening && 0 < Morning - Evening && Morning - Evening <= 1 && Morning - Evening <= 1 && 0 < Morning - Evening
+}
+Prover Time taken = 0.003639
+Prover Time taken = 0.003675
+Prover Time taken = 0.002646
+Prover Time taken = 0.00256
+Verifying A_1: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && hours <= -1 && hours <= -1 && -2 < hours && -1 < hours && hours <= 0 && hours <= 0 && -1 < hours && 0 < hours && hours <= 1 && hours <= 1 && 0 < hours && -2 < Morning && Morning <= -1 && Morning <= -1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && 0 < Morning && Morning <= 1 && Morning <= 1 && 0 < Morning && -2 < Evening && Evening <= -1 && Evening <= -1 && -2 < Evening && -1 < Evening && Evening <= 0 && Evening <= 0 && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && hours + Morning <= -1 && hours + Morning <= -1 && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 0 && hours + Morning <= 0 && -1 < hours + Morning && 0 < hours + Morning && hours + Morning <= 1 && hours + Morning <= 1 && 0 < hours + Morning && -2 < hours - Morning && hours - Morning <= -1 && hours - Morning <= -1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 0 && hours - Morning <= 0 && -1 < hours - Morning && 0 < hours - Morning && hours - Morning <= 1 && hours - Morning <= 1 && 0 < hours - Morning && -2 < hours + Evening && hours + Evening <= -1 && hours + Evening <= -1 && -2 < hours + Evening && -1 < hours + Evening && hours + Evening <= 0 && hours + Evening <= 0 && -1 < hours + Evening && 0 < hours + Evening && hours + Evening <= 1 && hours + Evening <= 1 && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= -1 && hours - Evening <= -1 && -2 < hours - Evening && -1 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 0 && -1 < hours - Evening && 0 < hours - Evening && hours - Evening <= 1 && hours - Evening <= 1 && 0 < hours - Evening && -2 < Morning + Evening && Morning + Evening <= -1 && Morning + Evening <= -1 && -2 < Morning + Evening && -1 < Morning + Evening && Morning + Evening <= 0 && Morning + Evening <= 0 && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && -1 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 0 && -1 < Morning - Evening && 0 < Morning - Evening && Morning - Evening <= 1 && Morning - Evening <= 1 && 0 < Morning - Evening
+}
+Prover Time taken = 0.00308
+Prover Time taken = 0.002991
+Prover Time taken = 0.002999
+Prover Time taken = 0.002901
+Verifying init: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && hours <= -1 && hours <= -1 && -2 < hours && -1 < hours && hours <= 0 && hours <= 0 && -1 < hours && 0 < hours && hours <= 1 && hours <= 1 && 0 < hours && -2 < Morning && Morning <= -1 && Morning <= -1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && 0 < Morning && Morning <= 1 && Morning <= 1 && 0 < Morning && -2 < Evening && Evening <= -1 && Evening <= -1 && -2 < Evening && -1 < Evening && Evening <= 0 && Evening <= 0 && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && hours + Morning <= -1 && hours + Morning <= -1 && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 0 && hours + Morning <= 0 && -1 < hours + Morning && 0 < hours + Morning && hours + Morning <= 1 && hours + Morning <= 1 && 0 < hours + Morning && -2 < hours - Morning && hours - Morning <= -1 && hours - Morning <= -1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 0 && hours - Morning <= 0 && -1 < hours - Morning && 0 < hours - Morning && hours - Morning <= 1 && hours - Morning <= 1 && 0 < hours - Morning && -2 < hours + Evening && hours + Evening <= -1 && hours + Evening <= -1 && -2 < hours + Evening && -1 < hours + Evening && hours + Evening <= 0 && hours + Evening <= 0 && -1 < hours + Evening && 0 < hours + Evening && hours + Evening <= 1 && hours + Evening <= 1 && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= -1 && hours - Evening <= -1 && -2 < hours - Evening && -1 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 0 && -1 < hours - Evening && 0 < hours - Evening && hours - Evening <= 1 && hours - Evening <= 1 && 0 < hours - Evening && -2 < Morning + Evening && Morning + Evening <= -1 && Morning + Evening <= -1 && -2 < Morning + Evening && -1 < Morning + Evening && Morning + Evening <= 0 && Morning + Evening <= 0 && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && -1 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 0 && -1 < Morning - Evening && 0 < Morning - Evening && Morning - Evening <= 1 && Morning - Evening <= 1 && 0 < Morning - Evening
+}
+Added: Invariant:0,0,1: positive
+Prover Time taken = 0.002954
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/12_hour_clock_serializaton.bpl
+Total learner time was 00:00:00.0035280
+Verifying post: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && hours <= 0 && hours <= 0 && -1 < hours && hours <= 1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 0 && hours + Morning <= 0 && -1 < hours + Morning && hours + Morning <= 1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 0 && hours - Morning <= 0 && -1 < hours - Morning && hours - Morning <= 1 && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && hours + Evening <= 1 && hours + Evening <= 1 && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= -1 && hours - Evening <= -1 && -2 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 1 && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.001498
+Prover Time taken = 0.002848
+Prover Time taken = 0.001558
+Prover Time taken = 0.001527
+Verifying t1_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && hours <= 0 && hours <= 0 && -1 < hours && hours <= 1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 0 && hours + Morning <= 0 && -1 < hours + Morning && hours + Morning <= 1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 0 && hours - Morning <= 0 && -1 < hours - Morning && hours - Morning <= 1 && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && hours + Evening <= 1 && hours + Evening <= 1 && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= -1 && hours - Evening <= -1 && -2 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 1 && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.011168
+Prover Time taken = 0.010929
+Prover Time taken = 0.010196
+Prover Time taken = 0.010866
+Verifying t2_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && hours <= 0 && hours <= 0 && -1 < hours && hours <= 1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 0 && hours + Morning <= 0 && -1 < hours + Morning && hours + Morning <= 1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 0 && hours - Morning <= 0 && -1 < hours - Morning && hours - Morning <= 1 && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && hours + Evening <= 1 && hours + Evening <= 1 && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= -1 && hours - Evening <= -1 && -2 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 1 && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.010796
+Added Horn clause: 1 => 2
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/12_hour_clock_serializaton.bpl
+Total learner time was 00:00:00.0022640
+Verifying post: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && hours <= 1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 1 && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 1 && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.001036
+Prover Time taken = 0.000898
+Prover Time taken = 0.000823
+Prover Time taken = 0.000847
+Verifying t1_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && hours <= 1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 1 && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 1 && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.007732
+Prover Time taken = 0.007111
+Prover Time taken = 0.007284
+Prover Time taken = 0.007136
+Verifying t2_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && hours <= 1 && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && hours + Morning <= 1 && -2 < hours - Morning && -1 < hours - Morning && hours - Morning <= 1 && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= 0 && hours - Evening <= 1 && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.009433
+Added Horn clause: 2 => 3
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/12_hour_clock_serializaton.bpl
+Total learner time was 00:00:00.0021470
+Verifying post: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -1 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= 1 && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.001193
+Prover Time taken = 0.001741
+Prover Time taken = 0.000936
+Prover Time taken = 0.000808
+Verifying t1_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -1 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= 1 && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.007357
+Prover Time taken = 0.00653
+Prover Time taken = 0.00655
+Prover Time taken = 0.006457
+Verifying t2_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -1 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && -2 < hours - Evening && hours - Evening <= 1 && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.006905
+Prover Time taken = 0.008146
+Added Horn clause: 3 => 4
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/12_hour_clock_serializaton.bpl
+Total learner time was 00:00:00.0021920
+Verifying post: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -1 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.001164
+Prover Time taken = 0.000779
+Prover Time taken = 0.000731
+Prover Time taken = 0.000745
+Verifying t1_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -1 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.006542
+Prover Time taken = 0.006185
+Prover Time taken = 0.008295
+Prover Time taken = 0.00708
+Verifying t2_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 0 && Morning <= 0 && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && 0 < Evening && Evening <= 1 && Evening <= 1 && 0 < Evening && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -1 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && 0 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= -1 && Morning - Evening <= -1 && -2 < Morning - Evening && Morning - Evening <= 0 && Morning - Evening <= 1
+}
+Prover Time taken = 0.006841
+Prover Time taken = 0.006439
+Prover Time taken = 0.006482
+Prover Time taken = 0.008193
+Added Horn clause: 5 => 6
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/12_hour_clock_serializaton.bpl
+Total learner time was 00:00:00.0025090
+Verifying post: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && Evening <= 1 && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= 1
+}
+Prover Time taken = 0.00086
+Prover Time taken = 0.000682
+Prover Time taken = 0.00075
+Prover Time taken = 0.001607
+Verifying t1_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && Evening <= 1 && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= 1
+}
+Prover Time taken = 0.006638
+Prover Time taken = 0.006784
+Prover Time taken = 0.006936
+Prover Time taken = 0.007165
+Verifying t2_serial: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && Evening <= 1 && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= 1
+}
+Prover Time taken = 0.007519
+Prover Time taken = 0.007023
+Prover Time taken = 0.006706
+Prover Time taken = 0.008766
+Verifying A_2: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && Evening <= 1 && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= 1
+}
+Prover Time taken = 0.002
+Prover Time taken = 0.001776
+Prover Time taken = 0.001809
+Prover Time taken = 0.00268
+Verifying A_1: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && Evening <= 1 && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= 1
+}
+Prover Time taken = 0.002326
+Prover Time taken = 0.002075
+Prover Time taken = 0.001863
+Prover Time taken = 0.001872
+Verifying init: 
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && Evening <= 1 && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= 1
+}
+Prover Time taken = 0.001205
+Prover Time taken = 0.001069
+Prover Time taken = 0.001134
+Prover Time taken = 0.001161
+Prover time = 0.48
+Number of prover queries = 86
+Learner time = 0.01
+Number of learner queries = 6
+Total time: 0.80
+Number of positive examples:1
+Number of negative examples:1
+Number of Horn clauses:4
+function {:existential true} {:inline} Invariant(hours: int, Morning: int, Evening: int) : bool
+{
+  -2 < hours && -1 < hours && -2 < Morning && -1 < Morning && Morning <= 1 && -2 < Evening && -1 < Evening && Evening <= 1 && -2 < hours + Morning && -1 < hours + Morning && -2 < hours - Morning && -2 < hours + Evening && -1 < hours + Evening && -2 < hours - Evening && -2 < Morning + Evening && -1 < Morning + Evening && 0 < Morning + Evening && Morning + Evening <= 1 && Morning + Evening <= 1 && 0 < Morning + Evening && -2 < Morning - Evening && Morning - Evening <= 1
+}
+verified
+
+Boogie program verifier finished with 1 verified, 0 errors

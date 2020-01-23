@@ -44,6 +44,7 @@ namespace horn_verification
 
 	// Enum to select if one prefers conjunctive splits (split carves out a sub-node which includes only negative points or unclassified points) 
 	// over non-conjunctive splits
+	// QUESTION: why is this named conjunctive and why do we want this
 	enum ConjunctiveSetting
 	{
 		NOPREFERENCEFORCONJUNCTS = 0,
@@ -143,7 +144,7 @@ namespace horn_verification
 		 * @param solver A reference to the Horn solver to use
 		 * @param threshold An unsigned int which serves as the threshold to cuts considered while splitting nodes wrt numerical attributes 
 		 */
-		simple_job_manager(std::vector<datapoint<bool> *> & datapoint_ptrs, const std::vector<horn_constraint<bool>> & horn_constraints, horn_solver<bool> & solver, \
+		simple_job_manager(std::vector<datapoint<bool> *> & datapoint_ptrs, const std::vector<horn_constraint<bool>> & horn_constraints, horn_solver<bool> & solver, 
 																			unsigned int threshold)
 			: _datapoint_ptrs(datapoint_ptrs), _horn_constraints(horn_constraints), _horn_solver(solver), _threshold(threshold)
 		{
@@ -211,6 +212,9 @@ namespace horn_verification
 			{
 			
 				// Check if data points have exactly one categorical attribute
+				// QUESTION: y tho. Shouldn't all data points have the exact same attributes?
+				// does this imply that all datapoints have exactly one categorical attribute
+				// dies the single categorial attribute "$func" indicate in which function the program is?
 				if (_datapoint_ptrs[sl._left_index]->_categorical_data.size() != 1)
 				{
 					throw std::runtime_error("Learner expects exactly one categorical attribute");
@@ -435,7 +439,7 @@ namespace horn_verification
 				if (ok)
 				{
 					label = true;
-					return true;					
+					return true;
 				}
 				
 				
@@ -458,16 +462,15 @@ namespace horn_verification
 				if (ok)
 				{
 					label = false;
-					return true;					
+					return true;
 				}
 				
 
 				//
 				// Split is necessary
 				//
-				
+
 				return false;
-				
 			}
 
 		}
@@ -582,6 +585,7 @@ namespace horn_verification
 					{
 						total_weighted_entropy += weighted_entropy(_datapoint_ptrs, cur_left, cur_right);
 
+						// total_intrinsic_value is larger when classified points are evenly distributed in the different categories
 						double n1 = 1.0 * num_classified_points(_datapoint_ptrs, cur_left, cur_right);
 						double n = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
 						total_intrinsic_value += (n1 == 0) ? 0.0 : -1.0 * (n1/n) * log2(n1/n);
@@ -590,21 +594,26 @@ namespace horn_verification
 						cur_right = cur_left;
 					}
 				}
+
+				// split is possible when not all datapoints are in the same category
 				if (split_possible)
 				{
 					double info_gain;
-                                        if (num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) == 0)
-                                        {
-                                                info_gain = entropy(_datapoint_ptrs, sl._left_index, sl._right_index);
-                                        }
-                                        else
-                                        {
-                                                info_gain = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) - \
-                                                                total_weighted_entropy / num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
+					if (num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) == 0)
+					{
+						info_gain = entropy(_datapoint_ptrs, sl._left_index, sl._right_index);
+					}
+					else
+					{
+						// QUESTION: is there a deeper meaning to this, or is it a heuristic that works "well"
+						info_gain = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) - 
+								total_weighted_entropy / num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
 
-                                        }
+					}
 
+					// FIXME: total_intrinsic_value == 0 can occur when all classified points are in the same category
 					assert (total_intrinsic_value > 0.0);
+					// QUESTION: is there a deeper meaning to this, or is it a heuristic that works "well"
 					double gain_ratio = info_gain / total_intrinsic_value;
 					// split is possible on the current "attribute"
 					if (! cat_split_possible || gain_ratio > best_cat_gain_ratio)
@@ -640,7 +649,7 @@ namespace horn_verification
 				while (cur < sl._right_index)
 				{
 				
-					// Skip to riight most entry with the same value
+					// Skip to right most entry with the same value
 					while (cur + 1 <= sl._right_index && _datapoint_ptrs[cur + 1]->_int_data[attribute] == _datapoint_ptrs[cur]->_int_data[attribute])
 					{
 						++cur;
@@ -653,8 +662,8 @@ namespace horn_verification
 
 
 						// if cuts have been thresholded, check that a split at the current value of the numerical attribute is allowed
-						if (! _are_numerical_cuts_thresholded || \
-							       	((-1 * _threshold <= _datapoint_ptrs[cur]->_int_data[attribute]) && \
+						if (! _are_numerical_cuts_thresholded || 
+							       	((-1 * _threshold <= _datapoint_ptrs[cur]->_int_data[attribute]) && 
 										       (_datapoint_ptrs[cur]->_int_data[attribute] <= _threshold)))
 						{
 
@@ -677,9 +686,8 @@ namespace horn_verification
 								double n1 = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, cur);
 								double n2 = 1.0 * num_classified_points(_datapoint_ptrs, cur + 1, sl._right_index);
 								double n = n1 + n2;
-								best_intrinsic_value_for_given_attribute = (n1 == 0.0 ? 0.0 : -1.0 * (n1/n) * log2(n1/n)) + \
-                                                               		                                          (n2 == 0.0 ? 0.0 : - 1.0 * (n2/n) * log2(n2/n));
-									
+								best_intrinsic_value_for_given_attribute = (n1 == 0.0 ? 0.0 : -1.0 * (n1/n) * log2(n1/n)) + 
+								                                           (n2 == 0.0 ? 0.0 : - 1.0 * (n2/n) * log2(n2/n));
 							}
 						
 						}
@@ -694,29 +702,31 @@ namespace horn_verification
 					// Now compute the information gain to optimize across different attributes
 					double best_info_gain_for_attribute;					                                        
 					if (num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) == 0.0)
-                                        {      
-                                                best_info_gain_for_attribute = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) ;
-                                        }
-                                        else
-                                        {
-                                                best_info_gain_for_attribute = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) - \
-                                                        best_int_entropy_for_given_attribute / num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);               
-                                        }
+					{
+						best_info_gain_for_attribute = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) ;
+					}
+					else
+					{
+						best_info_gain_for_attribute = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) - 
+							best_int_entropy_for_given_attribute / num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);               
+					}
 
-					double interval = (_datapoint_ptrs[sl._right_index]->_int_data[attribute] - _datapoint_ptrs[sl._left_index]->_int_data[attribute]) / \
-							       (_datapoint_ptrs[best_int_split_index_for_given_attribute+1]->_int_data[attribute] - \
-							                  _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]);
+					// QUESTION: is this an arbitrary heuristic?
+					double interval = (_datapoint_ptrs[sl._right_index]->_int_data[attribute] - _datapoint_ptrs[sl._left_index]->_int_data[attribute]) / 
+							       (_datapoint_ptrs[best_int_split_index_for_given_attribute+1]->_int_data[attribute] - 
+									  _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]);
 
 					assert (num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) > 0);
-					double threshCost = ( interval < (double)tries ? log2(interval) : log2(tries) ) / \
-						                 num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
+					double threshCost = ( interval < (double)tries ? log2(interval) : log2(tries) ) / 
+								 num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
 
 					best_info_gain_for_attribute -= threshCost;
+					// FIXME best_.... == 0 can occur
 					assert (best_intrinsic_value_for_given_attribute > 0.0);
 					double best_gain_ratio_for_given_attribute = best_info_gain_for_attribute / best_intrinsic_value_for_given_attribute;
 
-					if (! int_split_possible || (best_gain_ratio_for_given_attribute > best_int_gain_ratio) || \
-					    (best_gain_ratio_for_given_attribute == best_int_gain_ratio && \
+					if (! int_split_possible || (best_gain_ratio_for_given_attribute > best_int_gain_ratio) || 
+					    (best_gain_ratio_for_given_attribute == best_int_gain_ratio && 
 					      std::abs(_datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]) < std::abs(best_int_threshold)))	
 					{
 						// if this is the first attribute for which a split is possible then
@@ -922,36 +932,36 @@ namespace horn_verification
 
 
 
-        /**
-         * Implements a complex job manager by deriving from the simple_job_manager.
-         *
-         * A job manager implements complex heuristics for
-         * <ul>
-         *   <li> deciding which node to process next; and</li>
+	/**
+	 * Implements a complex job manager by deriving from the simple_job_manager.
+	 *
+	 * A job manager implements complex heuristics for
+	 * <ul>
+	 *   <li> deciding which node to process next; and</li>
 	 *   <li> scoring a node with respect to the classification of datapoints in that node (aka entropy computation that takes into account the horn constraints) </li>
-         * </ul>
-         *
-         
-         *
-         * A job manager specializes the following methods:
-         * <ul>
-         *  <li>next_job(): This method returns the job the manager wants to
-         *      process next. Different heurisitcs are invoked depending on the member enum variable heuristic_for_node_selection. </li>
+	 * </ul>
+	 *
+	 
+	 *
+	 * A job manager specializes the following methods:
+	 * <ul>
+	 *  <li>next_job(): This method returns the job the manager wants to
+	 *      process next. Different heurisitcs are invoked depending on the member enum variable heuristic_for_node_selection. </li>
 	 *  <li>entropy(): This method returns an entropy score for a given set of datapoints. Different heuristics compute the entropy differently. Most heuristics take
 		into account the horn constraints while computing this score.</li>
-         * </ul>
-         
-         * The learner uses the job manager in the following way:
-         * <ol>
-         *   <li> The learning algorithm adds slices using add_slice(). </li>
-         *   <li> The job manager decides which \ref slice to process next and what
-         *        to do with the \ref slice (create a leaf or split).</li>
-         *   <li> The learning algorithm calls next_job() to retrieve the next job
-         *        and processes it.</li>
-         * </ol>
-         * This process repeats until all jobs have been processed (i.e., has_jobs()
-         * returns \c false).
-         */
+	 * </ul>
+	 
+	 * The learner uses the job manager in the following way:
+	 * <ol>
+	 *   <li> The learning algorithm adds slices using add_slice(). </li>
+	 *   <li> The job manager decides which \ref slice to process next and what
+	 *        to do with the \ref slice (create a leaf or split).</li>
+	 *   <li> The learning algorithm calls next_job() to retrieve the next job
+	 *        and processes it.</li>
+	 * </ol>
+	 * This process repeats until all jobs have been processed (i.e., has_jobs()
+	 * returns \c false).
+	 */
 	class complex_job_manager : public simple_job_manager 
 	{
 
@@ -967,51 +977,51 @@ namespace horn_verification
 
 
 	public:
-	        /**
-                 * Creates a new complex job manager.
-                 *
-                 * @param datapoint_ptrs A reference to the set of (pointers to) data points over which to work
-                 * @param horn_constraints A reference to the horn constraints over which to work
-                 * @param solver A reference to the Horn solver to use
+		/**
+		 * Creates a new complex job manager.
+		 *
+		 * @param datapoint_ptrs A reference to the set of (pointers to) data points over which to work
+		 * @param horn_constraints A reference to the horn constraints over which to work
+		 * @param solver A reference to the Horn solver to use
 		 * @param node_selection_criterion Node selection heuristic to be used while building the tree
 		 * @param entropy_computation_criterion Criterion for scoring a node/slice a la entropy
-                 */
-                complex_job_manager(std::vector<datapoint<bool> *> & datapoint_ptrs, const std::vector<horn_constraint<bool>> & horn_constraints, horn_solver<bool> & solver, \
+		 */
+		complex_job_manager(std::vector<datapoint<bool> *> & datapoint_ptrs, const std::vector<horn_constraint<bool>> & horn_constraints, horn_solver<bool> & solver, 
 						NodeSelection node_selection_criterion, EntropyComputation entropy_computation_criterion, ConjunctiveSetting conjunctive_setting)
-                        : simple_job_manager(datapoint_ptrs, horn_constraints, solver)
-                {
+			: simple_job_manager(datapoint_ptrs, horn_constraints, solver)
+		{
 			_node_selection_criterion = node_selection_criterion;
 			_entropy_computation_criterion = entropy_computation_criterion;
 			_conjunctive_setting = conjunctive_setting;
-                }
+		}
 
 
-                /**
-                 * Creates a new complex job manager when a threshold is also passed.
-                 *
-                 * @param datapoint_ptrs A reference to the set of (pointers to) data points over which to work
-                 * @param horn_constraints A reference to the horn constraints over which to work
-                 * @param solver A reference to the Horn solver to use
-                 * @param threshold An unsigned int which serves as the threshold to cuts considered while splitting nodes wrt numerical attributes 
-                 * @param node_selection_criterion Node selection heuristic to be used while building the tree
-                 * @param entropy_computation_criterion Criterion for scoring a node/slice a la entropy
-                 */
-                complex_job_manager(std::vector<datapoint<bool> *> & datapoint_ptrs, const std::vector<horn_constraint<bool>> & horn_constraints, horn_solver<bool> & solver, \
-                           unsigned int threshold, NodeSelection node_selection_criterion, EntropyComputation entropy_computation_criterion, ConjunctiveSetting conjunctive_setting)
-                        : simple_job_manager(datapoint_ptrs, horn_constraints, solver, threshold)
-                {
-                        _node_selection_criterion = node_selection_criterion;
-                        _entropy_computation_criterion = entropy_computation_criterion;
+		/**
+		 * Creates a new complex job manager when a threshold is also passed.
+		 *
+		 * @param datapoint_ptrs A reference to the set of (pointers to) data points over which to work
+		 * @param horn_constraints A reference to the horn constraints over which to work
+		 * @param solver A reference to the Horn solver to use
+		 * @param threshold An unsigned int which serves as the threshold to cuts considered while splitting nodes wrt numerical attributes 
+		 * @param node_selection_criterion Node selection heuristic to be used while building the tree
+		 * @param entropy_computation_criterion Criterion for scoring a node/slice a la entropy
+		 */
+		complex_job_manager(std::vector<datapoint<bool> *> & datapoint_ptrs, const std::vector<horn_constraint<bool>> & horn_constraints, horn_solver<bool> & solver, 
+			   unsigned int threshold, NodeSelection node_selection_criterion, EntropyComputation entropy_computation_criterion, ConjunctiveSetting conjunctive_setting)
+			: simple_job_manager(datapoint_ptrs, horn_constraints, solver, threshold)
+		{
+			_node_selection_criterion = node_selection_criterion;
+			_entropy_computation_criterion = entropy_computation_criterion;
 			_conjunctive_setting = conjunctive_setting;
-                }
-	                       
+		}
+			       
 
-                /**
-                 * Initializes _datapoint_ptrs_to_frac using purely the classified points in _datapoint_ptrs.
-                 */
+		/**
+		 * Initializes _datapoint_ptrs_to_frac using purely the classified points in _datapoint_ptrs.
+		 */
  		void initialize_datapoint_ptrs_to_frac()
 		{
-			                                        
+								
 			for (auto it = _datapoint_ptrs.begin(); it != _datapoint_ptrs.end(); it++)
 			{
 				if ((*it)->_is_classified)
@@ -1059,7 +1069,7 @@ namespace horn_verification
 			for (int i = 0; i < numberOfCompleteHornAssignments; i++)
 			{
 				std::vector<datapoint<bool> *> _unclassified_datapoint_ptrs_temp(_unclassified_datapoint_ptrs_stable);
-                                auto positive_ptrs = std::unordered_set<datapoint<bool> *>();
+				auto positive_ptrs = std::unordered_set<datapoint<bool> *>();
 				auto negative_ptrs = std::unordered_set<datapoint<bool> *>();
 				while(_unclassified_datapoint_ptrs_temp.size() > 0)
 				{
@@ -1097,7 +1107,7 @@ namespace horn_verification
 
 					//horn_solver<bool> solver;
 
-                                	auto ok = _horn_solver.solve(_datapoint_ptrs, _horn_constraints, positive_ptrs, negative_ptrs);
+					auto ok = _horn_solver.solve(_datapoint_ptrs, _horn_constraints, positive_ptrs, negative_ptrs);
 
 					//std::cout << "positive_ptrs after horn solve: ";
 				       	//for (auto it = positive_ptrs.begin(); it != positive_ptrs.end(); it++)
@@ -1120,19 +1130,19 @@ namespace horn_verification
 					{
 						// If *it is present in _unclassified_datapoint_ptrs_temp, then remove it.
 						auto result_it = std::find(_unclassified_datapoint_ptrs_temp.begin(), _unclassified_datapoint_ptrs_temp.end(), *it);
-					       	if (result_it != _unclassified_datapoint_ptrs_temp.end())
+						if (result_it != _unclassified_datapoint_ptrs_temp.end())
 						{
 							_unclassified_datapoint_ptrs_temp.erase(result_it);
-						}						
+						}
 					}
 					for (auto it = negative_ptrs.begin(); it != negative_ptrs.end(); it++)
 					{
 						// If *it is present in _unclassified_datapoint_ptrs_temp, then remove it.
 						auto result_it = std::find(_unclassified_datapoint_ptrs_temp.begin(), _unclassified_datapoint_ptrs_temp.end(), *it);
-					       	if (result_it != _unclassified_datapoint_ptrs_temp.end())
+						if (result_it != _unclassified_datapoint_ptrs_temp.end())
 						{
 							_unclassified_datapoint_ptrs_temp.erase(result_it);
-						}						
+						}
 					}
 				}
 				std::map<datapoint<bool> *,double> _datapoint_ptrs_to_frac_temp(_datapoint_ptrs_to_frac);
@@ -1176,7 +1186,7 @@ namespace horn_verification
 			if (_is_first_split)
 			{
 				srand(time(NULL));
-                                auto sl = _slices.front();
+				auto sl = _slices.front();
 				_slices.pop_front();
 
 				// Check if data points have exactly one categorical attribute
@@ -1195,10 +1205,10 @@ namespace horn_verification
 					auto slice_index = _node_selection_criterion == BFS ? 0 : _node_selection_criterion == DFS ? _slices.size() - 1 : rand() % _slices.size();
 					auto it = _slices.begin();
 					advance(it, slice_index);
-		                	auto sl = *it;
+					auto sl = *it;
 					//std::cout << "Processing node " << slice_index << " out of total " << _slices.size() << " nodes" << std::endl;
 					_slices.erase (it);
-	                        	//std::cout << sl << std::endl;
+					//std::cout << sl << std::endl;
 
 					//
 					// Determine what needs to be done (split or create leaf)
@@ -1222,7 +1232,7 @@ namespace horn_verification
 					// Slice can be turned into a leaf node
 					if (can_be_turned_into_leaf)
 					{
-						return std::unique_ptr<abstract_job> {std::make_unique<leaf_creation_job>(sl, label, \
+						return std::unique_ptr<abstract_job> {std::make_unique<leaf_creation_job>(sl, label, 
 												std::move(positive_ptrs), std::move(negative_ptrs))};
 					}
 					// Slice needs to be split
@@ -1295,7 +1305,7 @@ namespace horn_verification
 					unsigned int cur_index = 0;
 					for (auto it = _slices.begin(); it != _slices.end(); it++)
 					{
-						auto entropy_val = _node_selection_criterion == MAX_ENTROPY ? entropy(_datapoint_ptrs, it->_left_index, it->_right_index) :\
+						auto entropy_val = _node_selection_criterion == MAX_ENTROPY ? entropy(_datapoint_ptrs, it->_left_index, it->_right_index) :
 									    weighted_entropy(_datapoint_ptrs, it->_left_index, it->_right_index);
 						if (entropy_val > max_entropy)
 						{
@@ -1306,8 +1316,8 @@ namespace horn_verification
 					}
 					//std::cout << "entropy value of the node selected is: " << max_entropy << std::endl;	
 					assert (max_entropy_slice_index >= 0 && max_entropy_slice_index < _slices.size());
-	                                auto it = _slices.begin();
-			                advance(it, max_entropy_slice_index);
+					auto it = _slices.begin();
+					advance(it, max_entropy_slice_index);
 					//std::cout << "Processing node " << max_entropy_slice_index << " out of total " << _slices.size() << " nodes" << std::endl;
 					auto sl = *it;
 					_slices.erase (it);
@@ -1324,7 +1334,7 @@ namespace horn_verification
 					// Slice can be turned into a leaf node
 					if (can_be_turned_into_leaf)
 					{
-						return std::unique_ptr<abstract_job> {std::make_unique<leaf_creation_job>(sl, label, \
+						return std::unique_ptr<abstract_job> {std::make_unique<leaf_creation_job>(sl, label, 
 														       std::move(positive_ptrs), std::move(negative_ptrs))};
 					}
 					// Slice needs to be split
@@ -1350,8 +1360,8 @@ namespace horn_verification
 					unsigned int cur_index = 0;
 					for (auto it = _slices.begin(); it != _slices.end(); it++)
 					{
-                                               	auto entropy_val = _node_selection_criterion == MIN_ENTROPY ? entropy(_datapoint_ptrs, it->_left_index, it->_right_index) :\
-									            weighted_entropy(_datapoint_ptrs, it->_left_index, it->_right_index);
+					       	auto entropy_val = _node_selection_criterion == MIN_ENTROPY ? entropy(_datapoint_ptrs, it->_left_index, it->_right_index) :
+										    weighted_entropy(_datapoint_ptrs, it->_left_index, it->_right_index);
 						if (entropy_val < min_entropy)
 						{
 							min_entropy = entropy_val;
@@ -1361,8 +1371,8 @@ namespace horn_verification
 					}	
 					//std::cout << "entropy value of the node selected is: " << min_entropy << std::endl;
 					assert (min_entropy_slice_index >= 0 && min_entropy_slice_index < _slices.size());
-	                                auto it = _slices.begin();
-			                advance(it, min_entropy_slice_index);
+					auto it = _slices.begin();
+					advance(it, min_entropy_slice_index);
 					auto sl = *it;
 					//std::cout << "Processing node " << min_entropy_slice_index << " out of total " << _slices.size() << " nodes" << std::endl;
 					_slices.erase (it);
@@ -1379,7 +1389,7 @@ namespace horn_verification
 					// Slice can be turned into a leaf node
 					if (can_be_turned_into_leaf)
 					{
-						return std::unique_ptr<abstract_job> {std::make_unique<leaf_creation_job>(sl, label, \
+						return std::unique_ptr<abstract_job> {std::make_unique<leaf_creation_job>(sl, label, 
 														       std::move(positive_ptrs), std::move(negative_ptrs))};
 					}
 					// Slice needs to be split
@@ -1522,6 +1532,7 @@ namespace horn_verification
 		 */
 		double weighted_entropy(const std::vector<datapoint<bool> *> & datapoint_ptrs, std::size_t left_index, std::size_t right_index)
 		{
+			// TODO: can unify branches (by using the lower one)
 			if (_entropy_computation_criterion == HORN_ASSIGNMENTS)
 			{
 				return entropy(datapoint_ptrs, left_index, right_index) * (right_index - left_index + 1);
@@ -1552,29 +1563,29 @@ namespace horn_verification
 			
 			assert (sl._left_index <= sl._right_index && sl._right_index < _datapoint_ptrs.size());
 
-                        // 0) Initialize variables
-                        bool int_split_possible = false;
+			// 0) Initialize variables
+			bool int_split_possible = false;
 			bool non_zero_intrinsic_value_possible = false;
-                        double best_int_gain_ratio = -1000000;
-                        std::size_t best_int_attribute = 0;
-                        int best_int_threshold = 0;
-                        double best_int_gain_ratio_4_zero_iv = -1000000;
-                        std::size_t best_int_attribute_4_zero_iv = 0;
-                        int best_int_threshold_4_zero_iv = 0;
+			double best_int_gain_ratio = -1000000;
+			std::size_t best_int_attribute = 0;
+			int best_int_threshold = 0;
+			double best_int_gain_ratio_4_zero_iv = -1000000;
+			std::size_t best_int_attribute_4_zero_iv = 0;
+			int best_int_threshold_4_zero_iv = 0;
 
 			// Variables to track the split if conjunctive splits are preferred	
 			bool conj_int_split_possible = false;
 			bool conj_non_zero_intrinsic_value_possible = false;
-                        double best_conj_int_gain_ratio = -1000000;
-                        std::size_t best_conj_int_attribute = 0;
-                        int best_conj_int_threshold = 0;
-                        double best_conj_int_gain_ratio_4_zero_iv = -1000000;
-                        std::size_t best_conj_int_attribute_4_zero_iv = 0;
-                        int best_conj_int_threshold_4_zero_iv = 0;
+			double best_conj_int_gain_ratio = -1000000;
+			std::size_t best_conj_int_attribute = 0;
+			int best_conj_int_threshold = 0;
+			double best_conj_int_gain_ratio_4_zero_iv = -1000000;
+			std::size_t best_conj_int_attribute_4_zero_iv = 0;
+			int best_conj_int_threshold_4_zero_iv = 0;
 
-                        bool cat_split_possible = false;
-                        double best_cat_gain_ratio = -1000000;
-                        std::size_t best_cat_attribute = 0;
+			bool cat_split_possible = false;
+			double best_cat_gain_ratio = -1000000;
+			std::size_t best_cat_attribute = 0;
 
 
 			//
@@ -1616,17 +1627,17 @@ namespace horn_verification
 					{
 						total_weighted_entropy += weighted_entropy(_datapoint_ptrs, cur_left, cur_right);
 
-                                                double n1 = 1.0 * num_classified_points(_datapoint_ptrs, cur_left, cur_right);
-                                                double n = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
-                                                total_intrinsic_value += (n1 == 0) ? 0.0 : -1.0 * (n1/n) * log2(n1/n);
+						double n1 = 1.0 * num_classified_points(_datapoint_ptrs, cur_left, cur_right);
+						double n = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
+						total_intrinsic_value += (n1 == 0) ? 0.0 : -1.0 * (n1/n) * log2(n1/n);
 
 						cur_left = cur_right + 1;
 						cur_right = cur_left;
 					}
 				}
 			
-                                if (split_possible)
-                                {
+				if (split_possible)
+				{
 					double info_gain;
 					if (num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) == 0)
 					{
@@ -1634,20 +1645,20 @@ namespace horn_verification
 					}
 					else
 					{
-						info_gain = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) - \
+						info_gain = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) - 
 							    	total_weighted_entropy / num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
 
 					}
 					assert (total_intrinsic_value > 0.0);
-                                        double gain_ratio = info_gain / total_intrinsic_value;
-                                        // split is possible on the current "attribute"
-                                        if (! cat_split_possible || gain_ratio > best_cat_gain_ratio)
-                                        {
-                                                cat_split_possible = true;
-                                                best_cat_gain_ratio = gain_ratio;
-                                                best_cat_attribute = attribute;
-                                        }
-                                }
+					double gain_ratio = info_gain / total_intrinsic_value;
+					// split is possible on the current "attribute"
+					if (! cat_split_possible || gain_ratio > best_cat_gain_ratio)
+					{
+						cat_split_possible = true;
+						best_cat_gain_ratio = gain_ratio;
+						best_cat_attribute = attribute;
+					}
+				}
 
 			}
 			
@@ -1658,15 +1669,15 @@ namespace horn_verification
 			for (std::size_t attribute = 0; attribute < _datapoint_ptrs[sl._left_index]->_int_data.size(); ++attribute)
 			{
 				int tries = 0;
-                                double best_int_entropy_for_given_attribute = 1000000;
-                                bool int_split_possible_for_given_attribute = false;
-                                int best_int_split_index_for_given_attribute = 0;
-                                double best_intrinsic_value_for_given_attribute = 0;
+				double best_int_entropy_for_given_attribute = 1000000;
+				bool int_split_possible_for_given_attribute = false;
+				int best_int_split_index_for_given_attribute = 0;
+				double best_intrinsic_value_for_given_attribute = 0;
 
 				double best_conj_int_entropy_for_given_attribute = 1000000;
-                                bool conj_int_split_possible_for_given_attribute = false;
-                                int best_conj_int_split_index_for_given_attribute = 0;
-                                double best_conj_intrinsic_value_for_given_attribute = 0;
+				bool conj_int_split_possible_for_given_attribute = false;
+				int best_conj_int_split_index_for_given_attribute = 0;
+				double best_conj_intrinsic_value_for_given_attribute = 0;
 
 	
 				// 1) Sort according to int attribute
@@ -1688,11 +1699,11 @@ namespace horn_verification
 					// Split is possible
 					if (cur < sl._right_index)
 					{
-                                                tries++;
+						tries++;
 
 						// if cuts have been thresholded, check that a split at the current value of the numerical attribute is allowed
-						if (! _are_numerical_cuts_thresholded || \
-							       	((-1 * _threshold <= _datapoint_ptrs[cur]->_int_data[attribute]) && \
+						if (! _are_numerical_cuts_thresholded || 
+							       	((-1 * _threshold <= _datapoint_ptrs[cur]->_int_data[attribute]) && 
 										       (_datapoint_ptrs[cur]->_int_data[attribute] <= _threshold)))
 						{
 							//std::cout << "considering attribute: " << attribute << " sl._left_index: " << cur << " cut: " << _datapoint_ptrs[cur]->_int_data[attribute] << std::endl;
@@ -1706,7 +1717,7 @@ namespace horn_verification
 							}
 							else
 							{
-								total_entropy = total_weighted_entropy / \
+								total_entropy = total_weighted_entropy / 
 										     (double)num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
 							}
 
@@ -1736,16 +1747,17 @@ namespace horn_verification
 
 
 							// If the learner prefers conjunctive splits
+							// QUESTION: what's the deal with conjunctive splits
 							if (_conjunctive_setting == PREFERENCEFORCONJUNCTS)
 							{
 								// Check if a conjunctive split is possible
-								if (! positive_points_present(_datapoint_ptrs, sl._left_index, cur) || \
+								if (! positive_points_present(_datapoint_ptrs, sl._left_index, cur) || 
 										! positive_points_present(_datapoint_ptrs, cur + 1, sl._right_index))
 								{
 									// One of the sub node consists purely of negative or unclassified points.
 									// Consider this as a prospective candidate for a conjunctive split
 			
-									if (! conj_int_split_possible_for_given_attribute || \
+									if (! conj_int_split_possible_for_given_attribute || 
 											total_entropy < best_conj_int_entropy_for_given_attribute)
 									{
 										//std::cout << "updated the entropy; split is now definitely possible" << std::endl;	
@@ -1755,33 +1767,34 @@ namespace horn_verification
 										best_conj_int_split_index_for_given_attribute = cur;
 
 										// computation of the intrinsic value of the attribute
-                		                                                double n1 = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, cur);
-                                		                                double n2 = 1.0 * num_classified_points(_datapoint_ptrs, cur + 1, sl._right_index);
-                                                		                double n = n1 + n2;
-                                                                		best_conj_intrinsic_value_for_given_attribute = \
-														(n1 == 0.0 ? 0.0 : -1.0 * (n1/n) * log2(n1/n)) + \
-													        (n2 == 0.0 ? 0.0 : - 1.0 * (n2/n) * log2(n2/n));
+										double n1 = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, cur);
+										double n2 = 1.0 * num_classified_points(_datapoint_ptrs, cur + 1, sl._right_index);
+										double n = n1 + n2;
+										best_conj_intrinsic_value_for_given_attribute = 
+														(n1 == 0.0 ? 0.0 : -1.0 * (n1/n) * log2(n1/n)) + 
+														(n2 == 0.0 ? 0.0 : - 1.0 * (n2/n) * log2(n2/n));
 
 									}
 								}
 							}
 	
+							// QUESTION: why do we ever go by max entropy
 							if (!int_split_possible_for_given_attribute || total_entropy < best_int_entropy_for_given_attribute)
-                                                        {
-                                                                //std::cout << "updated the entropy; split is now definitely possible" << std::endl;    
-                                                                int_split_possible_for_given_attribute = true;
+							{
+								//std::cout << "updated the entropy; split is now definitely possible" << std::endl;    
+								int_split_possible_for_given_attribute = true;
 
-                                                                best_int_entropy_for_given_attribute = total_entropy;
-                                                                best_int_split_index_for_given_attribute = cur;
+								best_int_entropy_for_given_attribute = total_entropy;
+								best_int_split_index_for_given_attribute = cur;
 
-                                                                // computation of the intrinsic value of the attribute
-                                                                double n1 = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, cur);
-                                                                double n2 = 1.0 * num_classified_points(_datapoint_ptrs, cur + 1, sl._right_index);
-                                                                double n = n1 + n2;
-                                                                best_intrinsic_value_for_given_attribute = (n1 == 0.0 ? 0.0 : -1.0 * (n1/n) * log2(n1/n)) + \
+								// computation of the intrinsic value of the attribute
+								double n1 = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, cur);
+								double n2 = 1.0 * num_classified_points(_datapoint_ptrs, cur + 1, sl._right_index);
+								double n = n1 + n2;
+								best_intrinsic_value_for_given_attribute = (n1 == 0.0 ? 0.0 : -1.0 * (n1/n) * log2(n1/n)) + 
 													       (n2 == 0.0 ? 0.0 : - 1.0 * (n2/n) * log2(n2/n));
 
-                                                        }
+							}
 
 						}
 							
@@ -1791,93 +1804,93 @@ namespace horn_verification
 				}
 
 				if (_conjunctive_setting == PREFERENCEFORCONJUNCTS && conj_int_split_possible_for_given_attribute)
-                                {
-                                        // We have found the best split threshold for the given attribute
-                                        // Now compute the information gain to optimize across different attributes
-                                        double best_info_gain_for_attribute;
+				{
+					// We have found the best split threshold for the given attribute
+					// Now compute the information gain to optimize across different attributes
+					double best_info_gain_for_attribute;
 					best_info_gain_for_attribute = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) - best_conj_int_entropy_for_given_attribute;
 
-                                        double interval = (_datapoint_ptrs[sl._right_index]->_int_data[attribute] - _datapoint_ptrs[sl._left_index]->_int_data[attribute]) / \
-                                                               (_datapoint_ptrs[best_conj_int_split_index_for_given_attribute+1]->_int_data[attribute] - \
-                                                                          _datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute]);
+					double interval = (_datapoint_ptrs[sl._right_index]->_int_data[attribute] - _datapoint_ptrs[sl._left_index]->_int_data[attribute]) / 
+							       (_datapoint_ptrs[best_conj_int_split_index_for_given_attribute+1]->_int_data[attribute] - 
+									  _datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute]);
 
 					assert (num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) > 0);
-                                        double threshCost = ( interval < (double)tries ? log2(interval) : log2(tries) ) / \
-                                                                 num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
+					double threshCost = ( interval < (double)tries ? log2(interval) : log2(tries) ) / 
+								 num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
 
-                                        best_info_gain_for_attribute -= threshCost;
+					best_info_gain_for_attribute -= threshCost;
 					if (best_conj_intrinsic_value_for_given_attribute > 0.0)
 					{
 						conj_non_zero_intrinsic_value_possible = true;
-	                                        double best_gain_ratio_for_given_attribute = best_info_gain_for_attribute / best_conj_intrinsic_value_for_given_attribute;
+						double best_gain_ratio_for_given_attribute = best_info_gain_for_attribute / best_conj_intrinsic_value_for_given_attribute;
 
-                                        	if (! conj_int_split_possible || (best_gain_ratio_for_given_attribute > best_conj_int_gain_ratio) || \
-        	                                    (best_gain_ratio_for_given_attribute == best_conj_int_gain_ratio && \
-                	                              std::abs(_datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute]) < std::abs(best_conj_int_threshold)))
-                        	                {
-                                	                // if this is the first attribute for which a split is possible then
-                                        	        // initialize all variables: best_int_gain_ratio, best_int_attribute, best_int_threshold
-                                                	conj_int_split_possible = true;
-	                                                best_conj_int_gain_ratio = best_gain_ratio_for_given_attribute;
-        	                                        best_conj_int_attribute = attribute;
-                	                                best_conj_int_threshold = _datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute];
-                        	                }
+						if (! conj_int_split_possible || (best_gain_ratio_for_given_attribute > best_conj_int_gain_ratio) || 
+						    (best_gain_ratio_for_given_attribute == best_conj_int_gain_ratio && 
+						      std::abs(_datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute]) < std::abs(best_conj_int_threshold)))
+						{
+							// if this is the first attribute for which a split is possible then
+							// initialize all variables: best_int_gain_ratio, best_int_attribute, best_int_threshold
+							conj_int_split_possible = true;
+							best_conj_int_gain_ratio = best_gain_ratio_for_given_attribute;
+							best_conj_int_attribute = attribute;
+							best_conj_int_threshold = _datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute];
+						}
 					}
 					else
 					{
 						if (! conj_non_zero_intrinsic_value_possible)
 						{
-		                                        double best_gain_ratio_for_given_attribute = best_info_gain_for_attribute;
+							double best_gain_ratio_for_given_attribute = best_info_gain_for_attribute;
 
-               	                         		if (! conj_int_split_possible || (best_gain_ratio_for_given_attribute > best_conj_int_gain_ratio_4_zero_iv) || \
-	        	                                    (best_gain_ratio_for_given_attribute == best_conj_int_gain_ratio_4_zero_iv && \
-        	        	                              std::abs(_datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute]) < std::abs(best_conj_int_threshold_4_zero_iv)))
-                	        	                {
-                        	        	                // if this is the first attribute for which a split is possible then
-                                	        	        // initialize all variables: best_int_gain_ratio, best_int_attribute, best_int_threshold
-                                        	        	conj_int_split_possible = true;
-	                                        	        best_conj_int_gain_ratio_4_zero_iv = best_gain_ratio_for_given_attribute;
-        	                                        	best_conj_int_attribute_4_zero_iv = attribute;
-	                	                                best_conj_int_threshold_4_zero_iv = _datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute];
-        	                	                }
+	       				 		if (! conj_int_split_possible || (best_gain_ratio_for_given_attribute > best_conj_int_gain_ratio_4_zero_iv) || 
+							    (best_gain_ratio_for_given_attribute == best_conj_int_gain_ratio_4_zero_iv && 
+							      std::abs(_datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute]) < std::abs(best_conj_int_threshold_4_zero_iv)))
+							{
+								// if this is the first attribute for which a split is possible then
+								// initialize all variables: best_int_gain_ratio, best_int_attribute, best_int_threshold
+								conj_int_split_possible = true;
+								best_conj_int_gain_ratio_4_zero_iv = best_gain_ratio_for_given_attribute;
+								best_conj_int_attribute_4_zero_iv = attribute;
+								best_conj_int_threshold_4_zero_iv = _datapoint_ptrs[best_conj_int_split_index_for_given_attribute]->_int_data[attribute];
+							}
 							
 						}
 					}
-                                }
+				}
 
 
-                                if (int_split_possible_for_given_attribute)
-                                {
-                                        // We have found the best split threshold for the given attribute
-                                        // Now compute the information gain to optimize across different attributes
-                                        double best_info_gain_for_attribute;
+				if (int_split_possible_for_given_attribute)
+				{
+					// We have found the best split threshold for the given attribute
+					// Now compute the information gain to optimize across different attributes
+					double best_info_gain_for_attribute;
 					best_info_gain_for_attribute = entropy(_datapoint_ptrs, sl._left_index, sl._right_index) - best_int_entropy_for_given_attribute;
-                                        
-					double interval = (_datapoint_ptrs[sl._right_index]->_int_data[attribute] - _datapoint_ptrs[sl._left_index]->_int_data[attribute]) / \
-                                                               (_datapoint_ptrs[best_int_split_index_for_given_attribute+1]->_int_data[attribute] - \
-                                                                          _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]);
+					
+					double interval = (_datapoint_ptrs[sl._right_index]->_int_data[attribute] - _datapoint_ptrs[sl._left_index]->_int_data[attribute]) / 
+							       (_datapoint_ptrs[best_int_split_index_for_given_attribute+1]->_int_data[attribute] - 
+									  _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]);
 
 					assert (num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) > 0);
-                                        double threshCost = ( interval < (double)tries ? log2(interval) : log2(tries) ) / \
-                                                                 num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
+					double threshCost = ( interval < (double)tries ? log2(interval) : log2(tries) ) / 
+								 num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
 
-                                        best_info_gain_for_attribute -= threshCost;
+					best_info_gain_for_attribute -= threshCost;
 					if (best_intrinsic_value_for_given_attribute > 0.0)
 					{
 						non_zero_intrinsic_value_possible = true;
 						double best_gain_ratio_for_given_attribute = best_info_gain_for_attribute / best_intrinsic_value_for_given_attribute;
 
-	                                        if (! int_split_possible || (best_gain_ratio_for_given_attribute > best_int_gain_ratio) || \
-        	                                    (best_gain_ratio_for_given_attribute == best_int_gain_ratio && \
-                	                              std::abs(_datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]) < std::abs(best_int_threshold)))
-                        	                {
-                                	                // if this is the first attribute for which a split is possible then
-                                        	        // initialize all variables: best_int_gain_ratio, best_int_attribute, best_int_threshold
-                                                	int_split_possible = true;
-	                                                best_int_gain_ratio = best_gain_ratio_for_given_attribute;
-        	                                        best_int_attribute = attribute;
-                	                                best_int_threshold = _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute];
-                        	                }
+						if (! int_split_possible || (best_gain_ratio_for_given_attribute > best_int_gain_ratio) || 
+						    (best_gain_ratio_for_given_attribute == best_int_gain_ratio && 
+						      std::abs(_datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]) < std::abs(best_int_threshold)))
+						{
+							// if this is the first attribute for which a split is possible then
+							// initialize all variables: best_int_gain_ratio, best_int_attribute, best_int_threshold
+							int_split_possible = true;
+							best_int_gain_ratio = best_gain_ratio_for_given_attribute;
+							best_int_attribute = attribute;
+							best_int_threshold = _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute];
+						}
 					}
 					else
 					{
@@ -1885,20 +1898,20 @@ namespace horn_verification
 						{
 							double best_gain_ratio_for_given_attribute = best_info_gain_for_attribute;
 								
-                                        		if (! int_split_possible || (best_gain_ratio_for_given_attribute > best_int_gain_ratio_4_zero_iv) || \
-		                                          (best_gain_ratio_for_given_attribute == best_int_gain_ratio_4_zero_iv && \
-                		                          std::abs(_datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]) < std::abs(best_int_threshold_4_zero_iv)))
-                                        		{
-		                                                // if this is the first attribute for which a split is possible then
-                		                                // initialize all variables: best_int_gain_ratio, best_int_attribute, best_int_threshold
-                                		                int_split_possible = true;
-                                                		best_int_gain_ratio_4_zero_iv = best_gain_ratio_for_given_attribute;
-		                                                best_int_attribute_4_zero_iv = attribute;
-                		                                best_int_threshold_4_zero_iv = _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute];
-                                		        }
+							if (! int_split_possible || (best_gain_ratio_for_given_attribute > best_int_gain_ratio_4_zero_iv) || 
+							  (best_gain_ratio_for_given_attribute == best_int_gain_ratio_4_zero_iv && 
+							  std::abs(_datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]) < std::abs(best_int_threshold_4_zero_iv)))
+							{
+								// if this is the first attribute for which a split is possible then
+								// initialize all variables: best_int_gain_ratio, best_int_attribute, best_int_threshold
+								int_split_possible = true;
+								best_int_gain_ratio_4_zero_iv = best_gain_ratio_for_given_attribute;
+								best_int_attribute_4_zero_iv = attribute;
+								best_int_threshold_4_zero_iv = _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute];
+							}
 						}
 					}
-                                }
+				}
 
 			
 			}
@@ -1930,7 +1943,7 @@ namespace horn_verification
 				{
 					if (! non_zero_intrinsic_value_possible)
 					{
-                                        	best_int_gain_ratio = best_int_gain_ratio_4_zero_iv;				                  
+						best_int_gain_ratio = best_int_gain_ratio_4_zero_iv;				                  
 						best_int_attribute = best_int_attribute_4_zero_iv;
 						best_int_threshold = best_int_threshold_4_zero_iv;
 					}
@@ -1966,7 +1979,7 @@ namespace horn_verification
 				{
 					if (! non_zero_intrinsic_value_possible)
 					{
-                                	       	best_int_gain_ratio = best_int_gain_ratio_4_zero_iv;				                  
+					       	best_int_gain_ratio = best_int_gain_ratio_4_zero_iv;				                  
 						best_int_attribute = best_int_attribute_4_zero_iv;
 						best_int_threshold = best_int_threshold_4_zero_iv;
 					}
@@ -1990,15 +2003,15 @@ namespace horn_verification
 		int _left2right = 0;
 		int _right2left = 0;
 		for (const auto & horn_clause : _horn_constraints)
-                {
+		{
 			enum Position {out_of_scope, left, right};
 			Position conclusion = out_of_scope;
 			int num_premise_left = 0;
 			int num_premise_right = 0;
 
 			// for i ranging from left_index to cur, loop over premises and conclusion
-                        for (std::size_t i = left_index; i <= cur_index; ++i)
-                        {
+			for (std::size_t i = left_index; i <= cur_index; ++i)
+			{
 				for (const auto dp : horn_clause._premises)
 				{
 					if (dp == _datapoint_ptrs[i] && !_datapoint_ptrs[i]->_is_classified)
@@ -2013,8 +2026,8 @@ namespace horn_verification
 			}
 
 			// for i ranging from cur+1 to right_index, loop over premises and conclusion
-                        for (std::size_t i = cur_index+1; i <= right_index; ++i)
-                        {
+			for (std::size_t i = cur_index+1; i <= right_index; ++i)
+			{
 				for (const auto dp : horn_clause._premises)
 				{
 					if (dp == _datapoint_ptrs[i] && !_datapoint_ptrs[i]->_is_classified)

@@ -1,0 +1,11 @@
+cat,$func,1
+int,Invariant$hours
+int,Invariant$Morning
+int,Invariant$Evening
+int,$Invariant$hours+Morning
+int,$Invariant$hours-Morning
+int,$Invariant$hours+Evening
+int,$Invariant$hours-Evening
+int,$Invariant$Morning+Evening
+int,$Invariant$Morning-Evening
+

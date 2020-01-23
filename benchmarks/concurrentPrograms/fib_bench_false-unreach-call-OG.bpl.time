@@ -1,0 +1,639 @@
+[TRACE] Using prover: /home/alexander/sharedData/uni/hice-dt/Boogie/Binaries/z3.exe
+Parsing /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/fib_bench_false-unreach-call-OG.bpl
+Coalescing blocks...
+#parameters: 9
+#parameters: 9
+#parameters: 9
+#parameters: 9
+#parameters: 9
+#parameters: 9
+Generating VC of pre_condition
+Generating VC of post_condition
+Generating VC of t1_transition_s2_entry
+Generating VC of t1_transition_s3
+Generating VC of t2_transition_s2_entry
+Generating VC of t2_transition_s3
+Generating VC of P0_stable_t2_s3
+Generating VC of P2_stable_t2_s3
+Generating VC of P5_stable_t2_s3
+Generating VC of Q0_stable_t1_s3
+Generating VC of Q2_stable_t1_s3
+Generating VC of Q5_stable_t1_s3
+Verifying Q5_stable_t1_s3: 
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  true
+}
+Prover Time taken = 0.011584
+Prover Time taken = 0.00082
+Prover Time taken = 0.000699
+Prover Time taken = 0.000495
+Verifying Q2_stable_t1_s3: 
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000464
+Prover Time taken = 0.000438
+Prover Time taken = 0.000479
+Prover Time taken = 0.000508
+Verifying Q0_stable_t1_s3: 
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000474
+Prover Time taken = 0.000477
+Prover Time taken = 0.000514
+Prover Time taken = 0.000477
+Verifying P5_stable_t2_s3: 
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000564
+Prover Time taken = 0.000542
+Prover Time taken = 0.000501
+Prover Time taken = 0.000498
+Verifying P2_stable_t2_s3: 
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000462
+Prover Time taken = 0.0004
+Prover Time taken = 0.000393
+Prover Time taken = 0.000432
+Verifying P0_stable_t2_s3: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000549
+Prover Time taken = 0.000426
+Prover Time taken = 0.000398
+Prover Time taken = 0.00045
+Verifying post_condition: 
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  true
+}
+Added Horn clause: 0 && 1 => 
+Prover Time taken = 0.108419
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/fib_bench_false-unreach-call-OG.bpl
+Total learner time was 00:00:00.0082980
+Verifying Q5_stable_t1_s3: 
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.009435
+Prover Time taken = 0.007315
+Prover Time taken = 0.008174
+Prover Time taken = 0.007041
+Verifying Q2_stable_t1_s3: 
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.009487
+Prover Time taken = 0.010074
+Prover Time taken = 0.009761
+Prover Time taken = 0.009792
+Verifying Q0_stable_t1_s3: 
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.010156
+Prover Time taken = 0.007409
+Prover Time taken = 0.007174
+Prover Time taken = 0.010103
+Verifying P5_stable_t2_s3: 
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.013315
+Prover Time taken = 0.012573
+Prover Time taken = 0.015561
+Prover Time taken = 0.011167
+Verifying P2_stable_t2_s3: 
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.012069
+Prover Time taken = 0.012543
+Prover Time taken = 0.011177
+Prover Time taken = 0.015827
+Verifying P0_stable_t2_s3: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.012851
+Prover Time taken = 0.012918
+Prover Time taken = 0.014081
+Prover Time taken = 0.012144
+Verifying post_condition: 
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.008237
+Prover Time taken = 0.008324
+Prover Time taken = 0.015258
+Prover Time taken = 0.008123
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.012313
+Prover Time taken = 0.012804
+Prover Time taken = 0.010803
+Prover Time taken = 0.013232
+Verifying t2_transition_s2_entry: 
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.011568
+Prover Time taken = 0.013464
+Prover Time taken = 0.012588
+Prover Time taken = 0.012907
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.01274
+Prover Time taken = 0.00977
+Prover Time taken = 0.01099
+Prover Time taken = 0.010328
+Verifying t1_transition_s2_entry: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.017502
+Prover Time taken = 0.010774
+Prover Time taken = 0.011316
+Prover Time taken = 0.010943
+Verifying pre_condition: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Added: P0:1,1,0: positive
+Prover Time taken = 0.014438
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/fib_bench_false-unreach-call-OG.bpl
+Total learner time was 00:00:00.0130170
+Verifying P0_stable_t2_s3: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.008638
+Prover Time taken = 0.008366
+Prover Time taken = 0.008292
+Prover Time taken = 0.008178
+Verifying t1_transition_s2_entry: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.016448
+Added Horn clause: 2 => 3
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/fib_bench_false-unreach-call-OG.bpl
+Total learner time was 00:00:00.0113300
+Verifying Q5_stable_t1_s3: 
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.009585
+Prover Time taken = 0.014723
+Prover Time taken = 0.009112
+Prover Time taken = 0.010507
+Verifying Q2_stable_t1_s3: 
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.00867
+Prover Time taken = 0.008349
+Prover Time taken = 0.012439
+Prover Time taken = 0.012481
+Verifying Q0_stable_t1_s3: 
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.0077
+Prover Time taken = 0.009189
+Prover Time taken = 0.010091
+Prover Time taken = 0.009159
+Verifying P2_stable_t2_s3: 
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.006554
+Prover Time taken = 0.006893
+Prover Time taken = 0.006198
+Prover Time taken = 0.006049
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && k_1 <= -1 && k_1 <= -1 && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && i + k_1 <= -1 && i + k_1 <= -1 && -2 < i + k_1 && -1 < i + k_1 && i + k_1 <= 0 && i + k_1 <= 0 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && i - k_1 <= -1 && i - k_1 <= -1 && -2 < i - k_1 && -1 < i - k_1 && i - k_1 <= 0 && i - k_1 <= 0 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && j + k_1 <= -1 && j + k_1 <= -1 && -2 < j + k_1 && -1 < j + k_1 && j + k_1 <= 0 && j + k_1 <= 0 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && j - k_1 <= -1 && j - k_1 <= -1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.010676
+Added Horn clause: 3 => 4
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/fib_bench_false-unreach-call-OG.bpl
+Total learner time was 00:00:00.0073170
+Verifying P5_stable_t2_s3: 
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && j - k_1 <= 1
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.009863
+Prover Time taken = 0.006936
+Prover Time taken = 0.007282
+Prover Time taken = 0.007005
+Verifying post_condition: 
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && j - k_1 <= 1
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.004822
+Prover Time taken = 0.004568
+Prover Time taken = 0.007051
+Prover Time taken = 0.005638
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && j - k_1 <= 1
+}
+Prover Time taken = 0.005845
+Prover Time taken = 0.005578
+Prover Time taken = 0.006734
+Prover Time taken = 0.007001
+Verifying t1_transition_s2_entry: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && j - k_1 <= 1
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.013305
+Prover Time taken = 0.011286
+Prover Time taken = 0.007854
+Prover Time taken = 0.007072
+Verifying pre_condition: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Added: Q0:1,1,0: positive
+Prover Time taken = 0.008713
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/fib_bench_false-unreach-call-OG.bpl
+Total learner time was 00:00:00.0112330
+Verifying Q0_stable_t1_s3: 
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.005262
+Prover Time taken = 0.004768
+Prover Time taken = 0.004668
+Prover Time taken = 0.004796
+Verifying t2_transition_s2_entry: 
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.009667
+Added Horn clause: 5 => 6
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/fib_bench_false-unreach-call-OG.bpl
+Total learner time was 00:00:00.0076800
+Verifying Q2_stable_t1_s3: 
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.006518
+Prover Time taken = 0.00546
+Prover Time taken = 0.005411
+Prover Time taken = 0.006444
+Verifying P5_stable_t2_s3: 
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && j - k_1 <= 1
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.004085
+Prover Time taken = 0.003809
+Prover Time taken = 0.003827
+Prover Time taken = 0.004301
+Verifying P2_stable_t2_s3: 
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.004313
+Prover Time taken = 0.003801
+Prover Time taken = 0.004092
+Prover Time taken = 0.004043
+Verifying P0_stable_t2_s3: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.00694
+Prover Time taken = 0.006865
+Prover Time taken = 0.009746
+Prover Time taken = 0.005616
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && i <= -1 && i <= -1 && -2 < i && -1 < i && i <= 0 && i <= 0 && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && j <= -1 && j <= -1 && -2 < j && -1 < j && j <= 0 && j <= 0 && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && k_2 <= -1 && k_2 <= -1 && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && i + j <= -1 && i + j <= -1 && -2 < i + j && -1 < i + j && i + j <= 0 && i + j <= 0 && -1 < i + j && 0 < i + j && i + j <= 1 && i + j <= 1 && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_2 && i + k_2 <= -1 && i + k_2 <= -1 && -2 < i + k_2 && -1 < i + k_2 && i + k_2 <= 0 && i + k_2 <= 0 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && i - k_2 <= -1 && i - k_2 <= -1 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && j + k_2 <= -1 && j + k_2 <= -1 && -2 < j + k_2 && -1 < j + k_2 && j + k_2 <= 0 && j + k_2 <= 0 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && j - k_2 <= -1 && j - k_2 <= -1 && -2 < j - k_2 && -1 < j - k_2 && j - k_2 <= 0 && j - k_2 <= 0 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.007294
+Added Horn clause: 6 => 7
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/fib_bench_false-unreach-call-OG.bpl
+Total learner time was 00:00:00.0085970
+Verifying Q5_stable_t1_s3: 
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && -2 < k_2 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && i - j <= 0 && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && i - k_2 <= 1 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+Prover Time taken = 0.004942
+Prover Time taken = 0.004362
+Prover Time taken = 0.004871
+Prover Time taken = 0.007796
+Verifying post_condition: 
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && j - k_1 <= 1
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && -2 < k_2 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && i - j <= 0 && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && i - k_2 <= 1 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.005039
+Prover Time taken = 0.008001
+Prover Time taken = 0.003869
+Prover Time taken = 0.005113
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && -2 < k_2 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && i - j <= 0 && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && i - k_2 <= 1 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.005042
+Prover Time taken = 0.005553
+Prover Time taken = 0.004532
+Prover Time taken = 0.005283
+Verifying t2_transition_s2_entry: 
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && -2 < k_2 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && i - j <= 0 && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && i - k_2 <= 1 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.005763
+Prover Time taken = 0.006568
+Prover Time taken = 0.006818
+Prover Time taken = 0.006912
+Verifying pre_condition: 
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+Prover Time taken = 0.004059
+Prover Time taken = 0.003957
+Prover Time taken = 0.005957
+Prover Time taken = 0.003152
+Prover time = 1.21
+Number of prover queries = 151
+Learner time = 0.07
+Number of learner queries = 7
+Total time: 5.65
+Number of positive examples:2
+Number of negative examples:0
+Number of Horn clauses:5
+function {:existential true} {:inline} P0(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P2(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && k_1 <= 0 && k_1 <= 0 && -1 < k_1 && k_1 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && i + k_1 <= 1 && i + k_1 <= 1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && j + k_1 <= 1 && j + k_1 <= 1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && 0 < j - k_1 && j - k_1 <= 1 && j - k_1 <= 1 && 0 < j - k_1
+}
+function {:existential true} {:inline} P5(i: int, j: int, k_1: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_1 && -1 < k_1 && 0 < k_1 && k_1 <= 1 && k_1 <= 1 && 0 < k_1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && 0 < i - j && i - j <= 1 && i - j <= 1 && 0 < i - j && -2 < i + k_1 && -1 < i + k_1 && 0 < i + k_1 && -2 < i - k_1 && -1 < i - k_1 && 0 < i - k_1 && i - k_1 <= 1 && i - k_1 <= 1 && 0 < i - k_1 && -2 < j + k_1 && -1 < j + k_1 && 0 < j + k_1 && -2 < j - k_1 && -1 < j - k_1 && j - k_1 <= 0 && j - k_1 <= 0 && -1 < j - k_1 && j - k_1 <= 1
+}
+function {:existential true} {:inline} Q0(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q2(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && j <= 1 && j <= 1 && 0 < j && -2 < k_2 && -1 < k_2 && k_2 <= 0 && k_2 <= 0 && -1 < k_2 && k_2 <= 1 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && -1 < i - j && i - j <= 0 && i - j <= 0 && -1 < i - j && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && i + k_2 <= 1 && i + k_2 <= 1 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && 0 < i - k_2 && i - k_2 <= 1 && i - k_2 <= 1 && 0 < i - k_2 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && j + k_2 <= 1 && j + k_2 <= 1 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+function {:existential true} {:inline} Q5(i: int, j: int, k_2: int) : bool
+{
+  -2 < i && -1 < i && 0 < i && i <= 1 && i <= 1 && 0 < i && -2 < j && -1 < j && 0 < j && -2 < k_2 && -1 < k_2 && 0 < k_2 && k_2 <= 1 && k_2 <= 1 && 0 < k_2 && -2 < i + j && -1 < i + j && 0 < i + j && -2 < i - j && i - j <= -1 && i - j <= -1 && -2 < i - j && i - j <= 0 && i - j <= 1 && -2 < i + k_2 && -1 < i + k_2 && 0 < i + k_2 && -2 < i - k_2 && -1 < i - k_2 && i - k_2 <= 0 && i - k_2 <= 0 && -1 < i - k_2 && i - k_2 <= 1 && -2 < j + k_2 && -1 < j + k_2 && 0 < j + k_2 && -2 < j - k_2 && -1 < j - k_2 && 0 < j - k_2 && j - k_2 <= 1 && j - k_2 <= 1 && 0 < j - k_2
+}
+verified
+
+Boogie program verifier finished with 1 verified, 0 errors

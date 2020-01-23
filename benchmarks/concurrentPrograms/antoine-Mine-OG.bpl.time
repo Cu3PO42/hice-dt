@@ -1,0 +1,1909 @@
+[TRACE] Using prover: /home/alexander/sharedData/uni/hice-dt/Boogie/Binaries/z3.exe
+Parsing /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Coalescing blocks...
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+Generating VC of pre_condition
+Generating VC of post_condition
+Generating VC of t1_transition_s3
+Generating VC of t1_transition_s2
+Generating VC of t1_transition_s1_entry
+Generating VC of t1_transition_s1_body
+Generating VC of t2_transition_s3
+Generating VC of t2_transition_s2
+Generating VC of t2_transition_s1_entry
+Generating VC of t2_transition_s1_body
+Generating VC of P0_Stable_t2_s3
+Generating VC of P1_Stable_t2_s3
+Generating VC of P2_Stable_t2_s3
+Generating VC of P3_Stable_t2_s3
+Generating VC of P4_Stable_t2_s3
+Generating VC of Q0_Stable_t1_s3
+Generating VC of Q1_Stable_t1_s3
+Generating VC of Q2_Stable_t1_s3
+Generating VC of Q3_Stable_t1_s3
+Generating VC of Q4_Stable_t1_s3
+Verifying post_condition: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  true
+}
+Added Horn clause: 0 && 1 => 
+Prover Time taken = 0.119761
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0063210
+Verifying post_condition: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.006675
+Prover Time taken = 0.002932
+Prover Time taken = 0.002957
+Prover Time taken = 0.002965
+Verifying Q4_Stable_t1_s3: 
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.004697
+Prover Time taken = 0.004296
+Prover Time taken = 0.00414
+Prover Time taken = 0.004598
+Verifying P4_Stable_t2_s3: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003292
+Prover Time taken = 0.003065
+Prover Time taken = 0.002955
+Prover Time taken = 0.003191
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003284
+Prover Time taken = 0.003108
+Prover Time taken = 0.003987
+Prover Time taken = 0.00387
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003889
+Prover Time taken = 0.003423
+Prover Time taken = 0.003583
+Prover Time taken = 0.00438
+Verifying t1_transition_s1_body: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.002337
+Prover Time taken = 0.0024
+Prover Time taken = 0.002799
+Prover Time taken = 0.002778
+Verifying P0_Stable_t2_s3: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003937
+Prover Time taken = 0.003598
+Prover Time taken = 0.003492
+Prover Time taken = 0.004052
+Verifying P3_Stable_t2_s3: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.004953
+Prover Time taken = 0.005502
+Prover Time taken = 0.004707
+Prover Time taken = 0.004138
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003002
+Prover Time taken = 0.002708
+Prover Time taken = 0.003119
+Prover Time taken = 0.003285
+Verifying P2_Stable_t2_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.004773
+Prover Time taken = 0.005542
+Prover Time taken = 0.005
+Prover Time taken = 0.004475
+Verifying Q0_Stable_t1_s3: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.004362
+Prover Time taken = 0.003917
+Prover Time taken = 0.005906
+Prover Time taken = 0.004406
+Verifying t2_transition_s1_entry: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005596
+Prover Time taken = 0.005277
+Prover Time taken = 0.005303
+Prover Time taken = 0.003688
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005913
+Prover Time taken = 0.003819
+Prover Time taken = 0.003664
+Prover Time taken = 0.00533
+Verifying t2_transition_s1_body: 
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.002927
+Prover Time taken = 0.002694
+Prover Time taken = 0.00275
+Prover Time taken = 0.002854
+Verifying Q3_Stable_t1_s3: 
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005677
+Prover Time taken = 0.005266
+Prover Time taken = 0.005482
+Prover Time taken = 0.00526
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003324
+Prover Time taken = 0.004178
+Prover Time taken = 0.0035
+Prover Time taken = 0.004707
+Verifying P1_Stable_t2_s3: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005323
+Prover Time taken = 0.00466
+Prover Time taken = 0.004324
+Prover Time taken = 0.003839
+Verifying Q2_Stable_t1_s3: 
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.006156
+Prover Time taken = 0.003963
+Prover Time taken = 0.004894
+Prover Time taken = 0.004497
+Verifying Q1_Stable_t1_s3: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.004241
+Prover Time taken = 0.004031
+Prover Time taken = 0.005314
+Prover Time taken = 0.006033
+Verifying pre_condition: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Added: P0:0,0: positive
+Prover Time taken = 0.005189
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0078400
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.009085
+Added Horn clause: 2 => 3
+Added Horn clause: 2 => 4
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0078630
+Verifying post_condition: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.009264
+Prover Time taken = 0.004359
+Prover Time taken = 0.003304
+Prover Time taken = 0.004969
+Verifying P4_Stable_t2_s3: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003342
+Prover Time taken = 0.003895
+Prover Time taken = 0.004948
+Prover Time taken = 0.003889
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.003422
+Prover Time taken = 0.004052
+Prover Time taken = 0.00319
+Prover Time taken = 0.003286
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.006832
+Added Horn clause: 3 => 5
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0095570
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.004913
+Prover Time taken = 0.003583
+Prover Time taken = 0.004824
+Prover Time taken = 0.004488
+Verifying t1_transition_s1_body: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002484
+Prover Time taken = 0.002416
+Prover Time taken = 0.002385
+Prover Time taken = 0.002142
+Verifying P0_Stable_t2_s3: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003826
+Prover Time taken = 0.004611
+Prover Time taken = 0.003697
+Prover Time taken = 0.003767
+Verifying P3_Stable_t2_s3: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003344
+Prover Time taken = 0.003182
+Prover Time taken = 0.003213
+Prover Time taken = 0.003361
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002816
+Prover Time taken = 0.002563
+Prover Time taken = 0.002363
+Prover Time taken = 0.002485
+Verifying P1_Stable_t2_s3: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.00451
+Prover Time taken = 0.004407
+Prover Time taken = 0.004381
+Prover Time taken = 0.003334
+Verifying pre_condition: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Added: Q0:0,0: positive
+Prover Time taken = 0.004338
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0070380
+Verifying Q0_Stable_t1_s3: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.004812
+Prover Time taken = 0.004395
+Prover Time taken = 0.009007
+Prover Time taken = 0.004514
+Verifying t2_transition_s1_entry: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.006928
+Added Horn clause: 6 => 7
+Added Horn clause: 6 => 8
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0074650
+Verifying post_condition: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002199
+Prover Time taken = 0.00245
+Prover Time taken = 0.002243
+Prover Time taken = 0.002276
+Verifying Q4_Stable_t1_s3: 
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003545
+Prover Time taken = 0.003101
+Prover Time taken = 0.003215
+Prover Time taken = 0.003205
+Verifying t2_transition_s1_entry: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002734
+Prover Time taken = 0.005123
+Prover Time taken = 0.003098
+Prover Time taken = 0.002787
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005734
+Added Horn clause: 7 => 9
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0066680
+Verifying P4_Stable_t2_s3: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.003363
+Prover Time taken = 0.005691
+Added Horn clause: 4 && 9 => 10
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0062960
+Verifying post_condition: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002054
+Prover Time taken = 0.001916
+Prover Time taken = 0.001542
+Prover Time taken = 0.002482
+Verifying P4_Stable_t2_s3: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002537
+Prover Time taken = 0.002566
+Prover Time taken = 0.004782
+Prover Time taken = 0.0023
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002398
+Prover Time taken = 0.002235
+Prover Time taken = 0.002211
+Prover Time taken = 0.002261
+Verifying P0_Stable_t2_s3: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.004766
+Prover Time taken = 0.004173
+Added Horn clause: 2 && 9 => 11
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0075140
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.00384
+Added Horn clause: 12 => 13
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0059700
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 1 && -2 < x - y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.003432
+Added Horn clause: 14 => 15
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0091290
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.00177
+Prover Time taken = 0.001577
+Prover Time taken = 0.001562
+Prover Time taken = 0.00169
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005578
+Added Horn clause: 15 => 16
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0058550
+Verifying Q4_Stable_t1_s3: 
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002837
+Prover Time taken = 0.002653
+Prover Time taken = 0.002553
+Prover Time taken = 0.002563
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002557
+Prover Time taken = 0.002414
+Prover Time taken = 0.002317
+Prover Time taken = 0.00217
+Verifying t1_transition_s1_body: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001566
+Prover Time taken = 0.002516
+Prover Time taken = 0.002377
+Prover Time taken = 0.001892
+Verifying P0_Stable_t2_s3: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.006048
+Prover Time taken = 0.00212
+Prover Time taken = 0.002634
+Prover Time taken = 0.002802
+Verifying P3_Stable_t2_s3: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.003665
+Prover Time taken = 0.00538
+Added Horn clause: 5 && 9 => 17
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0064170
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002058
+Prover Time taken = 0.001839
+Prover Time taken = 0.002075
+Prover Time taken = 0.002214
+Verifying t1_transition_s1_body: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001326
+Prover Time taken = 0.001382
+Prover Time taken = 0.001503
+Prover Time taken = 0.001176
+Verifying P3_Stable_t2_s3: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002628
+Prover Time taken = 0.002597
+Prover Time taken = 0.00257
+Prover Time taken = 0.002663
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.004174
+Added Horn clause: 18 => 19
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0058330
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.004166
+Prover Time taken = 0.00174
+Prover Time taken = 0.00235
+Prover Time taken = 0.002387
+Verifying t1_transition_s1_body: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.00327
+Added Horn clause: 19 => 20
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0065780
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.005865
+Added Horn clause: 20 => 21
+Added Horn clause: 20 => 22
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0077250
+Verifying post_condition: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001783
+Prover Time taken = 0.001512
+Prover Time taken = 0.001544
+Prover Time taken = 0.001566
+Verifying P4_Stable_t2_s3: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002188
+Prover Time taken = 0.002316
+Prover Time taken = 0.00202
+Prover Time taken = 0.001953
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.00226
+Prover Time taken = 0.001503
+Prover Time taken = 0.001332
+Prover Time taken = 0.001399
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.003183
+Added Horn clause: 23 => 24
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0057180
+Verifying Q4_Stable_t1_s3: 
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.003092
+Prover Time taken = 0.002958
+Prover Time taken = 0.003034
+Prover Time taken = 0.002753
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002139
+Prover Time taken = 0.001818
+Prover Time taken = 0.001528
+Prover Time taken = 0.001571
+Verifying t1_transition_s1_body: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001296
+Prover Time taken = 0.00101
+Prover Time taken = 0.001108
+Prover Time taken = 0.000977
+Verifying P0_Stable_t2_s3: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002631
+Prover Time taken = 0.002465
+Prover Time taken = 0.001917
+Prover Time taken = 0.00193
+Verifying P3_Stable_t2_s3: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.00204
+Prover Time taken = 0.001992
+Prover Time taken = 0.00255
+Prover Time taken = 0.002612
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.003281
+Added Horn clause: 24 => 25
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0056650
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001789
+Prover Time taken = 0.001671
+Prover Time taken = 0.003872
+Prover Time taken = 0.001799
+Verifying t1_transition_s1_body: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.00249
+Added Horn clause: 25 => 26
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0057110
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.00457
+Added Horn clause: 26 => 27
+Added Horn clause: 26 => 28
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0059520
+Verifying post_condition: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001878
+Prover Time taken = 0.001616
+Prover Time taken = 0.001531
+Prover Time taken = 0.001482
+Verifying P4_Stable_t2_s3: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002113
+Prover Time taken = 0.002587
+Prover Time taken = 0.002678
+Prover Time taken = 0.002796
+Verifying t1_transition_s1_entry: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001496
+Prover Time taken = 0.002207
+Prover Time taken = 0.001703
+Prover Time taken = 0.001602
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001774
+Prover Time taken = 0.004016
+Added Horn clause: 29 => 30
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0077410
+Verifying Q4_Stable_t1_s3: 
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.003488
+Prover Time taken = 0.003166
+Prover Time taken = 0.003041
+Prover Time taken = 0.003185
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001945
+Prover Time taken = 0.001878
+Prover Time taken = 0.001612
+Prover Time taken = 0.001621
+Verifying t1_transition_s1_body: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001257
+Prover Time taken = 0.001056
+Prover Time taken = 0.001013
+Prover Time taken = 0.001211
+Verifying P0_Stable_t2_s3: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002324
+Prover Time taken = 0.002379
+Prover Time taken = 0.002388
+Prover Time taken = 0.002436
+Verifying P3_Stable_t2_s3: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002255
+Prover Time taken = 0.002166
+Prover Time taken = 0.002121
+Prover Time taken = 0.002086
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002591
+Prover Time taken = 0.001534
+Prover Time taken = 0.001509
+Prover Time taken = 0.001479
+Verifying P2_Stable_t2_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002187
+Prover Time taken = 0.00221
+Prover Time taken = 0.002338
+Prover Time taken = 0.003013
+Verifying Q0_Stable_t1_s3: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.003445
+Prover Time taken = 0.003155
+Prover Time taken = 0.004794
+Prover Time taken = 0.003287
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.003985
+Prover Time taken = 0.004244
+Prover Time taken = 0.00412
+Prover Time taken = 0.003999
+Verifying t2_transition_s1_body: 
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002208
+Prover Time taken = 0.002335
+Prover Time taken = 0.001981
+Prover Time taken = 0.0019
+Verifying Q3_Stable_t1_s3: 
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002845
+Prover Time taken = 0.00286
+Prover Time taken = 0.00288
+Prover Time taken = 0.003373
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.002694
+Prover Time taken = 0.00511
+Added Horn clause: 9 => 31
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0057160
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002564
+Prover Time taken = 0.002352
+Prover Time taken = 0.002264
+Prover Time taken = 0.002308
+Verifying t2_transition_s1_body: 
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.003597
+Added Horn clause: 32 => 33
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0096760
+Verifying Q0_Stable_t1_s3: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.003533
+Added Horn clause: 33 && 16 => 34
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0055760
+Verifying Q0_Stable_t1_s3: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.004004
+Added Horn clause: 34 && 24 => 35
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0057730
+Verifying Q0_Stable_t1_s3: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002505
+Prover Time taken = 0.002955
+Prover Time taken = 0.002816
+Prover Time taken = 0.002786
+Verifying t2_transition_s1_entry: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.006284
+Added Horn clause: 35 => 36
+Added Horn clause: 35 => 37
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0055980
+Verifying post_condition: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001747
+Prover Time taken = 0.001516
+Prover Time taken = 0.001456
+Prover Time taken = 0.001433
+Verifying Q4_Stable_t1_s3: 
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002438
+Prover Time taken = 0.002267
+Prover Time taken = 0.002401
+Prover Time taken = 0.002507
+Verifying t2_transition_s1_entry: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.004945
+Added Horn clause: 33 => 38
+Added Horn clause: 33 => 39
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0052490
+Verifying post_condition: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001269
+Prover Time taken = 0.001107
+Prover Time taken = 0.001041
+Prover Time taken = 0.001073
+Verifying Q4_Stable_t1_s3: 
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.00189
+Prover Time taken = 0.001735
+Prover Time taken = 0.001578
+Prover Time taken = 0.001816
+Verifying t2_transition_s1_entry: 
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001355
+Prover Time taken = 0.001615
+Prover Time taken = 0.001267
+Prover Time taken = 0.001466
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && y <= 1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.004496
+Added Horn clause: 36 => 40
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0055450
+Verifying P4_Stable_t2_s3: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001946
+Prover Time taken = 0.003551
+Prover Time taken = 0.00176
+Prover Time taken = 0.001695
+Verifying P0_Stable_t2_s3: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001606
+Prover Time taken = 0.001763
+Prover Time taken = 0.001633
+Prover Time taken = 0.001723
+Verifying P3_Stable_t2_s3: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001623
+Prover Time taken = 0.001763
+Prover Time taken = 0.001612
+Prover Time taken = 0.001717
+Verifying P2_Stable_t2_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001991
+Prover Time taken = 0.001791
+Prover Time taken = 0.00177
+Prover Time taken = 0.001833
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.003928
+Added Horn clause: 41 => 42
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0057560
+Verifying P4_Stable_t2_s3: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002546
+Prover Time taken = 0.001775
+Prover Time taken = 0.001617
+Prover Time taken = 0.001717
+Verifying P0_Stable_t2_s3: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001789
+Prover Time taken = 0.001951
+Prover Time taken = 0.001749
+Prover Time taken = 0.001616
+Verifying P3_Stable_t2_s3: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001669
+Prover Time taken = 0.001568
+Prover Time taken = 0.002158
+Prover Time taken = 0.002
+Verifying P2_Stable_t2_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002284
+Prover Time taken = 0.00235
+Prover Time taken = 0.002225
+Prover Time taken = 0.004898
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && -2 < x - y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.003356
+Added Horn clause: 38 => 43
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0054870
+Verifying P4_Stable_t2_s3: 
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001863
+Prover Time taken = 0.001629
+Prover Time taken = 0.001555
+Prover Time taken = 0.001684
+Verifying P0_Stable_t2_s3: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001595
+Prover Time taken = 0.001957
+Prover Time taken = 0.001795
+Prover Time taken = 0.001545
+Verifying P3_Stable_t2_s3: 
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001669
+Prover Time taken = 0.001935
+Prover Time taken = 0.001513
+Prover Time taken = 0.001522
+Verifying P2_Stable_t2_s3: 
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001686
+Prover Time taken = 0.001909
+Prover Time taken = 0.002401
+Prover Time taken = 0.002645
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002009
+Prover Time taken = 0.002953
+Added Horn clause: 44 => 45
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0058750
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && x <= 1 && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001795
+Prover Time taken = 0.002896
+Added Horn clause: 46 => 47
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0066960
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001769
+Prover Time taken = 0.003066
+Added Horn clause: 48 => 49
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/antoine-Mine-OG.bpl
+Total learner time was 00:00:00.0079610
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002138
+Prover Time taken = 0.001966
+Prover Time taken = 0.002264
+Prover Time taken = 0.001884
+Verifying t2_transition_s1_body: 
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001575
+Prover Time taken = 0.001374
+Prover Time taken = 0.001205
+Prover Time taken = 0.001405
+Verifying Q3_Stable_t1_s3: 
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.002546
+Prover Time taken = 0.002042
+Prover Time taken = 0.002657
+Prover Time taken = 0.002504
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.00155
+Prover Time taken = 0.001649
+Prover Time taken = 0.001624
+Prover Time taken = 0.001556
+Verifying P1_Stable_t2_s3: 
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001959
+Prover Time taken = 0.001852
+Prover Time taken = 0.001872
+Prover Time taken = 0.002347
+Verifying Q2_Stable_t1_s3: 
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001825
+Prover Time taken = 0.001841
+Prover Time taken = 0.001715
+Prover Time taken = 0.00173
+Verifying Q1_Stable_t1_s3: 
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001921
+Prover Time taken = 0.001774
+Prover Time taken = 0.001783
+Prover Time taken = 0.001804
+Verifying pre_condition: 
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+Prover Time taken = 0.001052
+Prover Time taken = 0.0011
+Prover Time taken = 0.001091
+Prover Time taken = 0.001104
+Prover time = 1.32
+Number of prover queries = 417
+Learner time = 0.22
+Number of learner queries = 33
+Total time: 5.16
+Number of positive examples:2
+Number of negative examples:0
+Number of Horn clauses:37
+function {:existential true} {:inline} P0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= -1 && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} P4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q0(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q1(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q2(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q3(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && 0 < y && -2 < x + y && -1 < x + y && 0 < x + y && x - y <= 0 && x - y <= 1
+}
+function {:existential true} {:inline} Q4(x: int, y: int) : bool
+{
+  -2 < x && -1 < x && -2 < y && -1 < y && -2 < x + y && -1 < x + y && x - y <= 0 && x - y <= 1
+}
+verified
+
+Boogie program verifier finished with 1 verified, 0 errors

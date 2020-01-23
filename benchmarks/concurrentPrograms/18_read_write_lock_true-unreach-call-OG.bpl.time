@@ -1,0 +1,1876 @@
+[TRACE] Using prover: /home/alexander/sharedData/uni/hice-dt/Boogie/Binaries/z3.exe
+Parsing /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Coalescing blocks...
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 4
+#parameters: 16
+#parameters: 4
+Generating VC of pre_condition
+Generating VC of assert_at_Q2
+Generating VC of t1_transition_s1
+Generating VC of t1_transition_s2
+Generating VC of t1_transition_s3
+Generating VC of t2_transition_s1
+Generating VC of t2_transition_s2
+Generating VC of t2_transition_s3
+Generating VC of P0_stable_t2_s1
+Generating VC of P0_stable_t2_s2
+Generating VC of P0_stable_t2_s3
+Generating VC of P1_stable_t2_s1
+Generating VC of P1_stable_t2_s2
+Generating VC of P1_stable_t2_s3
+Generating VC of P2_stable_t2_s1
+Generating VC of P2_stable_t2_s2
+Generating VC of P2_stable_t2_s3
+Generating VC of P3_stable_t2_s1
+Generating VC of P3_stable_t2_s2
+Generating VC of P3_stable_t2_s3
+Generating VC of Q0_stable_t1_s1
+Generating VC of Q0_stable_t1_s2
+Generating VC of Q0_stable_t1_s3
+Generating VC of Q1_stable_t1_s1
+Generating VC of Q1_stable_t1_s2
+Generating VC of Q1_stable_t1_s3
+Generating VC of Q2_stable_t1_s1
+Generating VC of Q2_stable_t1_s2
+Generating VC of Q2_stable_t1_s3
+Generating VC of Q3_stable_t1_s1
+Generating VC of Q3_stable_t1_s2
+Generating VC of Q3_stable_t1_s3
+Verifying Q3_stable_t1_s1: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  true
+}
+Prover Time taken = 0.007455
+Prover Time taken = 0.00038
+Prover Time taken = 0.000264
+Prover Time taken = 0.00042
+Verifying Q3_stable_t1_s2: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  true
+}
+Prover Time taken = 0.00368
+Prover Time taken = 0.000389
+Prover Time taken = 0.000302
+Prover Time taken = 0.000276
+Verifying Q3_stable_t1_s3: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000283
+Prover Time taken = 0.000319
+Prover Time taken = 0.000238
+Prover Time taken = 0.000234
+Verifying P3_stable_t2_s1: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000284
+Prover Time taken = 0.000267
+Prover Time taken = 0.000272
+Prover Time taken = 0.000286
+Verifying P3_stable_t2_s2: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000251
+Prover Time taken = 0.0003
+Prover Time taken = 0.000461
+Prover Time taken = 0.000648
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000612
+Prover Time taken = 0.000632
+Prover Time taken = 0.000485
+Prover Time taken = 0.000494
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  true
+}
+Prover Time taken = 0.00031
+Prover Time taken = 0.000296
+Prover Time taken = 0.000292
+Prover Time taken = 0.00028
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  true
+}
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  true
+}
+Prover Time taken = 0.000233
+Prover Time taken = 0.000271
+Prover Time taken = 0.000199
+Prover Time taken = 0.000211
+Verifying assert_at_Q2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  true
+}
+Added: Q2:-2,2,2,-2: negative
+Prover Time taken = 0.064363
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0038130
+Verifying Q3_stable_t1_s1: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.004448
+Prover Time taken = 0.00257
+Prover Time taken = 0.00415
+Prover Time taken = 0.001781
+Verifying Q3_stable_t1_s2: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.003321
+Prover Time taken = 0.002415
+Prover Time taken = 0.001868
+Prover Time taken = 0.001712
+Verifying Q3_stable_t1_s3: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002174
+Prover Time taken = 0.001912
+Prover Time taken = 0.001936
+Prover Time taken = 0.002368
+Verifying P3_stable_t2_s1: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002247
+Prover Time taken = 0.002128
+Prover Time taken = 0.002762
+Prover Time taken = 0.002083
+Verifying P3_stable_t2_s2: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001522
+Prover Time taken = 0.00157
+Prover Time taken = 0.001528
+Prover Time taken = 0.001518
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003085
+Prover Time taken = 0.002889
+Prover Time taken = 0.002908
+Prover Time taken = 0.003824
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002834
+Prover Time taken = 0.002556
+Prover Time taken = 0.002562
+Prover Time taken = 0.002508
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001289
+Prover Time taken = 0.001056
+Prover Time taken = 0.001168
+Prover Time taken = 0.001245
+Verifying assert_at_Q2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.002522
+Prover Time taken = 0.001988
+Prover Time taken = 0.00202
+Prover Time taken = 0.001986
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003022
+Prover Time taken = 0.002413
+Prover Time taken = 0.00245
+Prover Time taken = 0.003546
+Verifying P0_stable_t2_s3: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.002925
+Prover Time taken = 0.003496
+Prover Time taken = 0.002939
+Prover Time taken = 0.002915
+Verifying t1_transition_s1: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001209
+Prover Time taken = 0.001111
+Prover Time taken = 0.001216
+Prover Time taken = 0.001225
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001072
+Prover Time taken = 0.001
+Prover Time taken = 0.001015
+Prover Time taken = 0.001056
+Verifying P2_stable_t2_s1: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002028
+Prover Time taken = 0.002353
+Prover Time taken = 0.001948
+Prover Time taken = 0.002003
+Verifying P2_stable_t2_s2: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002335
+Prover Time taken = 0.001798
+Prover Time taken = 0.001713
+Prover Time taken = 0.001709
+Verifying P2_stable_t2_s3: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003314
+Prover Time taken = 0.003178
+Prover Time taken = 0.00383
+Prover Time taken = 0.003645
+Verifying Q0_stable_t1_s3: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001655
+Prover Time taken = 0.001599
+Prover Time taken = 0.001588
+Prover Time taken = 0.002257
+Verifying t2_transition_s1: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.00135
+Prover Time taken = 0.001143
+Prover Time taken = 0.001111
+Prover Time taken = 0.00106
+Verifying P0_stable_t2_s2: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001602
+Prover Time taken = 0.002537
+Prover Time taken = 0.001957
+Prover Time taken = 0.001974
+Verifying P0_stable_t2_s1: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001954
+Prover Time taken = 0.001861
+Prover Time taken = 0.001604
+Prover Time taken = 0.00159
+Verifying Q0_stable_t1_s1: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002255
+Prover Time taken = 0.002039
+Prover Time taken = 0.001747
+Prover Time taken = 0.002014
+Verifying P1_stable_t2_s1: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001678
+Prover Time taken = 0.001471
+Prover Time taken = 0.00187
+Prover Time taken = 0.001923
+Verifying P1_stable_t2_s2: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002589
+Prover Time taken = 0.002204
+Prover Time taken = 0.00172
+Prover Time taken = 0.00159
+Verifying P1_stable_t2_s3: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.004344
+Prover Time taken = 0.003205
+Prover Time taken = 0.003462
+Prover Time taken = 0.004256
+Verifying Q0_stable_t1_s2: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.00201
+Prover Time taken = 0.002278
+Prover Time taken = 0.002145
+Prover Time taken = 0.002161
+Verifying Q1_stable_t1_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002368
+Prover Time taken = 0.002385
+Prover Time taken = 0.002063
+Prover Time taken = 0.002206
+Verifying Q1_stable_t1_s1: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001837
+Prover Time taken = 0.001761
+Prover Time taken = 0.00174
+Prover Time taken = 0.001719
+Verifying Q1_stable_t1_s3: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001992
+Prover Time taken = 0.001824
+Prover Time taken = 0.002067
+Prover Time taken = 0.002002
+Verifying Q2_stable_t1_s2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.005155
+Prover Time taken = 0.004647
+Prover Time taken = 0.005344
+Prover Time taken = 0.005312
+Verifying Q2_stable_t1_s1: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.006235
+Prover Time taken = 0.005346
+Prover Time taken = 0.005272
+Prover Time taken = 0.004777
+Verifying Q2_stable_t1_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.005388
+Prover Time taken = 0.005412
+Prover Time taken = 0.004781
+Prover Time taken = 0.005085
+Verifying pre_condition: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Added: P0:0,0: positive
+Prover Time taken = 0.002508
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0045070
+Verifying Q3_stable_t1_s1: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.001885
+Prover Time taken = 0.001848
+Prover Time taken = 0.001652
+Prover Time taken = 0.00152
+Verifying P0_stable_t2_s3: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.003577
+Prover Time taken = 0.009224
+Prover Time taken = 0.006006
+Prover Time taken = 0.003962
+Verifying t1_transition_s1: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.003502
+Added Horn clause: 1 => 2
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0037450
+Verifying Q3_stable_t1_s2: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002324
+Prover Time taken = 0.001872
+Prover Time taken = 0.00191
+Prover Time taken = 0.001831
+Verifying t1_transition_s1: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001087
+Prover Time taken = 0.000981
+Prover Time taken = 0.002516
+Prover Time taken = 0.001104
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002532
+Added Horn clause: 2 => 3
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0040230
+Verifying Q3_stable_t1_s3: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002244
+Prover Time taken = 0.002058
+Prover Time taken = 0.002084
+Prover Time taken = 0.002033
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.00276
+Added Horn clause: 3 => 4
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0041170
+Verifying P3_stable_t2_s1: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002069
+Prover Time taken = 0.001867
+Prover Time taken = 0.002675
+Prover Time taken = 0.002017
+Verifying P3_stable_t2_s2: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001938
+Prover Time taken = 0.001967
+Prover Time taken = 0.001908
+Prover Time taken = 0.001849
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005024
+Prover Time taken = 0.007528
+Prover Time taken = 0.004547
+Prover Time taken = 0.004607
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.001669
+Prover Time taken = 0.001499
+Prover Time taken = 0.001452
+Prover Time taken = 0.001395
+Verifying t1_transition_s2: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.001379
+Prover Time taken = 0.001622
+Prover Time taken = 0.001609
+Prover Time taken = 0.001283
+Verifying P2_stable_t2_s1: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002767
+Prover Time taken = 0.002568
+Prover Time taken = 0.002684
+Prover Time taken = 0.003359
+Verifying P2_stable_t2_s2: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002081
+Prover Time taken = 0.003728
+Prover Time taken = 0.002067
+Prover Time taken = 0.002033
+Verifying P2_stable_t2_s3: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005056
+Prover Time taken = 0.005
+Prover Time taken = 0.005096
+Prover Time taken = 0.005029
+Verifying Q0_stable_t1_s3: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002663
+Prover Time taken = 0.002429
+Prover Time taken = 0.002485
+Prover Time taken = 0.00247
+Verifying P0_stable_t2_s2: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.003153
+Prover Time taken = 0.003069
+Prover Time taken = 0.003111
+Prover Time taken = 0.00297
+Verifying P0_stable_t2_s1: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.00238
+Prover Time taken = 0.002252
+Prover Time taken = 0.00243
+Prover Time taken = 0.002346
+Verifying Q0_stable_t1_s1: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002747
+Prover Time taken = 0.002562
+Prover Time taken = 0.002537
+Prover Time taken = 0.002554
+Verifying P1_stable_t2_s1: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002489
+Prover Time taken = 0.003735
+Prover Time taken = 0.00233
+Prover Time taken = 0.002413
+Verifying P1_stable_t2_s2: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002421
+Prover Time taken = 0.00231
+Prover Time taken = 0.002353
+Prover Time taken = 0.00231
+Verifying P1_stable_t2_s3: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005386
+Prover Time taken = 0.005341
+Prover Time taken = 0.00532
+Prover Time taken = 0.005388
+Verifying Q0_stable_t1_s2: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.003258
+Prover Time taken = 0.003214
+Prover Time taken = 0.003029
+Prover Time taken = 0.002873
+Verifying Q1_stable_t1_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.003331
+Prover Time taken = 0.002729
+Prover Time taken = 0.002739
+Prover Time taken = 0.002872
+Verifying Q1_stable_t1_s1: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.003158
+Prover Time taken = 0.002705
+Prover Time taken = 0.002776
+Prover Time taken = 0.002669
+Verifying Q1_stable_t1_s3: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.006957
+Prover Time taken = 0.002936
+Prover Time taken = 0.002909
+Prover Time taken = 0.003215
+Verifying Q2_stable_t1_s2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.009247
+Prover Time taken = 0.009215
+Prover Time taken = 0.00893
+Prover Time taken = 0.011106
+Verifying Q2_stable_t1_s1: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.00925
+Prover Time taken = 0.009013
+Prover Time taken = 0.008901
+Prover Time taken = 0.00904
+Verifying Q2_stable_t1_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.00908
+Prover Time taken = 0.008928
+Prover Time taken = 0.009234
+Prover Time taken = 0.009956
+Verifying pre_condition: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Added: Q0:0,0: positive
+Prover Time taken = 0.007258
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0064280
+Verifying P3_stable_t2_s1: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.004364
+Added Horn clause: 4 && 5 => 6
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0058560
+Verifying P3_stable_t2_s1: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.0026
+Prover Time taken = 0.003131
+Prover Time taken = 0.002868
+Prover Time taken = 0.002796
+Verifying P3_stable_t2_s2: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002401
+Prover Time taken = 0.003205
+Prover Time taken = 0.005835
+Prover Time taken = 0.002735
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.005768
+Prover Time taken = 0.005469
+Prover Time taken = 0.005264
+Prover Time taken = 0.005262
+Verifying t1_transition_s3: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.001709
+Prover Time taken = 0.001642
+Prover Time taken = 0.001741
+Prover Time taken = 0.001724
+Verifying P2_stable_t2_s1: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002642
+Prover Time taken = 0.003257
+Prover Time taken = 0.002515
+Prover Time taken = 0.002329
+Verifying Q0_stable_t1_s3: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002558
+Prover Time taken = 0.00233
+Prover Time taken = 0.002444
+Prover Time taken = 0.002363
+Verifying t2_transition_s1: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.00372
+Added Horn clause: 5 => 7
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0058660
+Verifying P3_stable_t2_s2: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.002297
+Prover Time taken = 0.002139
+Prover Time taken = 0.001987
+Prover Time taken = 0.002066
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < x && x <= -1 && x <= -1 && -2 < x && -1 < x && x <= 0 && x <= 0 && -1 < x && 0 < x && x <= 1 && x <= 1 && 0 < x && -2 < y && y <= -1 && y <= -1 && -2 < y && -1 < y && y <= 0 && y <= 0 && -1 < y && 0 < y && y <= 1 && y <= 1 && 0 < y && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r && -2 < w + x && w + x <= -1 && w + x <= -1 && -2 < w + x && -1 < w + x && w + x <= 0 && w + x <= 0 && -1 < w + x && 0 < w + x && w + x <= 1 && w + x <= 1 && 0 < w + x && -2 < w - x && w - x <= -1 && w - x <= -1 && -2 < w - x && -1 < w - x && w - x <= 0 && w - x <= 0 && -1 < w - x && 0 < w - x && w - x <= 1 && w - x <= 1 && 0 < w - x && -2 < w + y && w + y <= -1 && w + y <= -1 && -2 < w + y && -1 < w + y && w + y <= 0 && w + y <= 0 && -1 < w + y && 0 < w + y && w + y <= 1 && w + y <= 1 && 0 < w + y && -2 < w - y && w - y <= -1 && w - y <= -1 && -2 < w - y && -1 < w - y && w - y <= 0 && w - y <= 0 && -1 < w - y && 0 < w - y && w - y <= 1 && w - y <= 1 && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && -1 < r + x && r + x <= 0 && r + x <= 0 && -1 < r + x && 0 < r + x && r + x <= 1 && r + x <= 1 && 0 < r + x && -2 < r - x && r - x <= -1 && r - x <= -1 && -2 < r - x && -1 < r - x && r - x <= 0 && r - x <= 0 && -1 < r - x && 0 < r - x && r - x <= 1 && r - x <= 1 && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && -1 < r + y && r + y <= 0 && r + y <= 0 && -1 < r + y && 0 < r + y && r + y <= 1 && r + y <= 1 && 0 < r + y && -2 < r - y && r - y <= -1 && r - y <= -1 && -2 < r - y && -1 < r - y && r - y <= 0 && r - y <= 0 && -1 < r - y && 0 < r - y && r - y <= 1 && r - y <= 1 && 0 < r - y && -2 < x + y && x + y <= -1 && x + y <= -1 && -2 < x + y && -1 < x + y && x + y <= 0 && x + y <= 0 && -1 < x + y && 0 < x + y && x + y <= 1 && x + y <= 1 && 0 < x + y && -2 < x - y && x - y <= -1 && x - y <= -1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && 0 < x - y && x - y <= 1 && x - y <= 1 && 0 < x - y
+}
+Prover Time taken = 0.007269
+Added Horn clause: 7 => 8
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0055070
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= -1 && x <= 0 && x <= 1 && y <= -1 && y <= 0 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= -1 && w + x <= 0 && w + x <= 1 && -2 < w - x && -1 < w - x && 0 < w - x && w + y <= -1 && w + y <= 0 && w + y <= 1 && -2 < w - y && -1 < w - y && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && r + x <= 0 && r + x <= 1 && -2 < r - x && -1 < r - x && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && r + y <= 0 && r + y <= 1 && -2 < r - y && -1 < r - y && 0 < r - y && x + y <= -1 && x + y <= 0 && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.004537
+Prover Time taken = 0.003896
+Prover Time taken = 0.003874
+Prover Time taken = 0.003962
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= -1 && x <= 0 && x <= 1 && y <= -1 && y <= 0 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= -1 && w + x <= 0 && w + x <= 1 && -2 < w - x && -1 < w - x && 0 < w - x && w + y <= -1 && w + y <= 0 && w + y <= 1 && -2 < w - y && -1 < w - y && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && r + x <= 0 && r + x <= 1 && -2 < r - x && -1 < r - x && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && r + y <= 0 && r + y <= 1 && -2 < r - y && -1 < r - y && 0 < r - y && x + y <= -1 && x + y <= 0 && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && w <= -1 && w <= -1 && -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && r <= -1 && r <= -1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && w + r <= -1 && w + r <= -1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.006851
+Added Horn clause: 8 => 9
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0029170
+Verifying Q3_stable_t1_s1: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002145
+Added Horn clause: 9 && 1 => 10
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0035750
+Verifying Q3_stable_t1_s1: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.001129
+Prover Time taken = 0.001038
+Prover Time taken = 0.000941
+Prover Time taken = 0.000989
+Verifying Q3_stable_t1_s2: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.000958
+Prover Time taken = 0.001056
+Prover Time taken = 0.001006
+Prover Time taken = 0.001003
+Verifying Q3_stable_t1_s3: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.00114
+Prover Time taken = 0.001131
+Prover Time taken = 0.001156
+Prover Time taken = 0.001162
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= -1 && x <= 0 && x <= 1 && y <= -1 && y <= 0 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= -1 && w + x <= 0 && w + x <= 1 && -2 < w - x && -1 < w - x && 0 < w - x && w + y <= -1 && w + y <= 0 && w + y <= 1 && -2 < w - y && -1 < w - y && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && r + x <= 0 && r + x <= 1 && -2 < r - x && -1 < r - x && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && r + y <= 0 && r + y <= 1 && -2 < r - y && -1 < r - y && 0 < r - y && x + y <= -1 && x + y <= 0 && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002131
+Prover Time taken = 0.002084
+Prover Time taken = 0.002034
+Prover Time taken = 0.002424
+Verifying assert_at_Q2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= -1 && x <= 0 && x <= 1 && y <= -1 && y <= 0 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= -1 && w + x <= 0 && w + x <= 1 && -2 < w - x && -1 < w - x && 0 < w - x && w + y <= -1 && w + y <= 0 && w + y <= 1 && -2 < w - y && -1 < w - y && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && r + x <= 0 && r + x <= 1 && -2 < r - x && -1 < r - x && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && r + y <= 0 && r + y <= 1 && -2 < r - y && -1 < r - y && 0 < r - y && x + y <= -1 && x + y <= 0 && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001487
+Prover Time taken = 0.001411
+Prover Time taken = 0.002339
+Prover Time taken = 0.001484
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= -1 && x <= 0 && x <= 1 && y <= -1 && y <= 0 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= -1 && w + x <= 0 && w + x <= 1 && -2 < w - x && -1 < w - x && 0 < w - x && w + y <= -1 && w + y <= 0 && w + y <= 1 && -2 < w - y && -1 < w - y && 0 < w - y && -2 < r + x && r + x <= -1 && r + x <= -1 && -2 < r + x && r + x <= 0 && r + x <= 1 && -2 < r - x && -1 < r - x && 0 < r - x && -2 < r + y && r + y <= -1 && r + y <= -1 && -2 < r + y && r + y <= 0 && r + y <= 1 && -2 < r - y && -1 < r - y && 0 < r - y && x + y <= -1 && x + y <= 0 && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002421
+Added Horn clause: 7 => 11
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0031760
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= 0 && x <= 1 && y <= 0 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= 0 && w + x <= 1 && -2 < w - x && -1 < w - x && w + y <= 0 && w + y <= 1 && -2 < w - y && -1 < w - y && -2 < r + x && r + x <= 1 && -2 < r - x && -1 < r - x && 0 < r - x && -2 < r + y && r + y <= 1 && -2 < r - y && -1 < r - y && 0 < r - y && x + y <= 0 && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001991
+Prover Time taken = 0.001823
+Prover Time taken = 0.002098
+Prover Time taken = 0.002738
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= 0 && x <= 1 && y <= 0 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= 0 && w + x <= 1 && -2 < w - x && -1 < w - x && w + y <= 0 && w + y <= 1 && -2 < w - y && -1 < w - y && -2 < r + x && r + x <= 1 && -2 < r - x && -1 < r - x && 0 < r - x && -2 < r + y && r + y <= 1 && -2 < r - y && -1 < r - y && 0 < r - y && x + y <= 0 && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.001802
+Prover Time taken = 0.001793
+Prover Time taken = 0.001637
+Prover Time taken = 0.001653
+Verifying assert_at_Q2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= 0 && x <= 1 && y <= 0 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= 0 && w + x <= 1 && -2 < w - x && -1 < w - x && w + y <= 0 && w + y <= 1 && -2 < w - y && -1 < w - y && -2 < r + x && r + x <= 1 && -2 < r - x && -1 < r - x && 0 < r - x && -2 < r + y && r + y <= 1 && -2 < r - y && -1 < r - y && 0 < r - y && x + y <= 0 && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001462
+Prover Time taken = 0.001428
+Prover Time taken = 0.001381
+Prover Time taken = 0.001365
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= 0 && x <= 1 && y <= 0 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= 0 && w + x <= 1 && -2 < w - x && -1 < w - x && w + y <= 0 && w + y <= 1 && -2 < w - y && -1 < w - y && -2 < r + x && r + x <= 1 && -2 < r - x && -1 < r - x && 0 < r - x && -2 < r + y && r + y <= 1 && -2 < r - y && -1 < r - y && 0 < r - y && x + y <= 0 && x + y <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002873
+Added Horn clause: 7 => 12
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0033650
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= 1 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= 1 && -2 < w - x && w + y <= 1 && -2 < w - y && -2 < r + x && -2 < r - x && -1 < r - x && -2 < r + y && -2 < r - y && -1 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002461
+Prover Time taken = 0.002287
+Prover Time taken = 0.002195
+Prover Time taken = 0.002256
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= 1 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= 1 && -2 < w - x && w + y <= 1 && -2 < w - y && -2 < r + x && -2 < r - x && -1 < r - x && -2 < r + y && -2 < r - y && -1 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002617
+Prover Time taken = 0.002008
+Prover Time taken = 0.002833
+Prover Time taken = 0.001967
+Verifying assert_at_Q2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= 1 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= 1 && -2 < w - x && w + y <= 1 && -2 < w - y && -2 < r + x && -2 < r - x && -1 < r - x && -2 < r + y && -2 < r - y && -1 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001479
+Prover Time taken = 0.001323
+Prover Time taken = 0.001354
+Prover Time taken = 0.001323
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && x <= 1 && y <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && w + x <= 1 && -2 < w - x && w + y <= 1 && -2 < w - y && -2 < r + x && -2 < r - x && -1 < r - x && -2 < r + y && -2 < r - y && -1 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002616
+Added Horn clause: 7 => 13
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0036110
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < r + x && -2 < r - x && -2 < r + y && -2 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001919
+Prover Time taken = 0.00209
+Prover Time taken = 0.002238
+Prover Time taken = 0.002207
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < r + x && -2 < r - x && -2 < r + y && -2 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002128
+Prover Time taken = 0.002078
+Prover Time taken = 0.002066
+Prover Time taken = 0.002213
+Verifying assert_at_Q2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < r + x && -2 < r - x && -2 < r + y && -2 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001291
+Prover Time taken = 0.001446
+Prover Time taken = 0.001344
+Prover Time taken = 0.001444
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < r + x && -2 < r - x && -2 < r + y && -2 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001676
+Prover Time taken = 0.003035
+Added Horn clause: 7 => 14
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0046860
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < r - x && -2 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002111
+Prover Time taken = 0.001964
+Prover Time taken = 0.00191
+Prover Time taken = 0.003587
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < r - x && -2 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.001673
+Prover Time taken = 0.00163
+Prover Time taken = 0.001765
+Prover Time taken = 0.002423
+Verifying assert_at_Q2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < r - x && -2 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001497
+Prover Time taken = 0.001248
+Prover Time taken = 0.001192
+Prover Time taken = 0.001218
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < r - x && -2 < r - y && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001596
+Prover Time taken = 0.002925
+Added Horn clause: 7 => 15
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0047700
+Verifying P3_stable_t2_s3: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002738
+Prover Time taken = 0.001964
+Prover Time taken = 0.002571
+Prover Time taken = 0.002714
+Verifying t2_transition_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.001991
+Prover Time taken = 0.001832
+Prover Time taken = 0.002323
+Prover Time taken = 0.002172
+Verifying assert_at_Q2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.001403
+Prover Time taken = 0.00128
+Prover Time taken = 0.001208
+Prover Time taken = 0.003468
+Verifying t2_transition_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002357
+Prover Time taken = 0.002903
+Prover Time taken = 0.003085
+Prover Time taken = 0.002938
+Verifying P0_stable_t2_s3: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.003768
+Prover Time taken = 0.003047
+Prover Time taken = 0.002622
+Prover Time taken = 0.002855
+Verifying P2_stable_t2_s2: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.003357
+Prover Time taken = 0.003207
+Prover Time taken = 0.00218
+Prover Time taken = 0.002146
+Verifying P2_stable_t2_s3: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002678
+Prover Time taken = 0.002525
+Prover Time taken = 0.002944
+Prover Time taken = 0.003195
+Verifying t2_transition_s1: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.001842
+Prover Time taken = 0.002173
+Prover Time taken = 0.001786
+Prover Time taken = 0.003026
+Verifying P0_stable_t2_s2: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.00292
+Prover Time taken = 0.002393
+Prover Time taken = 0.002504
+Prover Time taken = 0.002139
+Verifying P0_stable_t2_s1: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.003813
+Added Horn clause: 1 && 5 => 16
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0068890
+Verifying Q3_stable_t1_s1: 
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.001724
+Prover Time taken = 0.001679
+Prover Time taken = 0.00192
+Prover Time taken = 0.001653
+Verifying P0_stable_t2_s3: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.002738
+Prover Time taken = 0.003675
+Prover Time taken = 0.003298
+Prover Time taken = 0.003407
+Verifying t1_transition_s1: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002109
+Prover Time taken = 0.001963
+Prover Time taken = 0.002342
+Prover Time taken = 0.003049
+Verifying P0_stable_t2_s2: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.00557
+Prover Time taken = 0.002674
+Prover Time taken = 0.001955
+Prover Time taken = 0.002417
+Verifying P0_stable_t2_s1: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002185
+Prover Time taken = 0.002146
+Prover Time taken = 0.002195
+Prover Time taken = 0.002259
+Verifying Q0_stable_t1_s1: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 0 && w + r <= 0 && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 0 && w - r <= 0 && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.00357
+Added Horn clause: 5 && 1 => 17
+Calling ../Boogie/Binaries/hice-dt -b -h /home/alexander/sharedData/uni/hice-dt/benchmarks/concurrentPrograms/18_read_write_lock_true-unreach-call-OG.bpl
+Total learner time was 00:00:00.0055140
+Verifying P3_stable_t2_s1: 
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002846
+Prover Time taken = 0.002511
+Prover Time taken = 0.002569
+Prover Time taken = 0.003056
+Verifying P2_stable_t2_s1: 
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.00289
+Prover Time taken = 0.002839
+Prover Time taken = 0.002317
+Prover Time taken = 0.002259
+Verifying Q0_stable_t1_s3: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002983
+Prover Time taken = 0.003127
+Prover Time taken = 0.002977
+Prover Time taken = 0.004365
+Verifying t2_transition_s1: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.002018
+Prover Time taken = 0.001899
+Prover Time taken = 0.002218
+Prover Time taken = 0.00256
+Verifying P0_stable_t2_s1: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002043
+Prover Time taken = 0.001966
+Prover Time taken = 0.002223
+Prover Time taken = 0.002533
+Verifying Q0_stable_t1_s1: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.00238
+Prover Time taken = 0.002246
+Prover Time taken = 0.001771
+Prover Time taken = 0.001874
+Verifying P1_stable_t2_s1: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.002741
+Prover Time taken = 0.002498
+Prover Time taken = 0.002378
+Prover Time taken = 0.002298
+Verifying P1_stable_t2_s2: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.002529
+Prover Time taken = 0.002922
+Prover Time taken = 0.002358
+Prover Time taken = 0.002545
+Verifying P1_stable_t2_s3: 
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+Prover Time taken = 0.003189
+Prover Time taken = 0.003651
+Prover Time taken = 0.004515
+Prover Time taken = 0.003095
+Verifying Q0_stable_t1_s2: 
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.003003
+Prover Time taken = 0.002889
+Prover Time taken = 0.002371
+Prover Time taken = 0.002432
+Verifying Q1_stable_t1_s2: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002507
+Prover Time taken = 0.002597
+Prover Time taken = 0.00254
+Prover Time taken = 0.002525
+Verifying Q1_stable_t1_s1: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.002062
+Prover Time taken = 0.002281
+Prover Time taken = 0.002844
+Prover Time taken = 0.002252
+Verifying Q1_stable_t1_s3: 
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002605
+Prover Time taken = 0.002424
+Prover Time taken = 0.002729
+Prover Time taken = 0.002499
+Verifying Q2_stable_t1_s2: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.002375
+Prover Time taken = 0.004768
+Prover Time taken = 0.002962
+Prover Time taken = 0.002979
+Verifying Q2_stable_t1_s1: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+Prover Time taken = 0.00247
+Prover Time taken = 0.002799
+Prover Time taken = 0.003398
+Prover Time taken = 0.003137
+Verifying Q2_stable_t1_s3: 
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+Prover Time taken = 0.003936
+Prover Time taken = 0.004162
+Prover Time taken = 0.003433
+Prover Time taken = 0.003718
+Verifying pre_condition: 
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+Prover Time taken = 0.001885
+Prover Time taken = 0.001706
+Prover Time taken = 0.00177
+Prover Time taken = 0.001718
+Prover time = 1.39
+Number of prover queries = 508
+Learner time = 0.08
+Number of learner queries = 18
+Total time: 6.60
+Number of positive examples:2
+Number of negative examples:1
+Number of Horn clauses:15
+function {:existential true} {:inline} P0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} P1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P2(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && 0 < w && w <= 1 && w <= 1 && 0 < w && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && -1 < w - r && 0 < w - r && w - r <= 1 && w - r <= 1 && 0 < w - r
+}
+function {:existential true} {:inline} P3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q0(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+function {:existential true} {:inline} Q1(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1
+}
+function {:existential true} {:inline} Q2(w: int, r: int, x: int, y: int) : bool
+{
+  -2 < w && -1 < w && w <= 0 && w <= 0 && -1 < w && w <= 1 && -2 < r && -1 < r && 0 < r && r <= 1 && r <= 1 && 0 < r && -2 < w + r && -1 < w + r && 0 < w + r && w + r <= 1 && w + r <= 1 && 0 < w + r && -2 < w - r && w - r <= -1 && w - r <= -1 && -2 < w - r && w - r <= 0 && w - r <= 1 && -2 < x - y && -1 < x - y && x - y <= 0 && x - y <= 0 && -1 < x - y && x - y <= 1
+}
+function {:existential true} {:inline} Q3(w: int, r: int) : bool
+{
+  -2 < w && -1 < w && w <= 1 && -2 < r && -1 < r && r <= 0 && r <= 0 && -1 < r && r <= 1 && -2 < w + r && -1 < w + r && w + r <= 1 && -2 < w - r && -1 < w - r && w - r <= 1
+}
+verified
+
+Boogie program verifier finished with 1 verified, 0 errors
