@@ -1,6 +1,6 @@
 #! /bin/bash
 
-path="$(dirname "$PWD")"/benchmarks/concurrentPrograms
+path=../benchmarks/concurrentPrograms
 
 run_the_test() {
 

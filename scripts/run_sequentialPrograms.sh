@@ -1,6 +1,6 @@
 #! /bin/bash
 
-path="$(dirname "$PWD")"/benchmarks/sequentialPrograms
+path=../benchmarks/sequentialPrograms
 
 run_the_test() {
 

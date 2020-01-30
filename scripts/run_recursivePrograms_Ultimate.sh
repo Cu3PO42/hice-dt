@@ -6,7 +6,7 @@ TIMEOUT=600
 # Path to Ultimate.py
 ULTIMATE_PATH=${1?Path to Ultimate.py not specified (use first command line argument)}
 
-path="$(dirname "$PWD")"/benchmarks/recursivePrograms
+path=../benchmarks/recursivePrograms
 
 run_the_test() {
 

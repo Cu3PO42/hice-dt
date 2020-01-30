@@ -1,6 +1,6 @@
 #! /bin/bash
 
-path="$(dirname "$PWD")"/benchmarks/sequentialPrograms
+path=../benchmarks/sequentialPrograms
 
 elapsed(){
 

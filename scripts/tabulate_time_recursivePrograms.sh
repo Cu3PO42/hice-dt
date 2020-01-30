@@ -1,6 +1,6 @@
 #! /bin/bash
 
-path="$(dirname "$PWD")"/benchmarks/recursivePrograms
+path=../benchmarks/recursivePrograms
 
 elapsed() {
 
