@@ -12,7 +12,7 @@ hice-dt:
 	CC=clang CXX=clang++ cmake -S ./hice-dt -B ./hice-dt/build
 	make -C ./hice-dt/build/
 
-chc_verifier: z3
+chc_verifier: z3 hice-dt
 	make -C ./chc_verifier/src/
 
 z3:
