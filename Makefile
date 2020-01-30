@@ -2,13 +2,15 @@
 
 all: boogie z3 hice-dt chc_verifier
 	cp ./z3-4.7.1/build/z3 ./Boogie/Binaries/z3.exe
-	cp ./hice-dt/src/hice-dt ./Boogie/Binaries/
+	cp ./hice-dt/build/hice-dt ./Boogie/Binaries/
 
 boogie:
 	xbuild /p:TargetFrameworkVersion="v4.5" /p:TargetFrameworkProfile="" /p:WarningLevel=1 ./Boogie/Source/Boogie.sln
 
 hice-dt:
-	make -C ./hice-dt/src/
+	mkdir -p ./hice-dt/build
+	cmake -S ./hice-dt -B ./hice-dt/build
+	make -C ./hice-dt/build/
 
 chc_verifier: z3
 	make -C ./chc_verifier/src/
@@ -21,7 +23,7 @@ z3:
 
 clean:
 	xbuild /t:clean ./Boogie/Source/Boogie.sln
-	make -C hice-dt/src/ clean
+	rm -rf ./hice-dt/build
 	make -C chc_verifier/src/ clean
 	rm -rf ./Boogie/Binaries
 	rm -rf ./z3-4.7.1/build/

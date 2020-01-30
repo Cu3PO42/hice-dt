@@ -13,6 +13,8 @@ OBJS = boogie_io.o \
 CPPFLAGS += -I ../include
 CPPFLAGS += -std=c++14 -Ofast
 
+CXX = clang++
+
 all: hice-dt
 
 hice-dt: $(OBJS)
