@@ -22,6 +22,7 @@
 #include "horn_solver.h"
 #include "learner.h"
 #include "pretty_print_visitor.h" // DEBUG
+#include "complex_job_manager.h"
 
 
 using namespace horn_verification;
@@ -250,7 +251,7 @@ int main(int argc, char * argv[]) {
 				//
 				// Output and exit if consistent
 				//
-				auto horndini_consistent = learner<complex_job_manager>::is_consistent(horndini_tree, datapoint_ptrs, horn_constraints);
+				auto horndini_consistent = learner::is_consistent(horndini_tree, datapoint_ptrs, horn_constraints);
 				if (horndini_consistent)
 				{
 
@@ -401,10 +402,10 @@ int main(int argc, char * argv[]) {
 				auto ns = NodeSelection::BFS;
 				auto ec = EntropyComputation::PENALTY;
 				auto cs = ConjunctiveSetting::NOPREFERENCEFORCONJUNCTS;
-				auto manager = cur_bound.use_bound() ? complex_job_manager(datapoint_ptrs, horn_constraints, solver, cur_bound.get_bound(), ns, ec, cs) : complex_job_manager(datapoint_ptrs, horn_constraints, solver, ns, ec, cs);
-				learner<complex_job_manager> l(manager);
+				job_manager *manager = cur_bound.use_bound() ? new complex_job_manager(datapoint_ptrs, horn_constraints, solver, cur_bound.get_bound(), ns, ec, cs) : new complex_job_manager(datapoint_ptrs, horn_constraints, solver, ns, ec, cs);
+				std::unique_ptr<job_manager> manager_unique(manager);
+				learner l(manager_unique);
 				auto decision_tree = l.learn(metadata, datapoint_ptrs, horn_constraints);
-
 
 				//
 				// Debug

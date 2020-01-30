@@ -445,7 +445,7 @@ namespace horn_verification
 	{
 
 		/// Gives the learner access to the root
-		template <class JobManager> friend class learner;
+		friend class learner;
 
 	
 		/// Root node of the decision tree
