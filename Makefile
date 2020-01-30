@@ -17,7 +17,7 @@ chc_verifier: z3
 
 z3:
 	cd ./z3-4.7.1; \
-	python scripts/mk_make.py
+	if [ ! -f "build/z3.a" ]; then python scripts/mk_make.py; fi
 	make -C ./z3-4.7.1/build
 	find ./z3-4.7.1/build -name '*.o' | xargs ar rs ./z3-4.7.1/build/z3.a
 
