@@ -9,7 +9,7 @@ boogie:
 
 hice-dt:
 	mkdir -p ./hice-dt/build
-	cmake -S ./hice-dt -B ./hice-dt/build
+	CC=clang CXX=clang++ cmake -S ./hice-dt -B ./hice-dt/build
 	make -C ./hice-dt/build/
 
 chc_verifier: z3

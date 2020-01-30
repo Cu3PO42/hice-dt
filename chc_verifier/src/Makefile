@@ -20,7 +20,7 @@ OMPFLAGS = -fopenmp
 
 ifneq ($(OS),Windows_NT)
 ifeq ($(shell uname -s),Darwin)
-OMP_FLAGS = -Xpreprocessor -fopenmp
+OMPFLAGS = -Xpreprocessor -fopenmp
 endif
 endif
 
