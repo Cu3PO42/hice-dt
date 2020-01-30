@@ -16,10 +16,18 @@ CPPFLAGS += -I ../../z3-4.7.1/src/api/c++
 CPPFLAGS += -L ../../z3-4.7.1/build
 CPPFLAGS += -std=c++14 -Ofast
 
+OMPFLAGS = -fopenmp
+
+ifneq ($(OS),Windows_NT)
+ifeq ($(shell uname -s),Darwin)
+OMP_FLAGS = -Xpreprocessor -fopenmp
+endif
+endif
+
 all: chc_verifier
 
 chc_verifier: $(OBJS)
-	$(CXX) $(CPPFLAGS) $(LDFLAGS) -fopenmp -o chc_verifier chc_verifier.cpp $(OBJS) ../../z3-4.7.1/build/z3.a
+	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(OMPFLAGS) -o chc_verifier chc_verifier.cpp $(OBJS) ../../z3-4.7.1/build/z3.a
 
 %.o: %.cpp
 	$(CXX) $(CPPFLAGS) -c $< -o $@
