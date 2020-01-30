@@ -16,6 +16,8 @@ CPPFLAGS += -I ../../z3-4.7.1/src/api/c++
 CPPFLAGS += -L ../../z3-4.7.1/build
 CPPFLAGS += -std=c++14 -Ofast
 
+CXX = clang++
+
 all: chc_verifier
 
 chc_verifier: $(OBJS)
