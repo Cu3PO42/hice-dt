@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <string>
 #include <sstream>
+#include <filesystem>
 
 // C includes
 #include <unistd.h>
@@ -114,6 +115,32 @@ void print_help(std::ostream & out, const char * name)
 
 }
 
+class backup {
+public:
+	backup(std::string file_stem) : file_stem(file_stem) {
+		std::string status;
+		std::ostringstream buf; 
+		std::ifstream input(file_stem + ".status"); 
+		buf << input.rdbuf(); 
+		status = buf.str();
+		std::filesystem::path subdir(file_stem); subdir.replace_extension(); subdir /= status; subdir /= "";
+		if (std::filesystem::is_directory(subdir)) {
+			std::filesystem::remove_all(subdir);
+		}
+		std::filesystem::create_directories(subdir);
+		std::filesystem::path sub_dir_stem(subdir / std::filesystem::path(file_stem).filename());
+		this->sub_dir_stem = sub_dir_stem.string();
+	}
+
+	void backup_file(const char * const ext) {
+		if constexpr (true) {
+			std::filesystem::create_hard_link(file_stem + ext, sub_dir_stem + ext);
+		}
+	}
+private:
+	std::string file_stem;
+	std::string sub_dir_stem;
+};
 
 /**
  * The main program.
@@ -184,6 +211,12 @@ int main(int argc, char * argv[]) {
 		// Read intervals
 		const auto intervals = boogie_io::read_intervals_file(file_stem + ".intervals");
 
+		backup b(file_stem);
+		b.backup_file(".attributes");
+		b.backup_file(".data");
+		b.backup_file(".horn");
+		b.backup_file(".intervals");
+		b.backup_file(".status");
 
 		//
 		// Check input
@@ -256,10 +289,12 @@ int main(int argc, char * argv[]) {
 				{
 
 					boogie_io::write_json_file(file_stem + ".json", horndini_tree, metadata);
+					b.backup_file(".json");
 
 					if (cur_bound.use_bound())
 					{
 						cur_bound.write_bound_file(file_stem + ".bound", cur_bound);
+						b.backup_file(".bound");
 					}
 
 					return EXIT_SUCCESS;
@@ -416,10 +451,12 @@ int main(int argc, char * argv[]) {
 				// Output
 				//
 				boogie_io::write_json_file(file_stem + ".json", decision_tree, metadata);
+				b.backup_file(".json");
 
 				if (cur_bound.use_bound())
 				{
 					cur_bound.write_bound_file(file_stem + ".bound", cur_bound);
+					b.backup_file(".bound");
 				}
 				
 
