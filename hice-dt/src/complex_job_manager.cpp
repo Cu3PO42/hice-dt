@@ -5,14 +5,10 @@ using namespace horn_verification;
 void complex_job_manager::initialize_datapoint_ptrs_to_frac() {
     for (auto & _datapoint_ptr : _datapoint_ptrs) {
         if (_datapoint_ptr->_is_classified) {
-            if (_datapoint_ptr->_classification) {
-                _datapoint_ptrs_to_frac[_datapoint_ptr] = 1.0;
-            } else {
-                _datapoint_ptrs_to_frac[_datapoint_ptr] = 0.0;
+            _datapoint_ptrs_to_frac[_datapoint_ptr] = _datapoint_ptr->_classification ? 1.0 : 0.0;
             }
         }
     }
-}
 
 void complex_job_manager::update_datapoint_ptrs_to_frac_with_complete_horn_assignments() {
     std::map<datapoint<bool> *, double> _sum_of_datapoint_ptrs_to_frac;
