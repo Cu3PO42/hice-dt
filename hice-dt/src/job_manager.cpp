@@ -15,9 +15,7 @@ bool job_manager::is_leaf(
     assert(positive_ptrs.empty());
     assert(negative_ptrs.empty());
 
-    //
     // Check which classifications occur
-    //
     bool found_true = false;
     bool found_false = false;
     bool found_unlabeled = false;
@@ -35,148 +33,67 @@ bool job_manager::is_leaf(
             if (!found_unlabeled) {
                 found_unlabeled = true;
                 index_of_first_unlabeled = i;
-                index_of_last_unlabeled = i;
-            } else {
-                index_of_last_unlabeled = i;
+            }
+            index_of_last_unlabeled = i;
+        }
+
+        // Found positively and negatively classified data points, thus no leaf node
+        if (found_true && found_false) {
+            return false;
+        }
+    }
+
+    // Only positively or only negatively classified data points (i.e., no unlabeled)
+    if (!found_unlabeled) {
+        // Since either positive or negative data points occur, found_true indicates which ones occur
+        label = found_true; 
+        return true;
+    }
+
+    // Unlabaled and positive xor negative data points
+    if (found_true || found_false) {
+        // If we have positive points, we want to label the unlabeled points positive, otherwise negative
+        auto &my_pos_ptrs = found_true ? positive_ptrs : negative_ptrs;
+        auto &my_neg_ptrs = found_true ? negative_ptrs : positive_ptrs;
+
+        // Try to label all unclassified points
+        for (std::size_t i = index_of_first_unlabeled; i <= index_of_last_unlabeled; ++i) {
+            if (!_datapoint_ptrs[i]->_is_classified) {
+                my_pos_ptrs.insert(_datapoint_ptrs[i]);
             }
         }
 
-        if (found_true && found_false) {
+        // Query the horn solver to check if this labeling is positive
+        label = found_true;
+        return _horn_solver.solve(_datapoint_ptrs, _horn_constraints, my_pos_ptrs, my_neg_ptrs);
+    }
+
+    // Only unclassified data points
+
+    // Try to turn all data points positive
+    for (std::size_t i = sl._left_index; i <= sl._right_index; ++i) {
+        positive_ptrs.insert(_datapoint_ptrs[i]);
+    }
+
+    for (bool tryLabel = true;; tryLabel = false) {
+        auto ok = _horn_solver.solve(_datapoint_ptrs, _horn_constraints, positive_ptrs, negative_ptrs);
+
+        // If labeling satisfies Horn constraints, report leaf with classification true
+        if (ok) {
+            label = tryLabel;
+            return true;
+        }
+
+        if (tryLabel) {
+            // Next time try to label all points negative
+            std::swap(positive_ptrs, negative_ptrs);
+        } else {
             break;
         }
     }
 
-    //
-    // Found positively and negatively classified data points, thus no leaf node
-    //
-    if (found_true && found_false) {
-        return false;
-    }
-
-    //
-    // Only positively or only negatively classified data points (i.e., no unlabeled)
-    //
-    else if (!found_unlabeled) {
-        label =
-            found_true; // Since either positive or negative data points occur, found_true indicates which ones occur
-        return true;
-    }
-
-    //
-    // Unlabaled and positive data points
-    //
-    else if (found_true) {
-        // Collect unlabeled data points
-        for (std::size_t i = index_of_first_unlabeled; i <= index_of_last_unlabeled; ++i) {
-            if (!_datapoint_ptrs[i]->_is_classified) {
-                positive_ptrs.insert(_datapoint_ptrs[i]);
-            }
-        }
-
-        // Run Horn solver
-        // output_state(positive_ptrs, negative_ptrs, _horn_constraints, "\n---------- + and ? (mark +)", std::cout);
-        // horn_solver<bool> solver;
-        // auto ok = solver.solve(_datapoint_ptrs, _horn_constraints, positive_ptrs, negative_ptrs);
-        auto ok = _horn_solver.solve(_datapoint_ptrs, _horn_constraints, positive_ptrs, negative_ptrs);
-        // output_state(positive_ptrs, negative_ptrs, _horn_constraints, "\n---------- Solver result: " +
-        // std::to_string(ok), std::cout);
-
-        // Labeling satisfies Horn constraints
-        if (ok) {
-            label = true;
-            return true;
-        }
-
-        // Labeling does not satisfy Horn constraints
-        else {
-            // positive_ptrs.clear();
-            return false;
-        }
-
-    }
-
-    //
-    // Unlabaled and negative data points
-    //
-    else if (found_false) {
-        // Collect unlabeled data points
-        for (std::size_t i = index_of_first_unlabeled; i <= index_of_last_unlabeled; ++i) {
-            if (!_datapoint_ptrs[i]->_is_classified) {
-                negative_ptrs.insert(_datapoint_ptrs[i]);
-            }
-        }
-
-        // Run Horn solver
-        // output_state(positive_ptrs, negative_ptrs, _horn_constraints, "\n---------- - and ? (mark -)", std::cout);
-        // horn_solver<bool> solver;
-        auto ok = _horn_solver.solve(_datapoint_ptrs, _horn_constraints, positive_ptrs, negative_ptrs);
-        // output_state(positive_ptrs, negative_ptrs, _horn_constraints, "\n---------- Solver result: " +
-        // std::to_string(ok), std::cout);
-
-        // Labeling satisfies Horn constraints
-        if (ok) {
-            label = false;
-            return true;
-        }
-
-        // Labeling does not satisfy Horn constraints
-        else {
-            // negative_ptrs.clear();
-            return false;
-        }
-
-    }
-
-    //
-    // Only unclassified data points
-    //
-    else {
-        //
-        // Try to turn all data points positive
-        //
-        for (std::size_t i = sl._left_index; i <= sl._right_index; ++i) {
-            positive_ptrs.insert(_datapoint_ptrs[i]);
-        }
-
-        // Run Horn solver
-        // output_state(positive_ptrs, negative_ptrs, _horn_constraints, "\n---------- All ? (mark +)", std::cout);
-        // horn_solver<bool> solver;
-        auto ok = _horn_solver.solve(_datapoint_ptrs, _horn_constraints, positive_ptrs, negative_ptrs);
-        // output_state(positive_ptrs, negative_ptrs, _horn_constraints, "\n---------- Solver result: " +
-        // std::to_string(ok), std::cout);
-
-        // If labeling satisfies Horn constraints, report leaf with classification true
-        if (ok) {
-            label = true;
-            return true;
-        }
-
-        //
-        // Try to turn all data points negative
-        //
-        positive_ptrs.clear();
-        for (std::size_t i = sl._left_index; i <= sl._right_index; ++i) {
-            negative_ptrs.insert(_datapoint_ptrs[i]);
-        }
-
-        // Run Horn solver
-        // output_state(positive_ptrs, negative_ptrs, _horn_constraints, "\n---------- All ? (mark -)", std::cout);
-        // horn_solver<bool> solver1;
-        ok = _horn_solver.solve(_datapoint_ptrs, _horn_constraints, positive_ptrs, negative_ptrs);
-        // output_state(positive_ptrs, negative_ptrs, _horn_constraints, "\n---------- Solver result: " +
-        // std::to_string(ok), std::cout);
-
-        // If labeling satisfies Horn constraints, report leaf with classification false
-        if (ok) {
-            label = false;
-            return true;
-        }
-
-        //
-        // Split is necessary
-        //
-        return false;
-    }
+    // Split is necessary
+    return false;
 }
 
 bool job_manager::unclassified_points_present(
