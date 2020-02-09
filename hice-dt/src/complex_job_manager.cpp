@@ -6,71 +6,55 @@ void complex_job_manager::initialize_datapoint_ptrs_to_frac() {
     for (auto & _datapoint_ptr : _datapoint_ptrs) {
         if (_datapoint_ptr->_is_classified) {
             _datapoint_ptrs_to_frac[_datapoint_ptr] = _datapoint_ptr->_classification ? 1.0 : 0.0;
-            }
         }
     }
+}
 
 void complex_job_manager::update_datapoint_ptrs_to_frac_with_complete_horn_assignments() {
     std::map<datapoint<bool> *, double> _sum_of_datapoint_ptrs_to_frac;
 
     // Create a list of _datapoint_ptrs which are unclassified
-    std::vector<datapoint<bool> *> _unclassified_datapoint_ptrs_stable;
+    std::unordered_set<datapoint<bool> *> _unclassified_datapoint_ptrs_stable;
     for (auto & _datapoint_ptr : _datapoint_ptrs) {
         if (!_datapoint_ptr->_is_classified) {
-            _unclassified_datapoint_ptrs_stable.push_back(_datapoint_ptr);
+            _unclassified_datapoint_ptrs_stable.emplace(_datapoint_ptr);
         }
+        _sum_of_datapoint_ptrs_to_frac[_datapoint_ptr] = 0.0;
     }
 
     // Now generate complete horn assignments by randomly picking a datapoint from _unclassified_datapoint_ptrs and
     // assigning it True/False followed by label propagation.
-    int numberOfCompleteHornAssignments = 3;
+    constexpr int numberOfCompleteHornAssignments = 3;
     for (int i = 0; i < numberOfCompleteHornAssignments; i++) {
-        std::vector<datapoint<bool> *> _unclassified_datapoint_ptrs_temp(_unclassified_datapoint_ptrs_stable);
-        auto positive_ptrs = std::unordered_set<datapoint<bool> *>();
-        auto negative_ptrs = std::unordered_set<datapoint<bool> *>();
+        auto _unclassified_datapoint_ptrs_temp(_unclassified_datapoint_ptrs_stable);
+        std::unordered_set<datapoint<bool> *> positive_ptrs;
+        std::unordered_set<datapoint<bool> *> negative_ptrs;
+
         while (!_unclassified_datapoint_ptrs_temp.empty()) {
             unsigned int itemToAssignClassification = rand() % _unclassified_datapoint_ptrs_temp.size();
-            if (rand() % 2 == 0) {
-                positive_ptrs.insert(_unclassified_datapoint_ptrs_temp[itemToAssignClassification]);
-            } else {
-                negative_ptrs.insert(_unclassified_datapoint_ptrs_temp[itemToAssignClassification]);
-            }
+            auto item = *std::next(std::begin(_unclassified_datapoint_ptrs_temp), itemToAssignClassification);
+            (rand() % 2 == 0 ? positive_ptrs : negative_ptrs).insert(item);
 
             auto ok = _horn_solver.solve(_datapoint_ptrs, _horn_constraints, positive_ptrs, negative_ptrs);
             assert(ok);
 
             // Remove the items present in positive_ptrs and negative_ptrs from _unclassified_datapoint_ptrs_temp
-            for (auto positive_ptr : positive_ptrs) {
-                // If *it is present in _unclassified_datapoint_ptrs_temp, then remove it.
-                auto result_it = std::find(
-                    _unclassified_datapoint_ptrs_temp.begin(), _unclassified_datapoint_ptrs_temp.end(), positive_ptr);
-                if (result_it != _unclassified_datapoint_ptrs_temp.end()) {
-                    _unclassified_datapoint_ptrs_temp.erase(result_it);
-                }
-            }
-            for (auto negative_ptr : negative_ptrs) {
-                // If *it is present in _unclassified_datapoint_ptrs_temp, then remove it.
-                auto result_it = std::find(
-                    _unclassified_datapoint_ptrs_temp.begin(), _unclassified_datapoint_ptrs_temp.end(), negative_ptr);
-                if (result_it != _unclassified_datapoint_ptrs_temp.end()) {
-                    _unclassified_datapoint_ptrs_temp.erase(result_it);
+            for (auto it = _unclassified_datapoint_ptrs_temp.begin(); it != _unclassified_datapoint_ptrs_temp.end();) {
+                if (positive_ptrs.find(*it) != positive_ptrs.end() || negative_ptrs.find(*it) != negative_ptrs.end()) {
+                    it = _unclassified_datapoint_ptrs_temp.erase(it);
+                } else {
+                    ++it;
                 }
             }
         }
-        std::map<datapoint<bool> *, double> _datapoint_ptrs_to_frac_temp(_datapoint_ptrs_to_frac);
+
         for (auto positive_ptr : positive_ptrs) {
-            _datapoint_ptrs_to_frac_temp[positive_ptr] = 1.0;
-        }
-        for (auto negative_ptr : negative_ptrs) {
-            _datapoint_ptrs_to_frac_temp[negative_ptr] = 0.0;
-        }
-        for (auto & it : _datapoint_ptrs_to_frac_temp) {
-            _sum_of_datapoint_ptrs_to_frac[it.first] += it.second;
+            _sum_of_datapoint_ptrs_to_frac[positive_ptr] += 1.0;
         }
     }
     // Divide _sum_of_datapoint_ptrs_to_frac by 5 and store it to _datapoint_ptrs_to_frac
-    for (auto it = _sum_of_datapoint_ptrs_to_frac.begin(); it != _sum_of_datapoint_ptrs_to_frac.end(); ++it) {
-        _sum_of_datapoint_ptrs_to_frac[it->first] = it->second / numberOfCompleteHornAssignments;
+    for (auto &value : _sum_of_datapoint_ptrs_to_frac) {
+        value.second /= numberOfCompleteHornAssignments;
     }
 
     // Update _datapoint_ptrs_to_frac to _sum_of_datapoint_ptrs_to_frac
