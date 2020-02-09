@@ -27,38 +27,6 @@
 namespace horn_verification {
 
 /**
- * Enum to decide the heuristic for selecting the next node while constructing the tree
- */
-enum NodeSelection {
-    BFS = 0,              // Selects node in a Breadth-first order
-    DFS,                  // Selects node in a Depth-first order
-    RANDOM,               // Selects a random node
-    MAX_ENTROPY,          // Selects the node which has the maximum entropy
-    MAX_WEIGHTED_ENTROPY, // Selects the node which has the maximum entropy weighted by the number of classified points
-                          // in the node
-    MIN_ENTROPY,          // Selects the node which has the minimum entropy
-    MIN_WEIGHTED_ENTROPY  // Selects the node which has the minimum entropy wieghted by the number of classified points
-                          // in the node
-};
-/**
- * Enum to select if one prefers conjunctive splits (split carves out a sub-node which includes only negative points or
- * unclassified points) over non-conjunctive splits
- */
-enum ConjunctiveSetting { NOPREFERENCEFORCONJUNCTS = 0, PREFERENCEFORCONJUNCTS };
-
-/**
- * Enum to decide the heuristic for computing the goodness/badness score (a la entropy) for a set of data points.
- */
-enum EntropyComputation {
-    DEFAULT_ENTROPY = 0, // Ignores horn constraints and computes the entropy using only the positively and negatively
-                         // classified data points
-    PENALTY,             // Adds a linear penalty term based on the number of horn constraints involving data points
-                         // outside the current set
-    HORN_ASSIGNMENTS,    // Estimates the positive/negative distribution of the unclassified points and considers that
-                         // when computing the entropy
-};
-
-/**
  * Abstract job manager.
  *
  * A job manager implements heuristics for decising

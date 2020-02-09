@@ -239,6 +239,7 @@ double complex_job_manager::entropy(
         double sum = right_index - left_index + 1;
         count_f = sum - count_t;
 
+        // TODO: the following is the same as in the default case
         // std::cout << "sum=" << sum << std::endl;
         double p_t = ((double)(count_t) / sum);
         // std::cout << "p_t=" << p_t << std::endl;
@@ -251,46 +252,9 @@ double complex_job_manager::entropy(
         return -(entropy_t + entropy_f);
 
     } else if (_entropy_computation_criterion == DEFAULT_ENTROPY || _entropy_computation_criterion == PENALTY) {
-        unsigned int count_f = 0;
-        unsigned int count_t = 0;
-
-        for (std::size_t i = left_index; i <= right_index; ++i) {
-            if (datapoint_ptrs[i]->_is_classified) {
-                if (datapoint_ptrs[i]->_classification) {
-                    ++count_t;
-                } else {
-                    ++count_f;
-                }
-            }
+        return simple_job_manager::entropy(datapoint_ptrs, left_index, right_index);
         }
-
-        double sum = count_t + count_f;
-        // std::cout << "sum=" << sum << std::endl;
-        double p_t = ((double)(count_t) / sum);
-        // std::cout << "p_t=" << p_t << std::endl;
-        double p_f = ((double)(count_f) / sum);
-        // std::cout << "p_f=" << p_f << std::endl;
-
-        double entropy_t = count_t == 0 ? 0 : p_t * log2(p_t);
-        double entropy_f = count_f == 0 ? 0 : p_f * log2(p_f);
-
-        return -(entropy_t + entropy_f);
-    }
     // _entropy_computation_criterion should be one of the two implemented criterions
-    // Control should never reach here!
-    assert(false);
-    return 0.0;
-}
-
-double complex_job_manager::weighted_entropy(
-    const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
-    if (_entropy_computation_criterion == HORN_ASSIGNMENTS) {
-        return entropy(datapoint_ptrs, left_index, right_index) * (right_index - left_index + 1);
-    } else if (_entropy_computation_criterion == DEFAULT_ENTROPY || _entropy_computation_criterion == PENALTY) {
-        return entropy(datapoint_ptrs, left_index, right_index) *
-               num_classified_points(_datapoint_ptrs, left_index, right_index);
-    }
-    // _entropy_computation_criterion should be one of the two implemented criteria
     // Control should never reach here!
     assert(false);
     return 0.0;
@@ -299,14 +263,7 @@ double complex_job_manager::weighted_entropy(
 unsigned int complex_job_manager::num_classified_points(
     const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
     if (_entropy_computation_criterion == DEFAULT_ENTROPY || _entropy_computation_criterion == PENALTY) {
-        unsigned int count = 0;
-
-        for (std::size_t i = left_index; i <= right_index; ++i) {
-            if (datapoint_ptrs[i]->_is_classified) {
-                count++;
-            }
-        }
-        return count;
+        return simple_job_manager::num_classified_points(datapoint_ptrs, left_index, right_index);
     } else if (_entropy_computation_criterion == HORN_ASSIGNMENTS) {
         return right_index - left_index + 1;
     }

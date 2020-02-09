@@ -11,7 +11,7 @@ namespace horn_verification {
 /**
  * Implements a simple job manager using entropy as the split heuristic.
  */
-class simple_job_manager : job_manager {
+class simple_job_manager : public job_manager {
 public:
     /**
      * Inherit constructors from base class.

@@ -9,6 +9,38 @@
 namespace horn_verification {
 
 /**
+ * Enum to decide the heuristic for selecting the next node while constructing the tree
+ */
+enum NodeSelection {
+    BFS = 0,              // Selects node in a Breadth-first order
+    DFS,                  // Selects node in a Depth-first order
+    RANDOM,               // Selects a random node
+    MAX_ENTROPY,          // Selects the node which has the maximum entropy
+    MAX_WEIGHTED_ENTROPY, // Selects the node which has the maximum entropy weighted by the number of classified points
+                          // in the node
+    MIN_ENTROPY,          // Selects the node which has the minimum entropy
+    MIN_WEIGHTED_ENTROPY  // Selects the node which has the minimum entropy wieghted by the number of classified points
+                          // in the node
+};
+/**
+ * Enum to select if one prefers conjunctive splits (split carves out a sub-node which includes only negative points or
+ * unclassified points) over non-conjunctive splits
+ */
+enum ConjunctiveSetting { NOPREFERENCEFORCONJUNCTS = 0, PREFERENCEFORCONJUNCTS };
+
+/**
+ * Enum to decide the heuristic for computing the goodness/badness score (a la entropy) for a set of data points.
+ */
+enum EntropyComputation {
+    DEFAULT_ENTROPY = 0, // Ignores horn constraints and computes the entropy using only the positively and negatively
+                         // classified data points
+    PENALTY,             // Adds a linear penalty term based on the number of horn constraints involving data points
+                         // outside the current set
+    HORN_ASSIGNMENTS,    // Estimates the positive/negative distribution of the unclassified points and considers that
+                         // when computing the entropy
+};
+
+/**
  * Implements a complex job manager by deriving from the simple_job_manager.
  *
  * A job manager implements complex heuristics for
@@ -39,7 +71,7 @@ namespace horn_verification {
  * This process repeats until all jobs have been processed (i.e., has_jobs()
  * returns \c false).
  */
-class complex_job_manager : public job_manager {
+class complex_job_manager : public simple_job_manager {
 private:
     NodeSelection _node_selection_criterion;
     EntropyComputation _entropy_computation_criterion;
@@ -67,7 +99,7 @@ public:
         NodeSelection node_selection_criterion,
         EntropyComputation entropy_computation_criterion,
         ConjunctiveSetting conjunctive_setting)
-        : job_manager(datapoint_ptrs, horn_constraints, solver) {
+        : simple_job_manager(datapoint_ptrs, horn_constraints, solver) {
         _node_selection_criterion = node_selection_criterion;
         _entropy_computation_criterion = entropy_computation_criterion;
         _conjunctive_setting = conjunctive_setting;
@@ -92,7 +124,7 @@ public:
         NodeSelection node_selection_criterion,
         EntropyComputation entropy_computation_criterion,
         ConjunctiveSetting conjunctive_setting)
-        : job_manager(datapoint_ptrs, horn_constraints, solver, threshold) {
+        : simple_job_manager(datapoint_ptrs, horn_constraints, solver, threshold) {
         _node_selection_criterion = node_selection_criterion;
         _entropy_computation_criterion = entropy_computation_criterion;
         _conjunctive_setting = conjunctive_setting;
@@ -127,19 +159,6 @@ public:
      * @return the entropy of the given set of data points
      */
     double entropy(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) override;
-
-    /**
-     * Computes the entropy (with respect to the logarithm of 2) of a contiguous set of data
-     * points, weighted by the number of points classified in the set.
-     *
-     * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
-     *
-     * @return the entropy of the given set of data points
-     */
-    double weighted_entropy(
         const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) override;
 
     /**
