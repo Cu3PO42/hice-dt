@@ -225,27 +225,16 @@ std::unique_ptr<abstract_job> simple_job_manager::find_best_split(const slice &s
     //
     // Return best split
     //
-
-    if (!int_split_possible && !cat_split_possible) {
-        throw split_not_possible_error("No split possible!");
+    if (int_split_possible && (!cat_split_possible || best_int_gain_ratio <= best_cat_gain_ratio)) {
+        return std::make_unique<int_split_job>(sl, best_int_attribute, best_int_threshold);
     }
 
-    else if (int_split_possible && !cat_split_possible) {
-        return std::unique_ptr<abstract_job>{
-            std::make_unique<int_split_job>(sl, best_int_attribute, best_int_threshold)};
-    }
-
-    else if (!int_split_possible && cat_split_possible) {
-        return std::unique_ptr<abstract_job>{std::make_unique<categorical_split_job>(sl, best_cat_attribute)};
+    else if (cat_split_possible) {
+        return std::make_unique<categorical_split_job>(sl, best_cat_attribute);
     }
 
     else {
-        if (best_int_gain_ratio <= best_cat_gain_ratio) {
-            return std::unique_ptr<abstract_job>{
-                std::make_unique<int_split_job>(sl, best_int_attribute, best_int_threshold)};
-        } else {
-            return std::unique_ptr<abstract_job>{std::make_unique<categorical_split_job>(sl, best_cat_attribute)};
-        }
+        throw split_not_possible_error("No split possible!");
     }
 }
 
