@@ -8,7 +8,6 @@ std::unique_ptr<abstract_job> horn_verification::simple_job_manager::next_job() 
     //
     auto sl = _slices.front();
     _slices.pop_front();
-    // std::cout << sl << std::endl;
 
     //
     // If this is the first split , split on the unique categorical attribute
@@ -20,21 +19,23 @@ std::unique_ptr<abstract_job> horn_verification::simple_job_manager::next_job() 
         }
 
         _is_first_split = false;
-        return std::unique_ptr<abstract_job>{std::make_unique<categorical_split_job>(sl, 0)};
+        return std::make_unique<categorical_split_job>(sl, 0);
     }
 
     //
     // Determine what needs to be done (split or create leaf)
     //
-    auto label = false; // label is unimportant (if is_leaf() returns false)
-    auto positive_ptrs = std::unordered_set<datapoint<bool> *>();
-    auto negative_ptrs = std::unordered_set<datapoint<bool> *>();
-    auto can_be_turned_into_leaf = is_leaf(sl, label, positive_ptrs, negative_ptrs);
+    bool label(false); // label is unimportant (if is_leaf() returns false)
+    std::unordered_set<datapoint<bool> *> positive_ptrs;
+    std::unordered_set<datapoint<bool> *> negative_ptrs;
 
     // Slice can be turned into a leaf node
-    if (can_be_turned_into_leaf) {
-        return std::unique_ptr<abstract_job>{
-            std::make_unique<leaf_creation_job>(sl, label, std::move(positive_ptrs), std::move(negative_ptrs))};
+    if (is_leaf(sl, label, positive_ptrs, negative_ptrs)) {
+        return std::make_unique<leaf_creation_job>(
+            sl,
+            label,
+            std::move(positive_ptrs),
+            std::move(negative_ptrs));
     }
     // Slice needs to be split
     else {
