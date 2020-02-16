@@ -1,3 +1,4 @@
+#include "util.h"
 #include "complex_job_manager.h"
 
 using namespace horn_verification;
@@ -74,159 +75,83 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
         _is_first_split = false;
 
         return std::unique_ptr<abstract_job>{std::make_unique<categorical_split_job>(sl, 0)};
-    } else {
-        if (_node_selection_criterion == NodeSelection::BFS ||
-            _node_selection_criterion == NodeSelection::RANDOM ||
-            _node_selection_criterion == NodeSelection::DFS) {
-            auto slice_index =
-                _node_selection_criterion == NodeSelection::BFS
-                ? 0
-                : _node_selection_criterion == NodeSelection::DFS
-                ? _slices.size() - 1
-                : rand() % _slices.size();
-            auto it = _slices.begin();
-            advance(it, slice_index);
-            auto sl = *it;
-            _slices.erase(it);
+    } 
 
-            //
-            // Determine what needs to be done (split or create leaf)
-            //
-            auto label = false; // label is unimportant (if is_leaf() returns false)
-            auto positive_ptrs = std::unordered_set<datapoint<bool> *>();
-            auto negative_ptrs = std::unordered_set<datapoint<bool> *>();
+    size_t slice_index;
+    bool is_weighted = false;
+    switch (_node_selection_criterion) {
+        case NodeSelection::BFS:
+            slice_index = 0; break;
 
-            auto can_be_turned_into_leaf = is_leaf(sl, label, positive_ptrs, negative_ptrs);
+        case NodeSelection::RANDOM:
+            slice_index = rand() % _slices.size(); break;
 
-            // Slice can be turned into a leaf node
-            if (can_be_turned_into_leaf) {
-                return std::unique_ptr<abstract_job>{std::make_unique<leaf_creation_job>(
-                    sl, label, std::move(positive_ptrs), std::move(negative_ptrs))};
-            }
-                // Slice needs to be split
-            else {
-                if (_entropy_computation_criterion == EntropyComputation::DEFAULT_ENTROPY ||
-                    _entropy_computation_criterion == EntropyComputation::PENALTY) {
-                    return find_best_split(sl);
-                } else if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
+        case NodeSelection::DFS:
+            slice_index = _slices.size() - 1; break;
 
-                    // Clear _datapoint_ptrs_to_frac from a previous iteration
-                    _datapoint_ptrs_to_frac.clear();
-
-                    // Initialize the _datapoint_ptrs_to_frac map using the classified points in _datapoint_ptrs
-                    initialize_datapoint_ptrs_to_frac();
-
-                    if (!unclassified_points_present(_datapoint_ptrs, sl._left_index, sl._right_index)) {
-                        return find_best_split(sl);
-                    } else {
-                        // Update _datapoint_ptrs_to_frac with randomly selected complete horn assignments
-                        update_datapoint_ptrs_to_frac_with_complete_horn_assignments();
-                        return find_best_split(sl);
-                    }
-                } else {
-                    // Control never reaches here!
-                    assert(false);
-                }
-            }
-        } else if (_node_selection_criterion == NodeSelection::MAX_ENTROPY ||
-                _node_selection_criterion == NodeSelection::MAX_WEIGHTED_ENTROPY) {
-            if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
-                _datapoint_ptrs_to_frac.clear();
-                initialize_datapoint_ptrs_to_frac();
-                update_datapoint_ptrs_to_frac_with_complete_horn_assignments();
-            }
-
-            float max_entropy = 0.0;
-            unsigned int max_entropy_slice_index = 0;
-            unsigned int cur_index = 0;
-            for (auto & _slice : _slices) {
-                auto entropy_val = _node_selection_criterion == NodeSelection::MAX_ENTROPY
-                                   ? entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index)
-                                   : weighted_entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index);
-                if (entropy_val > max_entropy) {
-                    max_entropy = entropy_val;
-                    max_entropy_slice_index = cur_index;
-                }
-                cur_index++;
-            }
-
-            assert(max_entropy_slice_index >= 0 && max_entropy_slice_index < _slices.size());
-            auto it = _slices.begin();
-            advance(it, max_entropy_slice_index);
-
-            auto sl = *it;
-            _slices.erase(it);
-
-            //
-            // Determine what needs to be done (split or create leaf)
-            //
-            auto label = false; // label is unimportant (if is_leaf() returns false)
-            auto positive_ptrs = std::unordered_set<datapoint<bool> *>();
-            auto negative_ptrs = std::unordered_set<datapoint<bool> *>();
-            auto can_be_turned_into_leaf = is_leaf(sl, label, positive_ptrs, negative_ptrs);
-
-            // Slice can be turned into a leaf node
-            if (can_be_turned_into_leaf) {
-                return std::unique_ptr<abstract_job>{std::make_unique<leaf_creation_job>(
-                    sl, label, std::move(positive_ptrs), std::move(negative_ptrs))};
-            }
-                // Slice needs to be split
-            else {
-                return find_best_split(sl);
-            }
-
-        } else if (_node_selection_criterion == NodeSelection::MIN_ENTROPY ||
+        case NodeSelection::MAX_WEIGHTED_ENTROPY:
+        case NodeSelection::MIN_WEIGHTED_ENTROPY:
+            is_weighted = true;
+        case NodeSelection::MAX_ENTROPY:
+        case NodeSelection::MIN_ENTROPY:
+            float best_entropy;
+            bool (*cmp)(double, double);
+            if (_node_selection_criterion == NodeSelection::MIN_ENTROPY ||
                 _node_selection_criterion == NodeSelection::MIN_WEIGHTED_ENTROPY) {
-            if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
-                _datapoint_ptrs_to_frac.clear();
-                initialize_datapoint_ptrs_to_frac();
-                update_datapoint_ptrs_to_frac_with_complete_horn_assignments();
+                best_entropy = _node_selection_criterion == NodeSelection::MIN_ENTROPY ? 1.0 : 100000.0;
+                cmp = &less<double>;
+            } else {
+                best_entropy = 0;
+                cmp = &greater<double>;
             }
-
-            float min_entropy = _node_selection_criterion == NodeSelection::MIN_ENTROPY
-                ? 1.0
-                : 100000.0;
-            unsigned int min_entropy_slice_index = 0;
-            unsigned int cur_index = 0;
+            size_t cur_index = 0;
             for (auto & _slice : _slices) {
-                auto entropy_val = _node_selection_criterion == NodeSelection::MIN_ENTROPY
-                                   ? entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index)
-                                   : weighted_entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index);
-                if (entropy_val < min_entropy) {
-                    min_entropy = entropy_val;
-                    min_entropy_slice_index = cur_index;
+                auto entropy_val = is_weighted
+                                    ? weighted_entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index)
+                                    : entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index);
+                if (cmp(entropy_val, best_entropy)) {
+                    best_entropy = entropy_val;
+                    slice_index = cur_index;
                 }
-                cur_index++;
+                ++cur_index;
             }
-
-            assert(min_entropy_slice_index >= 0 && min_entropy_slice_index < _slices.size());
-            auto it = _slices.begin();
-            advance(it, min_entropy_slice_index);
-            auto sl = *it;
-            _slices.erase(it);
-
-            //
-            // Determine what needs to be done (split or create leaf)
-            //
-            auto label = false; // label is unimportant (if is_leaf() returns false)
-            auto positive_ptrs = std::unordered_set<datapoint<bool> *>();
-            auto negative_ptrs = std::unordered_set<datapoint<bool> *>();
-            auto can_be_turned_into_leaf = is_leaf(sl, label, positive_ptrs, negative_ptrs);
-
-            // Slice can be turned into a leaf node
-            if (can_be_turned_into_leaf) {
-                return std::unique_ptr<abstract_job>{std::make_unique<leaf_creation_job>(
-                    sl, label, std::move(positive_ptrs), std::move(negative_ptrs))};
-            }
-                // Slice needs to be split
-            else {
-                return find_best_split(sl);
-            }
-
-        } else {
-            // Control never reaches here!
+            break;
+        default:
             assert(false);
+    }
+    assert(slice_index >= 0 && slice_index < _slices.size());
+
+    auto it = _slices.begin();
+    advance(it, slice_index);
+    auto sl = *it;
+    _slices.erase(it);
+
+    if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
+        // Clear _datapoint_ptrs_to_frac from a previous iteration
+        _datapoint_ptrs_to_frac.clear();
+
+        // Initialize the _datapoint_ptrs_to_frac map using the classified points in _datapoint_ptrs
+        initialize_datapoint_ptrs_to_frac();
+
+        if (unclassified_points_present(_datapoint_ptrs, sl._left_index, sl._right_index)) {
+            // Update _datapoint_ptrs_to_frac with randomly selected complete horn assignments
+            update_datapoint_ptrs_to_frac_with_complete_horn_assignments();
         }
+    }
+
+    bool label = false; // label is unimportant (if is_leaf() returns false)
+    std::unordered_set<datapoint<bool> *> positive_ptrs, negative_ptrs;
+
+    auto can_be_turned_into_leaf = is_leaf(sl, label, positive_ptrs, negative_ptrs);
+
+    // Slice can be turned into a leaf node
+    if (can_be_turned_into_leaf) {
+        return std::make_unique<leaf_creation_job>(
+            sl, label, std::move(positive_ptrs), std::move(negative_ptrs));
+    }
+    // Slice needs to be split
+    else {
+        return find_best_split(sl);
     }
 }
 
