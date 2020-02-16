@@ -11,7 +11,7 @@ namespace horn_verification {
 /**
  * Enum to decide the heuristic for selecting the next node while constructing the tree
  */
-enum NodeSelection {
+enum class NodeSelection {
     BFS = 0,              // Selects node in a Breadth-first order
     DFS,                  // Selects node in a Depth-first order
     RANDOM,               // Selects a random node
@@ -26,12 +26,12 @@ enum NodeSelection {
  * Enum to select if one prefers conjunctive splits (split carves out a sub-node which includes only negative points or
  * unclassified points) over non-conjunctive splits
  */
-enum ConjunctiveSetting { NOPREFERENCEFORCONJUNCTS = 0, PREFERENCEFORCONJUNCTS };
+enum class ConjunctiveSetting { NOPREFERENCEFORCONJUNCTS = 0, PREFERENCEFORCONJUNCTS };
 
 /**
  * Enum to decide the heuristic for computing the goodness/badness score (a la entropy) for a set of data points.
  */
-enum EntropyComputation {
+enum class EntropyComputation {
     DEFAULT_ENTROPY = 0, // Ignores horn constraints and computes the entropy using only the positively and negatively
                          // classified data points
     PENALTY,             // Adds a linear penalty term based on the number of horn constraints involving data points
