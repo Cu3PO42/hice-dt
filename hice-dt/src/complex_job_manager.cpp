@@ -75,12 +75,15 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
 
         return std::unique_ptr<abstract_job>{std::make_unique<categorical_split_job>(sl, 0)};
     } else {
-        if (_node_selection_criterion == BFS || _node_selection_criterion == RANDOM ||
-            _node_selection_criterion == DFS) {
+        if (_node_selection_criterion == NodeSelection::BFS ||
+            _node_selection_criterion == NodeSelection::RANDOM ||
+            _node_selection_criterion == NodeSelection::DFS) {
             auto slice_index =
-                _node_selection_criterion == BFS
+                _node_selection_criterion == NodeSelection::BFS
                 ? 0
-                : _node_selection_criterion == DFS ? _slices.size() - 1 : rand() % _slices.size();
+                : _node_selection_criterion == NodeSelection::DFS
+                ? _slices.size() - 1
+                : rand() % _slices.size();
             auto it = _slices.begin();
             advance(it, slice_index);
             auto sl = *it;
@@ -102,10 +105,10 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
             }
                 // Slice needs to be split
             else {
-                if (_entropy_computation_criterion == DEFAULT_ENTROPY ||
-                    _entropy_computation_criterion == PENALTY) {
+                if (_entropy_computation_criterion == EntropyComputation::DEFAULT_ENTROPY ||
+                    _entropy_computation_criterion == EntropyComputation::PENALTY) {
                     return find_best_split(sl);
-                } else if (_entropy_computation_criterion == HORN_ASSIGNMENTS) {
+                } else if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
 
                     // Clear _datapoint_ptrs_to_frac from a previous iteration
                     _datapoint_ptrs_to_frac.clear();
@@ -125,8 +128,9 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
                     assert(false);
                 }
             }
-        } else if (_node_selection_criterion == MAX_ENTROPY || _node_selection_criterion == MAX_WEIGHTED_ENTROPY) {
-            if (_entropy_computation_criterion == HORN_ASSIGNMENTS) {
+        } else if (_node_selection_criterion == NodeSelection::MAX_ENTROPY ||
+                _node_selection_criterion == NodeSelection::MAX_WEIGHTED_ENTROPY) {
+            if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
                 _datapoint_ptrs_to_frac.clear();
                 initialize_datapoint_ptrs_to_frac();
                 update_datapoint_ptrs_to_frac_with_complete_horn_assignments();
@@ -136,7 +140,7 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
             unsigned int max_entropy_slice_index = 0;
             unsigned int cur_index = 0;
             for (auto & _slice : _slices) {
-                auto entropy_val = _node_selection_criterion == MAX_ENTROPY
+                auto entropy_val = _node_selection_criterion == NodeSelection::MAX_ENTROPY
                                    ? entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index)
                                    : weighted_entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index);
                 if (entropy_val > max_entropy) {
@@ -171,18 +175,21 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
                 return find_best_split(sl);
             }
 
-        } else if (_node_selection_criterion == MIN_ENTROPY || _node_selection_criterion == MIN_WEIGHTED_ENTROPY) {
-            if (_entropy_computation_criterion == HORN_ASSIGNMENTS) {
+        } else if (_node_selection_criterion == NodeSelection::MIN_ENTROPY ||
+                _node_selection_criterion == NodeSelection::MIN_WEIGHTED_ENTROPY) {
+            if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
                 _datapoint_ptrs_to_frac.clear();
                 initialize_datapoint_ptrs_to_frac();
                 update_datapoint_ptrs_to_frac_with_complete_horn_assignments();
             }
 
-            float min_entropy = _node_selection_criterion == MIN_ENTROPY ? 1.0 : 100000.0;
+            float min_entropy = _node_selection_criterion == NodeSelection::MIN_ENTROPY
+                ? 1.0
+                : 100000.0;
             unsigned int min_entropy_slice_index = 0;
             unsigned int cur_index = 0;
             for (auto & _slice : _slices) {
-                auto entropy_val = _node_selection_criterion == MIN_ENTROPY
+                auto entropy_val = _node_selection_criterion == NodeSelection::MIN_ENTROPY
                                    ? entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index)
                                    : weighted_entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index);
                 if (entropy_val < min_entropy) {
@@ -225,7 +232,7 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
 
 double complex_job_manager::entropy(
     const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
-    if (_entropy_computation_criterion == HORN_ASSIGNMENTS) {
+    if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
         double count_f = 0.0;
         double count_t = 0.0;
 
@@ -251,9 +258,10 @@ double complex_job_manager::entropy(
 
         return -(entropy_t + entropy_f);
 
-    } else if (_entropy_computation_criterion == DEFAULT_ENTROPY || _entropy_computation_criterion == PENALTY) {
+    } else if (_entropy_computation_criterion == EntropyComputation::DEFAULT_ENTROPY ||
+        _entropy_computation_criterion == EntropyComputation::PENALTY) {
         return simple_job_manager::entropy(datapoint_ptrs, left_index, right_index);
-        }
+    }
     // _entropy_computation_criterion should be one of the two implemented criterions
     // Control should never reach here!
     assert(false);
@@ -262,9 +270,10 @@ double complex_job_manager::entropy(
 
 unsigned int complex_job_manager::num_classified_points(
     const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
-    if (_entropy_computation_criterion == DEFAULT_ENTROPY || _entropy_computation_criterion == PENALTY) {
+    if (_entropy_computation_criterion == EntropyComputation::DEFAULT_ENTROPY ||
+        _entropy_computation_criterion == EntropyComputation::PENALTY) {
         return simple_job_manager::num_classified_points(datapoint_ptrs, left_index, right_index);
-    } else if (_entropy_computation_criterion == HORN_ASSIGNMENTS) {
+    } else if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
         return right_index - left_index + 1;
     }
     assert(false);
@@ -415,7 +424,7 @@ std::unique_ptr<abstract_job> complex_job_manager::find_best_split(const slice &
 
                     // Add a penalty based on the number of implications in the horn constraints that are cut by the
                     // current split.
-                    if (_entropy_computation_criterion == PENALTY) {
+                    if (_entropy_computation_criterion == EntropyComputation::PENALTY) {
                         // number of implications in the horn constraints cut by the current split.
                         int left2right = 0;
                         int right2left = 0;
@@ -439,7 +448,7 @@ std::unique_ptr<abstract_job> complex_job_manager::find_best_split(const slice &
                     }
 
                     // If the learner prefers conjunctive splits
-                    if (_conjunctive_setting == PREFERENCEFORCONJUNCTS) {
+                    if (_conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS) {
                         // Check if a conjunctive split is possible
                         if (!positive_points_present(_datapoint_ptrs, sl._left_index, cur) ||
                             !positive_points_present(_datapoint_ptrs, cur + 1, sl._right_index)) {
@@ -485,7 +494,8 @@ std::unique_ptr<abstract_job> complex_job_manager::find_best_split(const slice &
             }
         }
 
-        if (_conjunctive_setting == PREFERENCEFORCONJUNCTS && conj_int_split_possible_for_given_attribute) {
+        if (_conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS &&
+            conj_int_split_possible_for_given_attribute) {
             // We have found the best split threshold for the given attribute
             // Now compute the information gain to optimize across different attributes
             double best_info_gain_for_attribute;
@@ -604,7 +614,8 @@ std::unique_ptr<abstract_job> complex_job_manager::find_best_split(const slice &
         assert(!conj_int_split_possible);
         throw split_not_possible_error("No split possible!");
     } else if (int_split_possible && !cat_split_possible) {
-        if (_conjunctive_setting == PREFERENCEFORCONJUNCTS && conj_int_split_possible) {
+        if (_conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS &&
+            conj_int_split_possible) {
             if (!conj_non_zero_intrinsic_value_possible) {
                 best_conj_int_gain_ratio = best_conj_int_gain_ratio_4_zero_iv;
                 best_conj_int_attribute = best_conj_int_attribute_4_zero_iv;
@@ -627,7 +638,8 @@ std::unique_ptr<abstract_job> complex_job_manager::find_best_split(const slice &
     } else {
         // If conjunctive splits are preferred, overwrite the best int split variabls with those corresponding to
         // conjunctive splits.
-        if (_conjunctive_setting == PREFERENCEFORCONJUNCTS && conj_int_split_possible) {
+        if (_conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS &&
+            conj_int_split_possible) {
             if (!conj_non_zero_intrinsic_value_possible) {
                 best_int_gain_ratio = best_conj_int_gain_ratio_4_zero_iv;
                 best_int_attribute = best_conj_int_attribute_4_zero_iv;
@@ -663,11 +675,12 @@ void complex_job_manager::penalty(
     int _left2right = 0;
     int _right2left = 0;
     for (const auto &horn_clause : _horn_constraints) {
-        enum Position { out_of_scope, left, right };
-        Position conclusion = out_of_scope;
+        enum class Position { out_of_scope, left, right };
+        Position conclusion = Position::out_of_scope;
         int num_premise_left = 0;
         int num_premise_right = 0;
 
+        // OPTIMIZE: this is an O(nm) loop, but it really should be O(n+m) or at least O(n log n+m log m)
         // for i ranging from left_index to cur, loop over premises and conclusion
         for (std::size_t i = left_index; i <= cur_index; ++i) {
             for (const auto dp : horn_clause._premises) {
@@ -676,7 +689,7 @@ void complex_job_manager::penalty(
                 }
             }
             if (_datapoint_ptrs[i] == horn_clause._conclusion && !_datapoint_ptrs[i]->_is_classified) {
-                conclusion = left;
+                conclusion = Position::left;
             }
         }
 
@@ -688,13 +701,13 @@ void complex_job_manager::penalty(
                 }
             }
             if (_datapoint_ptrs[i] == horn_clause._conclusion && !_datapoint_ptrs[i]->_is_classified) {
-                conclusion = right;
+                conclusion = Position::right;
             }
         }
-        if (conclusion == left) {
+        if (conclusion == Position::left) {
             _right2left += num_premise_right;
         }
-        if (conclusion == right) {
+        if (conclusion == Position::right) {
             _left2right += num_premise_left;
         }
     }
