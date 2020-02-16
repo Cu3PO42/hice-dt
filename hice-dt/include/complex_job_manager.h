@@ -184,13 +184,17 @@ public:
      */
     std::unique_ptr<abstract_job> find_best_split(const slice &sl) override;
 
-    void penalty(
-        const slice &sl,
+    std::pair<int, int> penalty(
         std::size_t left_index,
         std::size_t cur_index,
-        std::size_t right_index,
-        int *left2right,
-        int *right2left);
+        std::size_t right_index);
+
+private:
+    std::pair<size_t, bool> count_overlap(
+        horn_constraint<bool> horn_clause,
+        std::size_t start_index,
+        std::size_t end_index
+    );
 };
 } // namespace horn_verification
 

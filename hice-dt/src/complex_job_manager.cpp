@@ -426,9 +426,8 @@ std::unique_ptr<abstract_job> complex_job_manager::find_best_split(const slice &
                     // current split.
                     if (_entropy_computation_criterion == EntropyComputation::PENALTY) {
                         // number of implications in the horn constraints cut by the current split.
-                        int left2right = 0;
-                        int right2left = 0;
-                        penalty(sl, sl._left_index, cur, sl._right_index, &left2right, &right2left);
+                        int left2right, right2left;
+                        std::tie(left2right, right2left) = penalty(sl._left_index, cur, sl._right_index);
                         double nleft = num_points_with_classification(_datapoint_ptrs, sl._left_index, cur, false);
                         double pleft = num_points_with_classification(_datapoint_ptrs, sl._left_index, cur, true);
                         double nright =
@@ -665,13 +664,10 @@ std::unique_ptr<abstract_job> complex_job_manager::find_best_split(const slice &
     }
 }
 
-void complex_job_manager::penalty(
-    const slice &sl,
+std::pair<int, int> complex_job_manager::penalty(
     std::size_t left_index,
     std::size_t cur_index,
-    std::size_t right_index,
-    int *left2right,
-    int *right2left) {
+    std::size_t right_index) {
     int _left2right = 0;
     int _right2left = 0;
     for (const auto &horn_clause : _horn_constraints) {
@@ -682,35 +678,34 @@ void complex_job_manager::penalty(
 
         // OPTIMIZE: this is an O(nm) loop, but it really should be O(n+m) or at least O(n log n+m log m)
         // for i ranging from left_index to cur, loop over premises and conclusion
-        for (std::size_t i = left_index; i <= cur_index; ++i) {
-            for (const auto dp : horn_clause._premises) {
-                if (dp == _datapoint_ptrs[i] && !_datapoint_ptrs[i]->_is_classified) {
-                    num_premise_left++;
-                }
-            }
-            if (_datapoint_ptrs[i] == horn_clause._conclusion && !_datapoint_ptrs[i]->_is_classified) {
-                conclusion = Position::left;
-            }
-        }
-
-        // for i ranging from cur+1 to right_index, loop over premises and conclusion
-        for (std::size_t i = cur_index + 1; i <= right_index; ++i) {
-            for (const auto dp : horn_clause._premises) {
-                if (dp == _datapoint_ptrs[i] && !_datapoint_ptrs[i]->_is_classified) {
-                    num_premise_right++;
-                }
-            }
-            if (_datapoint_ptrs[i] == horn_clause._conclusion && !_datapoint_ptrs[i]->_is_classified) {
-                conclusion = Position::right;
-            }
-        }
-        if (conclusion == Position::left) {
-            _right2left += num_premise_right;
-        }
-        if (conclusion == Position::right) {
-            _left2right += num_premise_left;
+        auto left_overlap = count_overlap(horn_clause, left_index, cur_index);
+        auto right_overlap = count_overlap(horn_clause, cur_index + 1, right_index);
+        if (left_overlap.second) {
+            _right2left += right_overlap.first;
+        } else if (right_overlap.second) {
+            _left2right += left_overlap.first;
         }
     }
-    *right2left = _right2left;
-    *left2right = _left2right;
+    return { _left2right, _right2left };
+}
+
+std::pair<size_t, bool> complex_job_manager::count_overlap(
+    horn_constraint<bool> horn_clause,
+    std::size_t start_index,
+    std::size_t end_index) {
+    size_t num_premises = 0;
+    bool has_conclusion = false;
+
+    for (std::size_t i = start_index; i <= end_index; ++i) {
+        for (const auto dp : horn_clause._premises) {
+            if (dp == _datapoint_ptrs[i] && !_datapoint_ptrs[i]->_is_classified) {
+                num_premises++;
+            }
+        }
+        if (_datapoint_ptrs[i] == horn_clause._conclusion && !_datapoint_ptrs[i]->_is_classified) {
+            has_conclusion = true;
+        }
+    }
+
+    return { num_premises, has_conclusion };
 }
