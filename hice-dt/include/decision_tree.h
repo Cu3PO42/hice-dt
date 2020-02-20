@@ -418,7 +418,7 @@ namespace horn_verification
 		/*
 		 * Overrides base class method.
 		 */
-		leaf_node * clone() const;
+		leaf_node * clone() const override;
 	
 	
 		/**
