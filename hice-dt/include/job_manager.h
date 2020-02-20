@@ -301,6 +301,7 @@ protected:
         bool classification);
 
     friend class int_split;
+    friend class complex_int_split;
     friend class cat_split;
 };
 
