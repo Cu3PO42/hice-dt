@@ -195,6 +195,10 @@ private:
         std::size_t start_index,
         std::size_t end_index
     );
+
+    friend class int_split;
+    friend class complex_int_split;
+    friend class cat_split;
 };
 } // namespace horn_verification
 

@@ -1,5 +1,6 @@
 #include "split.h"
 #include "simple_job_manager.h"
+#include "simple_job_manager.impl.h"
 
 using namespace horn_verification;
 
@@ -45,31 +46,7 @@ std::unique_ptr<abstract_job> horn_verification::simple_job_manager::next_job() 
 }
 
 std::unique_ptr<abstract_job> simple_job_manager::find_best_split(const slice &sl) {
-    assert(sl._left_index <= sl._right_index && sl._right_index < _datapoint_ptrs.size());
-
-    //
-    // Process categorical attributes
-    //
-    cat_split best_cat_split;
-
-    for (std::size_t attribute = 0; attribute < _datapoint_ptrs[sl._left_index]->_categorical_data.size();
-         ++attribute) {
-        best_cat_split.assign_if_better(cat_split(attribute, _datapoint_ptrs, sl, *this));
-    }
-
-    //
-    // Process integer attributes
-    //
-    int_split best_int_split;
-
-    for (std::size_t attribute = 0; attribute < _datapoint_ptrs[sl._left_index]->_int_data.size(); ++attribute) {
-        best_int_split.assign_if_better(int_split(attribute, _datapoint_ptrs, sl, *this));
-    }
-
-    //
-    // Return best split
-    //
-    return std::max<split>(best_int_split, best_cat_split).make_job();
+    return find_best_split_base<cat_split, int_split, simple_job_manager>(sl);
 }
 
 double simple_job_manager::entropy(

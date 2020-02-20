@@ -36,7 +36,23 @@ protected:
      *
      * @returns a unique pointer to the job created
      */
-     std::unique_ptr<abstract_job> find_best_split(const slice &sl) override;
+    std::unique_ptr<abstract_job> find_best_split(const slice &sl) override;
+
+    /**
+     * Computes the best split of a contiguous set of data points and returns the corresponding
+     * split job. If no split (that allows progress) is possible, this function should throw
+     * an exception.
+     *
+     * This is a shared base function for the simple and complex job manager. It allows
+     * customization of the attribute selection by specifying subclasses of the split class
+     * to bo used for categorical and integer attributes.
+     *
+     * @param sl The slice of data points to be split
+     *
+     * @returns a unique pointer to the job created
+     */
+    template<typename CatT, typename IntT, typename ManT>
+    std::unique_ptr<abstract_job> find_best_split_base(const slice &sl);
 
     /**
      * Computes the entropy (with respect to the logarithm of 2) of a contiguous set of data
@@ -75,6 +91,10 @@ protected:
      */
     unsigned int num_classified_points(
         const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) override;
+
+    friend class int_split;
+    friend class complex_int_split;
+    friend class cat_split;
 };
 
 }; // End namespace horn_verification
