@@ -299,6 +299,9 @@ protected:
         std::size_t left_index,
         std::size_t right_index,
         bool classification);
+
+    friend class int_split;
+    friend class cat_split;
 };
 
 } // namespace horn_verification

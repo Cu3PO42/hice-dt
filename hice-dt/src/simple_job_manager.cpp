@@ -1,3 +1,4 @@
+#include "split.h"
 #include "simple_job_manager.h"
 
 using namespace horn_verification;
@@ -46,196 +47,29 @@ std::unique_ptr<abstract_job> horn_verification::simple_job_manager::next_job() 
 std::unique_ptr<abstract_job> simple_job_manager::find_best_split(const slice &sl) {
     assert(sl._left_index <= sl._right_index && sl._right_index < _datapoint_ptrs.size());
 
-    // 0) Initialize variables
-    bool int_split_possible = false;
-    double best_int_gain_ratio = 0;
-    std::size_t best_int_attribute = 0;
-    int best_int_threshold = 0;
-
-    bool cat_split_possible = false;
-    double best_cat_gain_ratio = 0;
-    std::size_t best_cat_attribute = 0;
-
     //
     // Process categorical attributes
     //
+    cat_split best_cat_split;
+
     for (std::size_t attribute = 0; attribute < _datapoint_ptrs[sl._left_index]->_categorical_data.size();
          ++attribute) {
-        // 1) Sort according to categorical attribute
-        auto comparer = [attribute](const datapoint<bool> *const a, const datapoint<bool> *const b) {
-            return a->_categorical_data[attribute] < b->_categorical_data[attribute];
-        };
-        std::sort(_datapoint_ptrs.begin() + sl._left_index, _datapoint_ptrs.begin() + sl._right_index + 1, comparer);
-
-        // 2) sum all weighted entropies
-        double total_weighted_entropy = 0;
-        double total_intrinsic_value = 0;
-        bool split_possible = true;
-        auto cur_left = sl._left_index;
-        auto cur_right = cur_left;
-
-        while (cur_right <= sl._right_index) {
-            auto cur_category = _datapoint_ptrs[cur_left]->_categorical_data[attribute];
-
-            while (cur_right + 1 <= sl._right_index &&
-                   cur_category == _datapoint_ptrs[cur_right + 1]->_categorical_data[attribute]) {
-                ++cur_right;
-            }
-
-            // If only one category, skip attribute
-            if (cur_left == sl._left_index && cur_right == sl._right_index) {
-                split_possible = false;
-                break;
-            } else {
-                total_weighted_entropy += weighted_entropy(_datapoint_ptrs, cur_left, cur_right);
-
-                double n1 = 1.0 * num_classified_points(_datapoint_ptrs, cur_left, cur_right);
-                double n = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
-                total_intrinsic_value += (n1 == 0) ? 0.0 : -1.0 * (n1 / n) * log2(n1 / n);
-
-                cur_left = cur_right + 1;
-                cur_right = cur_left;
-            }
-        }
-        if (split_possible) {
-            double info_gain;
-            if (num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) == 0) {
-                info_gain = entropy(_datapoint_ptrs, sl._left_index, sl._right_index);
-            } else {
-                info_gain =
-                    entropy(_datapoint_ptrs, sl._left_index, sl._right_index) -
-                    total_weighted_entropy / num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
-            }
-
-            assert(total_intrinsic_value > 0.0);
-            double gain_ratio = info_gain / total_intrinsic_value;
-            // split is possible on the current "attribute"
-            if (!cat_split_possible || gain_ratio > best_cat_gain_ratio) {
-                cat_split_possible = true;
-                best_cat_gain_ratio = gain_ratio;
-                best_cat_attribute = attribute;
-            }
-        }
+        best_cat_split.assign_if_better(cat_split(attribute, _datapoint_ptrs, sl, *this));
     }
 
-    // std::cout << "Now processing integer splits" << std::endl;
     //
     // Process integer attributes
     //
+    int_split best_int_split;
+
     for (std::size_t attribute = 0; attribute < _datapoint_ptrs[sl._left_index]->_int_data.size(); ++attribute) {
-        int tries = 0;
-        double best_int_entropy_for_given_attribute = 1000000;
-        bool int_split_possible_for_given_attribute = false;
-        int best_int_split_index_for_given_attribute = 0;
-        double best_intrinsic_value_for_given_attribute = 0;
-
-        // 1) Sort according to int attribute
-        auto comparer = [attribute](const datapoint<bool> *const a, const datapoint<bool> *const b) {
-            return a->_int_data[attribute] < b->_int_data[attribute];
-        };
-        std::sort(_datapoint_ptrs.begin() + sl._left_index, _datapoint_ptrs.begin() + sl._right_index + 1, comparer);
-
-        // 2) Try all thresholds of current attribute
-        auto cur = sl._left_index;
-        while (cur < sl._right_index) {
-            // Skip to riight most entry with the same value
-            while (cur + 1 <= sl._right_index &&
-                   _datapoint_ptrs[cur + 1]->_int_data[attribute] == _datapoint_ptrs[cur]->_int_data[attribute]) {
-                ++cur;
-            }
-
-            // Split is possible
-            if (cur < sl._right_index) {
-                tries++;
-
-                // if cuts have been thresholded, check that a split at the current value of the numerical attribute is
-                // allowed
-                if (!_are_numerical_cuts_thresholded ||
-                    ((-1 * _threshold <= _datapoint_ptrs[cur]->_int_data[attribute]) &&
-                     (_datapoint_ptrs[cur]->_int_data[attribute] <= _threshold))) {
-                    // std::cout << "considering attribute: " << attribute << " sl._left_index: " << cur << " cut: " <<
-                    // _datapoint_ptrs[cur]->_int_data[attribute] << std::endl;
-                    // weighted_entropy_left = H(left_node) * num_classified_points(left_node)
-                    auto weighted_entropy_left = weighted_entropy(_datapoint_ptrs, sl._left_index, cur);
-                    // weighted_entropy_right = H(right_node) * num_classified_points(right_node)
-                    auto weighted_entropy_right = weighted_entropy(_datapoint_ptrs, cur + 1, sl._right_index);
-                    auto total_weighted_entropy = weighted_entropy_left + weighted_entropy_right;
-
-                    if (!int_split_possible_for_given_attribute ||
-                        total_weighted_entropy < best_int_entropy_for_given_attribute) {
-                        // std::cout << "updated the entropy; split is now definitely possible" << std::endl;
-                        int_split_possible_for_given_attribute = true;
-
-                        best_int_entropy_for_given_attribute = total_weighted_entropy;
-                        best_int_split_index_for_given_attribute = cur;
-
-                        // computation of the intrinsic value of the attribute
-                        double n1 = 1.0 * num_classified_points(_datapoint_ptrs, sl._left_index, cur);
-                        double n2 = 1.0 * num_classified_points(_datapoint_ptrs, cur + 1, sl._right_index);
-                        double n = n1 + n2;
-                        best_intrinsic_value_for_given_attribute = (n1 == 0.0 ? 0.0 : -1.0 * (n1 / n) * log2(n1 / n)) +
-                                                                   (n2 == 0.0 ? 0.0 : -1.0 * (n2 / n) * log2(n2 / n));
-                    }
-                }
-
-                ++cur;
-            }
-        }
-        if (int_split_possible_for_given_attribute) {
-            // We have found the best split threshold for the given attribute
-            // Now compute the information gain to optimize across different attributes
-            double best_info_gain_for_attribute;
-            if (num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) == 0.0) {
-                best_info_gain_for_attribute = entropy(_datapoint_ptrs, sl._left_index, sl._right_index);
-            } else {
-                best_info_gain_for_attribute =
-                    entropy(_datapoint_ptrs, sl._left_index, sl._right_index) -
-                    best_int_entropy_for_given_attribute /
-                        num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
-            }
-
-            double interval = (_datapoint_ptrs[sl._right_index]->_int_data[attribute] -
-                               _datapoint_ptrs[sl._left_index]->_int_data[attribute]) /
-                              (_datapoint_ptrs[best_int_split_index_for_given_attribute + 1]->_int_data[attribute] -
-                               _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]);
-
-            assert(num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index) > 0);
-            double threshCost = (interval < (double)tries ? log2(interval) : log2(tries)) /
-                                num_classified_points(_datapoint_ptrs, sl._left_index, sl._right_index);
-
-            best_info_gain_for_attribute -= threshCost;
-            assert(best_intrinsic_value_for_given_attribute > 0.0);
-            double best_gain_ratio_for_given_attribute =
-                best_info_gain_for_attribute / best_intrinsic_value_for_given_attribute;
-
-            if (!int_split_possible || (best_gain_ratio_for_given_attribute > best_int_gain_ratio) ||
-                (best_gain_ratio_for_given_attribute == best_int_gain_ratio &&
-                 std::abs(_datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute]) <
-                     std::abs(best_int_threshold))) {
-                // if this is the first attribute for which a split is possible then
-                // initialize all variables: best_int_gain_ratio, best_int_attribute, best_int_threshold
-                int_split_possible = true;
-                best_int_gain_ratio = best_gain_ratio_for_given_attribute;
-                best_int_attribute = attribute;
-                best_int_threshold = _datapoint_ptrs[best_int_split_index_for_given_attribute]->_int_data[attribute];
-            }
-        }
+        best_int_split.assign_if_better(int_split(attribute, _datapoint_ptrs, sl, *this));
     }
 
     //
     // Return best split
     //
-    if (int_split_possible && (!cat_split_possible || best_int_gain_ratio <= best_cat_gain_ratio)) {
-        return std::make_unique<int_split_job>(sl, best_int_attribute, best_int_threshold);
-    }
-
-    else if (cat_split_possible) {
-        return std::make_unique<categorical_split_job>(sl, best_cat_attribute);
-    }
-
-    else {
-        throw split_not_possible_error("No split possible!");
-    }
+    return std::max<split>(best_int_split, best_cat_split).make_job();
 }
 
 double simple_job_manager::entropy(
