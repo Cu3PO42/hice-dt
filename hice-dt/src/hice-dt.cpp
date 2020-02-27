@@ -9,7 +9,14 @@
 #include <stdexcept>
 #include <string>
 #include <sstream>
-#include <filesystem>
+
+#if __has_include(<filesystem>)
+    #include <filesystem>
+    namespace fs = std::filesystem;
+#else
+    #include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
+#endif
 
 // C includes
 #include <unistd.h>
@@ -52,49 +59,49 @@ using namespace horn_verification;
 decision_tree horndini_prephase(const attributes_metadata & metadata, const std::vector<datapoint<bool>> & datapoints, const std::vector<std::pair<std::set<unsigned>, std::set<unsigned>>> & horn_indexes, const std::vector<std::pair<unsigned, unsigned>> & intervals, unsigned c = 1)
 {
 
-	//
-	// Generate data for Horndini
-	//
-	auto derived_predicates_and_intervals = horndini::generate_derived_predicates_and_intervals(intervals, c);
+    //
+    // Generate data for Horndini
+    //
+    auto derived_predicates_and_intervals = horndini::generate_derived_predicates_and_intervals(intervals, c);
 
-	auto derived_datapoints = horndini::generate_derived_datapoints(datapoints, derived_predicates_and_intervals.first);
-	auto derived_horn_constraints = boogie_io::indexes2horn_constraints(horn_indexes, derived_datapoints);
-	assert (metadata.number_of_categories().size() == 1 && metadata.number_of_categories()[0] == derived_predicates_and_intervals.second.size());
-
-
-	//
-	// Generate initial conjunctions
-	//
-	std::vector<std::list<unsigned>> conjunctions(derived_predicates_and_intervals.second.size());
-	for (unsigned i = 0 ; i < derived_predicates_and_intervals.second.size(); ++i)
-	{
-		for (unsigned j = derived_predicates_and_intervals.second[i].first; j <= derived_predicates_and_intervals.second[i].second; ++j)
-		{
-			conjunctions[i].push_back(j);
-		}
-	}
+    auto derived_datapoints = horndini::generate_derived_datapoints(datapoints, derived_predicates_and_intervals.first);
+    auto derived_horn_constraints = boogie_io::indexes2horn_constraints(horn_indexes, derived_datapoints);
+    assert (metadata.number_of_categories().size() == 1 && metadata.number_of_categories()[0] == derived_predicates_and_intervals.second.size());
 
 
-	//
-	// Run Horndini
-	//
-
-	horndini::learn(derived_datapoints, derived_horn_constraints, conjunctions);
-	auto horndini_tree = horndini::conjunctions2tree(metadata, derived_predicates_and_intervals.first, conjunctions);
-			
-	// Debug checks			
-	for (unsigned i = 0; i < conjunctions.size(); ++i)
-	{
-		for (const auto & c : conjunctions[i])
-		{
-			assert (c >= derived_predicates_and_intervals.second[i].first && c <= derived_predicates_and_intervals.second[i].second);
-			assert (derived_predicates_and_intervals.first[c]._index >= intervals[i].first);
-			assert (derived_predicates_and_intervals.first[c]._index <= intervals[i].second);
-		}
-	}
+    //
+    // Generate initial conjunctions
+    //
+    std::vector<std::list<unsigned>> conjunctions(derived_predicates_and_intervals.second.size());
+    for (unsigned i = 0 ; i < derived_predicates_and_intervals.second.size(); ++i)
+    {
+        for (unsigned j = derived_predicates_and_intervals.second[i].first; j <= derived_predicates_and_intervals.second[i].second; ++j)
+        {
+            conjunctions[i].push_back(j);
+        }
+    }
 
 
-	return horndini_tree;
+    //
+    // Run Horndini
+    //
+
+    horndini::learn(derived_datapoints, derived_horn_constraints, conjunctions);
+    auto horndini_tree = horndini::conjunctions2tree(metadata, derived_predicates_and_intervals.first, conjunctions);
+
+    // Debug checks
+    for (unsigned i = 0; i < conjunctions.size(); ++i)
+    {
+        for (const auto & c : conjunctions[i])
+        {
+            assert (c >= derived_predicates_and_intervals.second[i].first && c <= derived_predicates_and_intervals.second[i].second);
+            assert (derived_predicates_and_intervals.first[c]._index >= intervals[i].first);
+            assert (derived_predicates_and_intervals.first[c]._index <= intervals[i].second);
+        }
+    }
+
+
+    return horndini_tree;
 
 }
 
@@ -108,38 +115,38 @@ decision_tree horndini_prephase(const attributes_metadata & metadata, const std:
 void print_help(std::ostream & out, const char * name)
 {
 
-	out << "Usage: " << name << " [options] file_stem" << std::endl;
-	out << "Options are:" << std::endl;
-	out << "  -b\t\tBound the learner" << std::endl;
-	out << "  -h\t\tRun Horndini pre-phase" << std::endl;
+    out << "Usage: " << name << " [options] file_stem" << std::endl;
+    out << "Options are:" << std::endl;
+    out << "  -b\t\tBound the learner" << std::endl;
+    out << "  -h\t\tRun Horndini pre-phase" << std::endl;
 
 }
 
 class backup {
 public:
-	backup(std::string file_stem) : file_stem(file_stem) {
-		std::string status;
-		std::ostringstream buf; 
-		std::ifstream input(file_stem + ".status"); 
-		buf << input.rdbuf(); 
-		status = buf.str();
-		std::filesystem::path subdir(file_stem); subdir.replace_extension(); subdir /= status; subdir /= "";
-		if (std::filesystem::is_directory(subdir)) {
-			std::filesystem::remove_all(subdir);
-		}
-		std::filesystem::create_directories(subdir);
-		std::filesystem::path sub_dir_stem(subdir / std::filesystem::path(file_stem).filename());
-		this->sub_dir_stem = sub_dir_stem.string();
-	}
+    backup(std::string file_stem) : file_stem(file_stem) {
+        std::string status;
+        std::ostringstream buf;
+        std::ifstream input(file_stem + ".status");
+        buf << input.rdbuf();
+        status = buf.str();
+        fs::path subdir(file_stem); subdir.replace_extension(); subdir /= status; subdir /= "";
+        if (fs::is_directory(subdir)) {
+            fs::remove_all(subdir);
+        }
+        fs::create_directories(subdir);
+        fs::path sub_dir_stem(subdir / fs::path(file_stem).filename());
+        this->sub_dir_stem = sub_dir_stem.string();
+    }
 
-	void backup_file(const char * const ext) {
-		if constexpr (true) {
-			std::filesystem::create_hard_link(file_stem + ext, sub_dir_stem + ext);
-		}
-	}
+    void backup_file(const char * const ext) {
+        if constexpr (true) {
+            fs::create_hard_link(file_stem + ext, sub_dir_stem + ext);
+        }
+    }
 private:
-	std::string file_stem;
-	std::string sub_dir_stem;
+    std::string file_stem;
+    std::string sub_dir_stem;
 };
 
 /**
@@ -151,372 +158,372 @@ private:
  * @return 0 if successful, otherwise an error code defined by POSIX
  */
 int main(int argc, char * argv[]) {
-	
-	//
-	// Process command line arguments
-	//
-	bool do_horndini_prephase = false;
-	bool use_bounds = false;
 
-	int c;
-	while ((c = getopt (argc, argv, "bh")) != -1)
-	{
+    //
+    // Process command line arguments
+    //
+    bool do_horndini_prephase = false;
+    bool use_bounds = false;
 
-		switch (c)
-		{
-			case 'b':
-				use_bounds = true;
-				break;
-			case 'h':
-				do_horndini_prephase = true;
-				break;
-			default:
-				print_help(std::cout, argv[0]);
-				return EXIT_FAILURE;
-		}
+    int c;
+    while ((c = getopt (argc, argv, "bh")) != -1)
+    {
 
-	}
+        switch (c)
+        {
+            case 'b':
+                use_bounds = true;
+                break;
+            case 'h':
+                do_horndini_prephase = true;
+                break;
+            default:
+                print_help(std::cout, argv[0]);
+                return EXIT_FAILURE;
+        }
 
-	if (optind != argc-1)
-	{
-		std::cout << "file_stem not specified" << std::endl;
-		print_help(std::cout, argv[0]);
-		return EXIT_FAILURE;
-	}
-	
-	// File stem
-	auto file_stem = std::string(argv[optind]);
+    }
 
+    if (optind != argc-1)
+    {
+        std::cout << "file_stem not specified" << std::endl;
+        print_help(std::cout, argv[0]);
+        return EXIT_FAILURE;
+    }
 
-	//
-	// Run the learner and allow a graceful exit if something goes wrong
-	//
-	try 
-	{
+    // File stem
+    auto file_stem = std::string(argv[optind]);
 
 
-		//
-		// Read input from files
-		//
-		
-		// Read attribute meta data
-		const auto metadata = boogie_io::read_attributes_file(file_stem + ".attributes");
-		
-		// Read data points
-		const auto datapoints = boogie_io::read_data_file(file_stem + ".data", metadata);
-
-		// Read horn constraints
-		const auto horn_indexes = boogie_io::read_horn_file(file_stem + ".horn");
-
-		// Read intervals
-		const auto intervals = boogie_io::read_intervals_file(file_stem + ".intervals");
-
-		backup b(file_stem);
-		b.backup_file(".attributes");
-		b.backup_file(".data");
-		b.backup_file(".horn");
-		b.backup_file(".intervals");
-		b.backup_file(".status");
-
-		//
-		// Check input
-		//
-		if (metadata.int_names().size() + metadata.categorical_names().size() == 0)
-		{
-			throw std::runtime_error("No attributes defined");
-		}
-		if (metadata.number_of_categories().size() < 0)
-		{
-			throw std::runtime_error("At least one categorical attribute (the ID of the annotation) is required");
-		}
-		if (metadata.number_of_categories()[0] != intervals.size())
-		{
-			throw std::runtime_error("Intervals file does not match number of annotations to synthesize");
-		}
+    //
+    // Run the learner and allow a graceful exit if something goes wrong
+    //
+    try
+    {
 
 
-		//
-		// Create bounds
-		//
-		bound<> cur_bound (1, use_bounds);
+        //
+        // Read input from files
+        //
 
-		
-		/************************************************************************************
-		 *
-		 * Do Horndini prephase if desired
-		 *
-		 ************************************************************************************/
-		if (do_horndini_prephase)
-		{
+        // Read attribute meta data
+        const auto metadata = boogie_io::read_attributes_file(file_stem + ".attributes");
 
-			//
-			// Create copy of data points and pointers thereof
-			//
-			std::vector<datapoint<bool>> datapoints_copy;
-			datapoints_copy.reserve(datapoints.size());
-			for (unsigned i = 0; i < datapoints.size(); ++i)
-			{
-				datapoints_copy.push_back(datapoints[i]);
-			}
-			
-			std::vector<datapoint<bool> *> datapoint_ptrs;
-			datapoint_ptrs.reserve(datapoints.size());
-			for (unsigned i = 0; i < datapoints_copy.size(); ++i)
-			{
-				datapoint_ptrs.push_back(&datapoints_copy[i]);
-			}
+        // Read data points
+        const auto datapoints = boogie_io::read_data_file(file_stem + ".data", metadata);
 
-			//
-			// Create Horn constraints
-			//
-			auto horn_constraints = boogie_io::indexes2horn_constraints(horn_indexes, datapoints_copy);
+        // Read horn constraints
+        const auto horn_indexes = boogie_io::read_horn_file(file_stem + ".horn");
 
+        // Read intervals
+        const auto intervals = boogie_io::read_intervals_file(file_stem + ".intervals");
 
-			//
-			// Run Horndini
-			//
-			try // There might not be a conjunctive invariant
-			{
-				
-				auto horndini_tree = horndini_prephase(metadata, datapoints_copy, horn_indexes, intervals);
+        backup b(file_stem);
+        b.backup_file(".attributes");
+        b.backup_file(".data");
+        b.backup_file(".horn");
+        b.backup_file(".intervals");
+        b.backup_file(".status");
+
+        //
+        // Check input
+        //
+        if (metadata.int_names().size() + metadata.categorical_names().size() == 0)
+        {
+            throw std::runtime_error("No attributes defined");
+        }
+        if (metadata.number_of_categories().size() < 0)
+        {
+            throw std::runtime_error("At least one categorical attribute (the ID of the annotation) is required");
+        }
+        if (metadata.number_of_categories()[0] != intervals.size())
+        {
+            throw std::runtime_error("Intervals file does not match number of annotations to synthesize");
+        }
 
 
-				//
-				// Output and exit if consistent
-				//
-				auto horndini_consistent = learner::is_consistent(horndini_tree, datapoint_ptrs, horn_constraints);
-				if (horndini_consistent)
-				{
-
-					boogie_io::write_json_file(file_stem + ".json", horndini_tree, metadata);
-					b.backup_file(".json");
-
-					if (cur_bound.use_bound())
-					{
-						cur_bound.write_bound_file(file_stem + ".bound", cur_bound);
-						b.backup_file(".bound");
-					}
-
-					return EXIT_SUCCESS;
-
-				}
-			}
-			
-			// Catch exception that no consistent conjunction exists 
-			catch (const no_conjunction_exists_exception & ex)
-			{
-				// Do nothing, just proceed to decision tree learning phase
-			}
-			
-			
-		}
+        //
+        // Create bounds
+        //
+        bound<> cur_bound (1, use_bounds);
 
 
+        /************************************************************************************
+         *
+         * Do Horndini prephase if desired
+         *
+         ************************************************************************************/
+        if (do_horndini_prephase)
+        {
 
-		/************************************************************************************
-		 *
-		 * Run decision tree learner
-		 *
-		 ************************************************************************************/
+            //
+            // Create copy of data points and pointers thereof
+            //
+            std::vector<datapoint<bool>> datapoints_copy;
+            datapoints_copy.reserve(datapoints.size());
+            for (unsigned i = 0; i < datapoints.size(); ++i)
+            {
+                datapoints_copy.push_back(datapoints[i]);
+            }
 
+            std::vector<datapoint<bool> *> datapoint_ptrs;
+            datapoint_ptrs.reserve(datapoints.size());
+            for (unsigned i = 0; i < datapoints_copy.size(); ++i)
+            {
+                datapoint_ptrs.push_back(&datapoints_copy[i]);
+            }
 
-		//
-		// Read round number (and bounds) from file if bounds are to be used
-		//
-		if (cur_bound.use_bound())
-		{
-
-			// Read status file
-			auto round_nr = boogie_io::read_status_file(file_stem + ".status");
-		
-			// Read bounds file (misuse the status file reader for this)
-			if (round_nr > 1)
-			{
-				cur_bound.set_bound(boogie_io::read_status_file(file_stem + ".bound"));
-			}
-
-		}
-
-
-		//
-		// Loop over increasing bounds (depending on the implementation of the bounds object, at some point no bound is used)
-		//
-		bool terminate;
-		do
-		{
-
-			terminate = !cur_bound.use_bound();
+            //
+            // Create Horn constraints
+            //
+            auto horn_constraints = boogie_io::indexes2horn_constraints(horn_indexes, datapoints_copy);
 
 
-			//
-			// Try-catch block is used to handle situations where bounds are too small and need to be increased
-			//
-			try
-			{
+            //
+            // Run Horndini
+            //
+            try // There might not be a conjunctive invariant
+            {
+
+                auto horndini_tree = horndini_prephase(metadata, datapoints_copy, horn_indexes, intervals);
 
 
-				//
-				// Create copy of data points and pointers thereof
-				//
-				std::vector<datapoint<bool>> datapoints_copy;
-				datapoints_copy.reserve(datapoints.size());
-				for (unsigned i = 0; i < datapoints.size(); ++i)
-				{
-					datapoints_copy.push_back(datapoints[i]);
-				}
-				
-				std::vector<datapoint<bool> *> datapoint_ptrs;
-				datapoint_ptrs.reserve(datapoints.size());
-				for (unsigned i = 0; i < datapoints_copy.size(); ++i)
-				{
-					datapoint_ptrs.push_back(&datapoints_copy[i]);
-				}
+                //
+                // Output and exit if consistent
+                //
+                auto horndini_consistent = learner::is_consistent(horndini_tree, datapoint_ptrs, horn_constraints);
+                if (horndini_consistent)
+                {
+
+                    boogie_io::write_json_file(file_stem + ".json", horndini_tree, metadata);
+                    b.backup_file(".json");
+
+                    if (cur_bound.use_bound())
+                    {
+                        cur_bound.write_bound_file(file_stem + ".bound", cur_bound);
+                        b.backup_file(".bound");
+                    }
+
+                    return EXIT_SUCCESS;
+
+                }
+            }
+
+            // Catch exception that no consistent conjunction exists
+            catch (const no_conjunction_exists_exception & ex)
+            {
+                // Do nothing, just proceed to decision tree learning phase
+            }
 
 
-				//
-				// Generate Horn constraints
-				//
-				auto horn_constraints = boogie_io::indexes2horn_constraints(horn_indexes, datapoints_copy);
-
-				//
-				// Create bound constraints if necessary
-				//
-				if (cur_bound.use_bound())
-				{
-					
-					std::vector<horn_constraint<bool>> indistinguishability_horn_constraints;
-					
-					// Infer horn constraints which arise due to indistinguishability of data points
-					indistinguishability_horn_constraints = boogie_io::get_indistinguishable_datapoints(datapoints_copy, cur_bound.get_bound());
-
-					// Push these indistinguishability_horn_constraints to horn_constraints
-					horn_constraints.insert(horn_constraints.end(), std::make_move_iterator(indistinguishability_horn_constraints.begin()), std::make_move_iterator(indistinguishability_horn_constraints.end()));
-					
-				}
+        }
 
 
-				//
-				// Instantiate Horn solver and perform initial run to label data points if necessary
-				//
-				horn_solver<bool> solver;
-				std::unordered_set<datapoint<bool> *> positive_ptrs;
-				std::unordered_set<datapoint<bool> *> negative_ptrs;
 
-				// Initial run
-				auto ok = solver.solve(datapoint_ptrs, horn_constraints, positive_ptrs, negative_ptrs);
-				
-				if (ok)
-				{
-					
-					for (auto & dp : positive_ptrs)
-					{
-						dp->_is_classified = true;
-						dp->_classification = true;	
-					}
-
-					for (auto & dp : negative_ptrs)
-					{
-						dp->_is_classified = true;
-						dp->_classification = false;	
-					}
-					
-				}
-				else
-				{
-					throw sample_error("No consistent decision tree exists (Horn clauses are contradictory)");
-				}
+        /************************************************************************************
+         *
+         * Run decision tree learner
+         *
+         ************************************************************************************/
 
 
-				//
-				// Run decision tree learner
-				//
-				// You can configure different heuristics for the learner by passing, at the end, arguments
-				//   NodeSelection enum type with values BFS, DFS, RANDOM, MAX_ENTROPY, MAX_WEIGHTED_ENTROPY, MIN_ENTROPY, MIN_WEIGHTED_ENTROPY
-				//   EntropyComputation enum type with values DEFAULT_ENTROPY, HORN_ASSIGNMENTS
-				//   ConjunctiveSetting enum type with values NOPREFERENCEFORCONJUNCTS, PREFERENCEFORCONJUNCTS
-				auto ns = NodeSelection::BFS;
-				auto ec = EntropyComputation::PENALTY;
-				auto cs = ConjunctiveSetting::NOPREFERENCEFORCONJUNCTS;
-				job_manager *manager = cur_bound.use_bound() ? new complex_job_manager(datapoint_ptrs, horn_constraints, solver, cur_bound.get_bound(), ns, ec, cs) : new complex_job_manager(datapoint_ptrs, horn_constraints, solver, ns, ec, cs);
-				std::unique_ptr<job_manager> manager_unique(manager);
-				learner l(manager_unique);
-				auto decision_tree = l.learn(metadata, datapoint_ptrs, horn_constraints);
+        //
+        // Read round number (and bounds) from file if bounds are to be used
+        //
+        if (cur_bound.use_bound())
+        {
 
-				//
-				// Debug
-				//
-				assert (l.is_consistent(decision_tree, datapoint_ptrs, horn_constraints));
+            // Read status file
+            auto round_nr = boogie_io::read_status_file(file_stem + ".status");
 
-				//
-				// Output
-				//
-				boogie_io::write_json_file(file_stem + ".json", decision_tree, metadata);
-				b.backup_file(".json");
+            // Read bounds file (misuse the status file reader for this)
+            if (round_nr > 1)
+            {
+                cur_bound.set_bound(boogie_io::read_status_file(file_stem + ".bound"));
+            }
 
-				if (cur_bound.use_bound())
-				{
-					cur_bound.write_bound_file(file_stem + ".bound", cur_bound);
-					b.backup_file(".bound");
-				}
-				
-
-				terminate = true;
-
-			}
-
-			// Sample is inconsistent
-			catch (const sample_error & ex)
-			{
-
-				// Increase bounds or declare inconsistent sample if no bounds ought to be used
-				if(cur_bound.use_bound())
-				{
-					cur_bound.increase_bound();
-				}
-				else
-				{
-					throw;
-				}
-				
-			}
-			
-			// No split possible
-			// Sample is inconsistent
-			catch (const split_not_possible_error & ex)
-			{
-			
-				// Increase bounds or declare inconsistent sample if no bounds ought to be used
-				if(cur_bound.use_bound())
-				{
-					cur_bound.increase_bound();
-				}
-				else
-				{
-					throw;
-				}
-				
-			}
+        }
 
 
-		} while (!terminate); // Loops over increasing bounds, should terminate at some point
+        //
+        // Loop over increasing bounds (depending on the implementation of the bounds object, at some point no bound is used)
+        //
+        bool terminate;
+        do
+        {
+
+            terminate = !cur_bound.use_bound();
 
 
-		return EXIT_SUCCESS;
-		
-	}
+            //
+            // Try-catch block is used to handle situations where bounds are too small and need to be increased
+            //
+            try
+            {
 
-	//
-	// Handle exceptions (basically exit gracefully)
-	//
-	catch (const std::exception & ex)
-	{
-		std::cerr << ex.what() << std::endl;
-		return EXIT_FAILURE;
-	}
-	catch (...)
-	{
-		std::cerr << "The learner crashed due to an unknown reason" << std::endl;
-		return EXIT_FAILURE;
-	}
+
+                //
+                // Create copy of data points and pointers thereof
+                //
+                std::vector<datapoint<bool>> datapoints_copy;
+                datapoints_copy.reserve(datapoints.size());
+                for (unsigned i = 0; i < datapoints.size(); ++i)
+                {
+                    datapoints_copy.push_back(datapoints[i]);
+                }
+
+                std::vector<datapoint<bool> *> datapoint_ptrs;
+                datapoint_ptrs.reserve(datapoints.size());
+                for (unsigned i = 0; i < datapoints_copy.size(); ++i)
+                {
+                    datapoint_ptrs.push_back(&datapoints_copy[i]);
+                }
+
+
+                //
+                // Generate Horn constraints
+                //
+                auto horn_constraints = boogie_io::indexes2horn_constraints(horn_indexes, datapoints_copy);
+
+                //
+                // Create bound constraints if necessary
+                //
+                if (cur_bound.use_bound())
+                {
+
+                    std::vector<horn_constraint<bool>> indistinguishability_horn_constraints;
+
+                    // Infer horn constraints which arise due to indistinguishability of data points
+                    indistinguishability_horn_constraints = boogie_io::get_indistinguishable_datapoints(datapoints_copy, cur_bound.get_bound());
+
+                    // Push these indistinguishability_horn_constraints to horn_constraints
+                    horn_constraints.insert(horn_constraints.end(), std::make_move_iterator(indistinguishability_horn_constraints.begin()), std::make_move_iterator(indistinguishability_horn_constraints.end()));
+
+                }
+
+
+                //
+                // Instantiate Horn solver and perform initial run to label data points if necessary
+                //
+                horn_solver<bool> solver;
+                std::unordered_set<datapoint<bool> *> positive_ptrs;
+                std::unordered_set<datapoint<bool> *> negative_ptrs;
+
+                // Initial run
+                auto ok = solver.solve(datapoint_ptrs, horn_constraints, positive_ptrs, negative_ptrs);
+
+                if (ok)
+                {
+
+                    for (auto & dp : positive_ptrs)
+                    {
+                        dp->_is_classified = true;
+                        dp->_classification = true;
+                    }
+
+                    for (auto & dp : negative_ptrs)
+                    {
+                        dp->_is_classified = true;
+                        dp->_classification = false;
+                    }
+
+                }
+                else
+                {
+                    throw sample_error("No consistent decision tree exists (Horn clauses are contradictory)");
+                }
+
+
+                //
+                // Run decision tree learner
+                //
+                // You can configure different heuristics for the learner by passing, at the end, arguments
+                //   NodeSelection enum type with values BFS, DFS, RANDOM, MAX_ENTROPY, MAX_WEIGHTED_ENTROPY, MIN_ENTROPY, MIN_WEIGHTED_ENTROPY
+                //   EntropyComputation enum type with values DEFAULT_ENTROPY, HORN_ASSIGNMENTS
+                //   ConjunctiveSetting enum type with values NOPREFERENCEFORCONJUNCTS, PREFERENCEFORCONJUNCTS
+                auto ns = NodeSelection::BFS;
+                auto ec = EntropyComputation::PENALTY;
+                auto cs = ConjunctiveSetting::NOPREFERENCEFORCONJUNCTS;
+                job_manager *manager = cur_bound.use_bound() ? new complex_job_manager(datapoint_ptrs, horn_constraints, solver, cur_bound.get_bound(), ns, ec, cs) : new complex_job_manager(datapoint_ptrs, horn_constraints, solver, ns, ec, cs);
+                std::unique_ptr<job_manager> manager_unique(manager);
+                learner l(manager_unique);
+                auto decision_tree = l.learn(metadata, datapoint_ptrs, horn_constraints);
+
+                //
+                // Debug
+                //
+                assert (l.is_consistent(decision_tree, datapoint_ptrs, horn_constraints));
+
+                //
+                // Output
+                //
+                boogie_io::write_json_file(file_stem + ".json", decision_tree, metadata);
+                b.backup_file(".json");
+
+                if (cur_bound.use_bound())
+                {
+                    cur_bound.write_bound_file(file_stem + ".bound", cur_bound);
+                    b.backup_file(".bound");
+                }
+
+
+                terminate = true;
+
+            }
+
+            // Sample is inconsistent
+            catch (const sample_error & ex)
+            {
+
+                // Increase bounds or declare inconsistent sample if no bounds ought to be used
+                if(cur_bound.use_bound())
+                {
+                    cur_bound.increase_bound();
+                }
+                else
+                {
+                    throw;
+                }
+
+            }
+
+            // No split possible
+            // Sample is inconsistent
+            catch (const split_not_possible_error & ex)
+            {
+
+                // Increase bounds or declare inconsistent sample if no bounds ought to be used
+                if(cur_bound.use_bound())
+                {
+                    cur_bound.increase_bound();
+                }
+                else
+                {
+                    throw;
+                }
+
+            }
+
+
+        } while (!terminate); // Loops over increasing bounds, should terminate at some point
+
+
+        return EXIT_SUCCESS;
+
+    }
+
+    //
+    // Handle exceptions (basically exit gracefully)
+    //
+    catch (const std::exception & ex)
+    {
+        std::cerr << ex.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+    catch (...)
+    {
+        std::cerr << "The learner crashed due to an unknown reason" << std::endl;
+        return EXIT_FAILURE;
+    }
 
 }
