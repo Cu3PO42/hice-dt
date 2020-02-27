@@ -38,13 +38,14 @@ public:
 
 class int_split : public split {
 protected:
+    using manager = job_manager;
     class split_index {
     public:
         double entropy = std::numeric_limits<double>::infinity();
         size_t index;
 
         split_index() = default;
-        split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man);
+        split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man, size_t _);
 
         split_index &assign_if_better(const split_index &other);
         double intrinsic_value_for_split(const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man);
@@ -54,7 +55,12 @@ protected:
 
     int_split(size_t attribute, const slice &sl, job_manager &man);
 
+    template<typename SplitT>
+    typename SplitT::split_index find_index(std::vector<datapoint<bool> *> &datapoints);
+    double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins);
+
     int threshold;
+    double intrinsic_value;
     size_t cut_index;
 
 public:
@@ -67,14 +73,22 @@ public:
 
 class complex_int_split : public int_split {
 private:
-    class complex_split_index : public split_index {
+    using manager = complex_job_manager;
+    class split_index : public int_split::split_index {
+        using base_split_index = int_split::split_index;
     public:
-        complex_split_index() = default;
-        complex_split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, complex_job_manager &man, std::size_t total_classified_points);
+        split_index() = default;
+        split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, complex_job_manager &man, std::size_t total_classified_points);
+
+        bool is_conjunctive;
+
+        split_index &assign_if_better(split_index &&other);
     };
 
-    bool has_positive_intrinsic_value;
-    bool is_conjuncive;
+    friend class int_split;
+    double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins);
+
+    bool is_conjunctive;
 
 public:
     complex_int_split() = default;

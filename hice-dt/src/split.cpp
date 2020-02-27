@@ -13,7 +13,7 @@ split::split(std::size_t attribute, const slice &sl, job_manager &man)
     , man(&man) {
 }
 double split::calculate_intrinsic_value(double fraction, double total) {
-    return -(fraction / total) * log2(fraction/total);
+    return total == 0 ? 0 : -(fraction / total) * log2(fraction/total);
 }
 bool split::is_possible() const { return split_possible; }
 
@@ -93,10 +93,19 @@ std::unique_ptr<abstract_job> cat_split::make_job() const {
 
 int_split::int_split(size_t attribute, std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man)
     : split(attribute, sl, man) {
+  find_index<int_split>(datapoints);
+}
+
+template<typename SplitT>
+typename SplitT::split_index int_split::find_index(std::vector<datapoint<bool> *> &datapoints) {
+    auto &man = *this->man;
+    auto &sl = *this->sl;
+
     int tries = 0;
-    split_index best_index;
+    typename SplitT::split_index best_index;
 
     // 1) Sort according to int attribute
+    auto attribute = this->attribute;
     auto comparer = [attribute](const datapoint<bool> *const a, const datapoint<bool> *const b) {
         return a->_int_data[attribute] < b->_int_data[attribute];
     };
@@ -121,7 +130,7 @@ int_split::int_split(size_t attribute, std::vector<datapoint<bool> *> &datapoint
             auto attribute_value =datapoints[cur]->_int_data[attribute];
             if (!man._are_numerical_cuts_thresholded ||
                 ((-man._threshold <= attribute_value) && (attribute_value <= man._threshold))) {
-                best_index.assign_if_better(split_index(cur, datapoints, sl, man));
+                best_index.assign_if_better(typename SplitT::split_index(cur, datapoints, sl, static_cast<typename SplitT::manager &>(man), total_classified_points));
             }
 
             ++cur;
@@ -134,31 +143,29 @@ int_split::int_split(size_t attribute, std::vector<datapoint<bool> *> &datapoint
     if (split_possible) {
         // We have found the best split threshold for the given attribute
         // Now compute the information gain to optimize across different attributes
-        double best_info_gain;
-        if (total_classified_points == 0.0) {
-            best_info_gain = man.entropy(datapoints, sl._left_index, sl._right_index);
-        } else {
-            best_info_gain =
-                man.entropy(datapoints, sl._left_index, sl._right_index) -
-                best_index.entropy / total_classified_points;
-        }
+        double best_info_gain = static_cast<SplitT *>(this)->calculate_info_gain(datapoints, best_index.entropy, total_classified_points);
 
         double interval = (datapoints[sl._right_index]->_int_data[attribute] -
                            datapoints[sl._left_index]->_int_data[attribute]) /
                           (datapoints[cut_index + 1]->_int_data[attribute] -
                            datapoints[cut_index]->_int_data[attribute]);
 
+        // TODO: why is a case with 0 classified points not reasonable?
         assert(total_classified_points > 0);
         double threshCost = (interval < tries ? log2(interval) : log2(tries)) /
                             total_classified_points;
 
         best_info_gain -= threshCost;
 
-        double best_intrinsic_value = best_index.intrinsic_value_for_split(datapoints, sl, man);
-        assert(best_intrinsic_value > 0.0);
-        gain_ratio = best_info_gain / best_intrinsic_value;
+        intrinsic_value = best_index.intrinsic_value_for_split(datapoints, sl, man);
+        gain_ratio =
+          intrinsic_value > 0
+          ? best_info_gain / intrinsic_value
+          : best_info_gain;
         threshold = datapoints[cut_index]->_int_data[attribute];
     }
+
+    return best_index;
 }
 
 int_split &int_split::assign_if_better(int_split &&other) {
@@ -177,8 +184,18 @@ std::unique_ptr<abstract_job> int_split::make_job() const {
 
 int_split::int_split(size_t attribute, const slice &sl, job_manager &man) : split(attribute, sl, man)
 {}
+double int_split::calculate_info_gain(
+    std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_points) {
+    if (total_classified_points == 0.0) {
+      return man->entropy(datapoints, sl->_left_index, sl->_right_index);
+    } else {
+      return
+          man->entropy(datapoints, sl->_left_index, sl->_right_index) -
+          entropy / total_classified_points;
+    }
+}
 
-int_split::split_index::split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man)
+int_split::split_index::split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man, std::size_t _)
     : index(index) {
     auto weighted_entropy_left = man.weighted_entropy(datapoints, sl._left_index, index);
     auto weighted_entropy_right = man.weighted_entropy(datapoints, index + 1, sl._right_index);
@@ -205,91 +222,9 @@ complex_int_split::complex_int_split(
     const slice &sl,
     complex_job_manager &man)
     : int_split(attribute, sl, man) {
-    for (std::size_t attribute = 0; attribute < datapoints[sl._left_index]->_int_data.size(); ++attribute) {
-        int tries = 0;
-        split_index best_normal_split, best_conj_split;
 
-        // 1) Sort according to int attribute
-        auto comparer = [attribute](const datapoint<bool> *const a, const datapoint<bool> *const b) {
-            return a->_int_data[attribute] < b->_int_data[attribute];
-        };
-        std::sort(
-            datapoints.begin() + sl._left_index, datapoints.begin() + sl._right_index + 1, comparer);
-
-        // 2) Try all thresholds of current attribute
-        auto total_classified_points = man.num_classified_points(datapoints, sl._left_index, sl._right_index);
-        auto cur = sl._left_index;
-        while (cur < sl._right_index) {
-            // Skip to riight most entry with the same value
-            while (cur + 1 <= sl._right_index &&
-                   datapoints[cur + 1]->_int_data[attribute] == datapoints[cur]->_int_data[attribute]) {
-                ++cur;
-            }
-
-            // Split is possible
-            if (cur < sl._right_index) {
-                tries++;
-
-                // if cuts have been thresholded, check that a split at the current value of the numerical attribute
-                // is allowed
-                if (!man._are_numerical_cuts_thresholded ||
-                    ((-1 * man._threshold <= datapoints[cur]->_int_data[attribute]) &&
-                     (datapoints[cur]->_int_data[attribute] <= man._threshold))) {
-                    split_index current_split(cur, datapoints, sl, man);
-
-                    // If the learner prefers conjunctive splits
-                    if (man._conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS) {
-                        // Check if a conjunctive split is possible
-                        if (!man.positive_points_present(datapoints, sl._left_index, cur) ||
-                            !man.positive_points_present(datapoints, cur + 1, sl._right_index)) {
-                            // One of the sub node consists purely of negative or unclassified points.
-                            // Consider this as a prospective candidate for a conjunctive split
-                            best_conj_split.assign_if_better(current_split);
-                        }
-                    }
-
-                    best_normal_split.assign_if_better(current_split);
-                }
-
-                ++cur;
-            }
-        }
-
-        is_conjuncive = man._conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS && best_conj_split.is_possible();
-        auto &best_split = is_conjuncive ? best_conj_split : best_normal_split;
-
-        split_possible = best_split.is_possible();
-        cut_index = best_split.index;
-
-        if (split_possible) {
-            // We have found the best split threshold for the given attribute
-            // Now compute the information gain to optimize across different attributes
-            double best_info_gain;
-            best_info_gain =
-                man.entropy(datapoints, sl._left_index, sl._right_index) - best_split.entropy;
-
-            double interval = (datapoints[sl._right_index]->_int_data[attribute] -
-                               datapoints[sl._left_index]->_int_data[attribute]) /
-                              (datapoints[best_split.index + 1]->_int_data[attribute] -
-                               datapoints[best_split.index]->_int_data[attribute]);
-
-            assert(total_classified_points > 0);
-            double threshCost = (interval < tries ? log2(interval) : log2(tries)) /
-                                total_classified_points;
-
-            best_info_gain -= threshCost;
-            double best_intrinsic_value = best_split.intrinsic_value_for_split(datapoints, sl, man);
-            has_positive_intrinsic_value = best_intrinsic_value > 0;
-
-            double best_gain_ratio_for_given_attribute =
-                has_positive_intrinsic_value
-                ? best_info_gain / best_intrinsic_value
-                : best_info_gain;
-
-            gain_ratio = best_gain_ratio_for_given_attribute;
-            threshold = datapoints[best_split.index]->_int_data[attribute];
-        }
-    }
+    auto best_split = find_index<complex_int_split>(datapoints);
+    is_conjunctive = man._conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS && best_split.is_conjunctive;
 }
 
 complex_int_split &complex_int_split::assign_if_better(complex_int_split &&other) {
@@ -298,18 +233,27 @@ complex_int_split &complex_int_split::assign_if_better(complex_int_split &&other
         static_cast<complex_job_manager *>(other.man)->_conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS
         ? 1
         : 0;
-    auto lhs = std::make_tuple(is_conjuncive * conj_preferred, has_positive_intrinsic_value, gain_ratio, -threshold);
-    auto rhs = std::make_tuple(other.is_conjuncive * conj_preferred, other.has_positive_intrinsic_value, other.gain_ratio, -other.threshold);
+    auto lhs = std::make_tuple(is_conjunctive * conj_preferred, intrinsic_value > 0, gain_ratio, -threshold);
+    auto rhs = std::make_tuple(other.is_conjunctive * conj_preferred, other.intrinsic_value > 0, other.gain_ratio, -other.threshold);
     if (lhs <= rhs) {
         *this = other;
     }
     return *this;
 }
+double complex_int_split::calculate_info_gain(
+    std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins) {
+    return man->entropy(datapoints, sl->_left_index, sl->_right_index) - entropy;
+}
 
-complex_int_split::complex_split_index::complex_split_index(
+complex_int_split::split_index::split_index(
     size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, complex_job_manager &man, std::size_t total_classified_points)
-    : split_index(index, datapoints, sl, man) {
-
+    : base_split_index(index, datapoints, sl, man, total_classified_points)
+    , is_conjunctive(
+        // One of the sub node consists purely of negative or unclassified points.
+        // Consider this as a prospective candidate for a conjunctive split
+        man._conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS &&
+        (!man.positive_points_present(datapoints, sl._left_index, index) ||
+        !man.positive_points_present(datapoints, index + 1, sl._right_index)) ) {
     if (total_classified_points == 0) {
         entropy = 0.0;
     } else {
@@ -341,4 +285,12 @@ complex_int_split::complex_split_index::complex_split_index(
         penaltyVal = 2 * penaltyVal / (2 * (left2right + right2left) + total_classified_points);
         entropy += penaltyVal;
     }
+
+}
+complex_int_split::split_index &
+complex_int_split::split_index::assign_if_better(complex_int_split::split_index &&other) {
+    if (std::tie(is_conjunctive, entropy) < std::tie(other.is_conjunctive, other.entropy)) {
+      *this = other;
+    }
+    return *this;
 }
