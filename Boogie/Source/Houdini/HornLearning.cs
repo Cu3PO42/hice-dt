@@ -29,6 +29,11 @@ namespace Microsoft.Boogie.Houdini
         public bool classification = false;
 
         /// <summary>
+        /// The constraint type. For int nodes this indicates the comparison operator used
+        /// </summary>
+        public string type = "";
+
+        /// <summary>
         /// The cildren of this node
         /// </summary>
         public TreeNode[] children = null;
@@ -133,7 +138,9 @@ namespace Microsoft.Boogie.Houdini
                     Debug.Assert(node.children != null && node.children.Length == 2 && node.children[0] != null && node.children[1] != null);
 
                     // Get expression for decision predicate of the current node
-                    Expr decisionPredicate = Expr.Le(attr2Expr[node.attribute].Clone() as Expr, Expr.Literal(node.cut));
+                    Expr decisionPredicate = node.type == "less_than_equals"
+                        ? Expr.Le(attr2Expr[node.attribute].Clone() as Expr, Expr.Literal(node.cut))
+                        : Expr.Eq(attr2Expr[node.attribute].Clone() as Expr, Expr.Literal(node.cut));
 
                     // Make recusrive call for left child (test evaluates to true)
                     pathFromRoot.Add(decisionPredicate);

@@ -25,6 +25,7 @@ namespace chc_teacher
 
 	class dt_to_z3_exp
 	{
+		constexpr static auto lte_flag = horn_verification::int_node::constraint_type::less_than_equals;
 		/// Variables used to construct conjecture expressions
 		std::vector<std::vector<z3::expr>> _set_of_variables;
 
@@ -177,11 +178,17 @@ namespace chc_teacher
 							boolean_value = false;
 						}
 
-						left_expression = get_z3_exp_int(left_int_child, _variables) && (_integer_identifier_to_attribute.find(node->attribute())->second && boolean_value);
+						auto z3_attribute = _integer_identifier_to_attribute.find(node->attribute())->second;
+						if (node->type() == lte_flag) {
+							left_expression = get_z3_exp_int(left_int_child, _variables) && (z3_attribute && boolean_value);
+						} else {
+							left_expression = get_z3_exp_int(left_int_child, _variables) && (z3_attribute == static_cast<bool>(node->threshold()));
+						}
 
 					} else {
 
-						left_expression = get_z3_exp_int(left_int_child, _variables) && (_integer_identifier_to_attribute.find(node->attribute())->second <= node->threshold());
+						auto z3_attribute = _integer_identifier_to_attribute.find(node->attribute())->second;
+						left_expression = get_z3_exp_int(left_int_child, _variables) && (node->type() == lte_flag ? (z3_attribute <= node->threshold()) : (z3_attribute == node->threshold()));
 					}
 
 				} else if (left_leaf_child != NULL) {
@@ -201,11 +208,16 @@ namespace chc_teacher
 								boolean_value = false;
 							}
 
-							left_expression = _integer_identifier_to_attribute.find(node->attribute())->second && boolean_value;
+							auto z3_attribute = _integer_identifier_to_attribute.find(node->attribute())->second;
+							if (node->type() == lte_flag) {
+								left_expression = z3_attribute && boolean_value;
+							} else {
+								left_expression = z3_attribute == static_cast<bool>(node->threshold());
+							}
 
 						} else {
-
-							left_expression = _integer_identifier_to_attribute.find(node->attribute())->second <= node->threshold();
+							auto z3_attribute = _integer_identifier_to_attribute.find(node->attribute())->second;
+							left_expression = node->type() == lte_flag ? (z3_attribute <= node->threshold()) : (z3_attribute == node->threshold());
 						}
 
 					} else {
@@ -229,11 +241,15 @@ namespace chc_teacher
 							boolean_value = true;
 						}
 
-						right_expression = get_z3_exp_int(right_int_child, _variables) && (_integer_identifier_to_attribute.find(node->attribute())->second && boolean_value);
+						if (node->type() == lte_flag) {
+							left_expression = get_z3_exp_int(left_int_child, _variables) && (_integer_identifier_to_attribute.find(node->attribute())->second && boolean_value);
+						} else {
+							left_expression = get_z3_exp_int(left_int_child, _variables) && (_integer_identifier_to_attribute.find(node->attribute())->second != static_cast<bool>(node->threshold()));
+						}
 
 					} else {
-
-						right_expression = get_z3_exp_int(right_int_child, _variables) && (_integer_identifier_to_attribute.find(node->attribute())->second > node->threshold());
+						auto z3_attribute = _integer_identifier_to_attribute.find(node->attribute())->second;
+						right_expression = get_z3_exp_int(right_int_child, _variables) && (node->type() == lte_flag ? (z3_attribute > node->threshold()) : (z3_attribute != node->threshold()));
 
 					}
 
@@ -254,11 +270,16 @@ namespace chc_teacher
 								boolean_value = true;
 							}
 
-							right_expression = _integer_identifier_to_attribute.find(node->attribute())->second && boolean_value;
+							auto z3_attribute = _integer_identifier_to_attribute.find(node->attribute())->second;
+							if (node->type() == lte_flag) {
+								right_expression = z3_attribute && boolean_value;
+							} else {
+								right_expression = z3_attribute != static_cast<bool>(node->threshold());
+							}
 
 						} else {
-
-							right_expression = _integer_identifier_to_attribute.find(node->attribute())->second > node->threshold();
+							auto z3_attribute = _integer_identifier_to_attribute.find(node->attribute())->second;
+							right_expression = node->type() == lte_flag ? (z3_attribute > node->threshold()) : (z3_attribute != node->threshold());
 						}
 
 					} else {

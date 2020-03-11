@@ -52,7 +52,7 @@ namespace horn_verification
 			_out << " ";
 		}
 		
-		_out << "if x[" << n.attribute() << "] <= " << n.threshold();
+		_out << "if x[" << n.attribute() << "] " << (n.type() == int_node::constraint_type::less_than_equals ? "<= " : "= ") << n.threshold();
 		
 		++_indent;
 		for (const auto & child : n.children())

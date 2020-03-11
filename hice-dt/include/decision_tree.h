@@ -200,12 +200,21 @@ namespace horn_verification
 	 */
 	class int_node : public base_node
 	{
+	public:
+		enum class constraint_type {
+			less_than_equals,
+			equals,
+		};
+	private:
 	
 		/// The decision attribute
 		std::size_t _attribute;
 		
 		/// The decision threshold
 		int _threshold;
+
+		/// The comparison operator used in the constraint
+		constraint_type _type;
 
 		/// The children of this node
 		std::vector<base_node *> _children;
@@ -320,6 +329,16 @@ namespace horn_verification
 		inline int threshold() const
 		{
 			return _threshold;
+		}
+
+		/**
+		 * Returns the comparison operator used in the constraint.
+		 * 
+		 * @return the comparison operator used in the constraint
+		 */
+		inline constraint_type type() const
+		{
+			return _type;
 		}
 
 		
