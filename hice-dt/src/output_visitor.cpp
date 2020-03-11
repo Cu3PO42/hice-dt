@@ -40,7 +40,8 @@ namespace horn_verification
 	void output_visitor::visit(int_node & n)
 	{
 		
-		if (_datapoint->_int_data[n.attribute()] <= n.threshold())
+		if (n.type() == int_node::constraint_type::less_than_equals && (_datapoint->_int_data[n.attribute()] <= n.threshold()) ||
+		    n.type() == int_node::constraint_type::equals && (_datapoint->_int_data[n.attribute()] == n.threshold()))
 		{
 			n.children()[0]->accept(*this);
 		}

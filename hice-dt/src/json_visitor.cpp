@@ -14,7 +14,7 @@ namespace horn_verification
 	void json_visitor::visit(categorical_node & node)
 	{
 		
-		_out << "{\"attribute\":\"" << _metadata.categorical_names()[node.attribute()] << "\",\"cut\":0,\"classification\":true,\"children\":[";
+		_out << "{\"attribute\":\"" << _metadata.categorical_names()[node.attribute()] << "\",\"cut\":0,\"classification\":true,\"type\": \"\",\"children\":[";
 		
 		bool first = true;
 		for (auto & child : node.children())
@@ -49,7 +49,8 @@ namespace horn_verification
 	void json_visitor::visit(int_node & node)
 	{
 		
-		_out << "{\"attribute\":\"" << _metadata.int_names()[node.attribute()] << "\",\"cut\":" << node.threshold() << ",\"classification\":true,\"children\":[";
+		_out << "{\"attribute\":\"" << _metadata.int_names()[node.attribute()] << "\",\"cut\":" << node.threshold() << ",\"classification\":true,\"type\":"
+		  << (node.type() == int_node::constraint_type::less_than_equals ? "less_than_equals" : "equals") << ",\"children\":[";
 		
 		node.children()[0]->accept(*this);
 		_out << ",";
@@ -62,7 +63,7 @@ namespace horn_verification
 
 	void json_visitor::visit(leaf_node & node)
 	{
-		_out << "{\"attribute\":\"\",\"cut\":0,\"classification\":" << (node.output() ? "true" : "false") << ",\"children\":null}";
+		_out << "{\"attribute\":\"\",\"cut\":0,\"classification\":" << (node.output() ? "true" : "false") << ",\"type\":\"\",\"children\":null}";
 	}
 
 }; // End namespace horn_verification
