@@ -7,6 +7,42 @@
 
 using namespace horn_verification;
 
+// =======================================
+// meta programming helpers
+// =======================================
+
+template<typename... Ts>
+struct tlist;
+
+template<typename T, typename... Ts>
+struct tlist<T, Ts...> {
+    using head = T;
+    using tail = tlist<Ts...>;
+    static constexpr bool has = true;
+};
+template<>
+struct tlist<> {
+    static constexpr bool has = false;
+};
+
+template<typename V, typename Base, std::size_t cur = 0>
+Base *get_as(V *variant) {
+    if (auto it = std::get_if<cur>(variant)) {
+        return static_cast<Base *>(it);
+    }
+    if constexpr (cur + 1 < std::variant_size_v<V>) {
+        return get_as<V, Base, cur + 1>(variant);
+    }
+    // is unreachable
+    assert(false);
+    return nullptr;
+}
+
+
+// =======================================
+// base split functions
+// =======================================
+
 split::split(std::size_t attribute, const slice &sl, job_manager &man)
     : attribute(attribute)
     , sl(&sl)
@@ -21,6 +57,9 @@ bool split::operator<(const split &other) const {
     return std::tie(split_possible, gain_ratio) < std::tie(other.split_possible, other.gain_ratio);
 }
 
+// =======================================
+// cat_split
+// =======================================
 cat_split::cat_split(std::size_t attribute, std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man)
     : split(attribute, sl, man)
 {
@@ -91,18 +130,21 @@ std::unique_ptr<abstract_job> cat_split::make_job() const {
     return std::make_unique<categorical_split_job>(*sl, attribute);
 }
 
+// =======================================
+// int_split
+// =======================================
 int_split::int_split(size_t attribute, std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man)
     : split(attribute, sl, man) {
   find_index<int_split>(datapoints);
 }
 
 template<typename SplitT>
-typename SplitT::split_index int_split::find_index(std::vector<datapoint<bool> *> &datapoints) {
+typename SplitT::all_splits int_split::find_index(std::vector<datapoint<bool> *> &datapoints) {
     auto &man = *this->man;
     auto &sl = *this->sl;
 
     int tries = 0;
-    typename SplitT::split_index best_index;
+    typename SplitT::all_splits best_index;
 
     // 1) Sort according to int attribute
     auto attribute = this->attribute;
@@ -130,20 +172,21 @@ typename SplitT::split_index int_split::find_index(std::vector<datapoint<bool> *
             auto attribute_value =datapoints[cur]->_int_data[attribute];
             if (!man._are_numerical_cuts_thresholded ||
                 ((-man._threshold <= attribute_value) && (attribute_value <= man._threshold))) {
-                best_index.assign_if_better(typename SplitT::split_index(cur, datapoints, sl, static_cast<typename SplitT::job_manager &>(man), total_classified_points));
+                construct_all<SplitT>(best_index, cur, datapoints, sl, static_cast<typename SplitT::manager &>(man), total_classified_points);
             }
 
             ++cur;
         }
     }
 
-    split_possible = best_index.is_possible();
-    cut_index = best_index.index;
+    auto best_index_base = *get_as<typename SplitT::all_splits, typename SplitT::base_split>(&best_index);
+    split_possible = best_index_base.is_possible();
+    cut_index = best_index_base.index;
 
     if (split_possible) {
         // We have found the best split threshold for the given attribute
         // Now compute the information gain to optimize across different attributes
-        double best_info_gain = static_cast<SplitT *>(this)->calculate_info_gain(datapoints, best_index.entropy, total_classified_points);
+        double best_info_gain = static_cast<SplitT *>(this)->calculate_info_gain(datapoints, best_index_base.entropy, total_classified_points);
 
         double interval = (datapoints[sl._right_index]->_int_data[attribute] -
                            datapoints[sl._left_index]->_int_data[attribute]) /
@@ -157,7 +200,7 @@ typename SplitT::split_index int_split::find_index(std::vector<datapoint<bool> *
 
         best_info_gain -= threshCost;
 
-        intrinsic_value = best_index.intrinsic_value_for_split(datapoints, sl, man);
+        intrinsic_value = best_index_base.intrinsic_value_for_split(datapoints, sl, man);
         gain_ratio =
           intrinsic_value > 0
           ? best_info_gain / intrinsic_value
@@ -166,6 +209,21 @@ typename SplitT::split_index int_split::find_index(std::vector<datapoint<bool> *
     }
 
     return best_index;
+}
+
+template<typename SplitT, typename ... Splits>
+void int_split::construct_all(std::variant<Splits...> &cur_best, size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, typename SplitT::manager &man, size_t _) {
+    assign_better<SplitT, tlist<Splits...>>(cur_best, index, datapoints, sl, man, _);
+}
+
+template<typename SplitT, typename SplitList>
+void int_split::assign_better(typename SplitT::all_splits &cur_best, size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, typename SplitT::manager &man, size_t _) {
+    if constexpr (SplitList::has) {
+        auto best = get_as<typename SplitT::all_splits, typename SplitT::base_split>(&cur_best);
+        typename SplitList::head next(index, datapoints, sl, man, _);
+        if (*best < next) cur_best = std::move(next);
+        assign_better<SplitT, typename SplitList::tail>(cur_best, index, datapoints, sl, man, _);
+    }
 }
 
 int_split &int_split::assign_if_better(int_split &&other) {
@@ -177,6 +235,7 @@ int_split &int_split::assign_if_better(int_split &&other) {
         ) return *this;
     return *this = other;
 }
+
 std::unique_ptr<abstract_job> int_split::make_job() const {
     if (!split_possible) throw split_not_possible_error("This split is not possible");
     return std::make_unique<int_split_job>(*sl, attribute, threshold);
@@ -184,6 +243,7 @@ std::unique_ptr<abstract_job> int_split::make_job() const {
 
 int_split::int_split(size_t attribute, const slice &sl, job_manager &man) : split(attribute, sl, man)
 {}
+
 double int_split::calculate_info_gain(
     std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_points) {
     if (total_classified_points == 0.0) {
@@ -195,6 +255,9 @@ double int_split::calculate_info_gain(
     }
 }
 
+// =======================================
+// int_split::split_index
+// =======================================
 int_split::split_index::split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man, std::size_t _)
     : index(index) {
     auto weighted_entropy_left = man.weighted_entropy(datapoints, sl._left_index, index);
@@ -202,20 +265,25 @@ int_split::split_index::split_index(size_t index, const std::vector<datapoint<bo
     entropy = weighted_entropy_left + weighted_entropy_right;
 }
 
-int_split::split_index &int_split::split_index::assign_if_better(const int_split::split_index &other) {
-    if (other.entropy < entropy) *this = other;
-    return *this;
-}
 double int_split::split_index::intrinsic_value_for_split(
     const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man) {
     auto n1 = man.num_classified_points(datapoints, sl._left_index, index);
     auto n2 = man.num_classified_points(datapoints, index + 1, sl._right_index);
     return calculate_intrinsic_value(n1, n1+n2) + calculate_intrinsic_value(n2, n1+n2);
 }
+
 constexpr bool int_split::split_index::is_possible() const {
     return entropy < std::numeric_limits<double>::infinity();
 }
 
+constexpr bool int_split::split_index::operator<(const split_index &rhs) const {
+    // We want to minimize entropy
+    return entropy > rhs.entropy;
+}
+
+// =======================================
+// complex_int_split
+// =======================================
 complex_int_split::complex_int_split(
     size_t attribute,
     std::vector<datapoint<bool> *> &datapoints,
@@ -224,7 +292,7 @@ complex_int_split::complex_int_split(
     : int_split(attribute, sl, man) {
 
     auto best_split = find_index<complex_int_split>(datapoints);
-    is_conjunctive = man._conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS && best_split.is_conjunctive;
+    is_conjunctive = man._conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS && get_as<all_splits, base_split>(&best_split)->is_conjunctive;
 }
 
 complex_int_split &complex_int_split::assign_if_better(complex_int_split &&other) {
@@ -240,14 +308,18 @@ complex_int_split &complex_int_split::assign_if_better(complex_int_split &&other
     }
     return *this;
 }
+
 double complex_int_split::calculate_info_gain(
     std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins) {
     return man->entropy(datapoints, sl->_left_index, sl->_right_index) - entropy;
 }
 
-complex_int_split::split_index::split_index(
+// =======================================
+// complext_int_split::split_index
+// =======================================
+complex_int_split::complex_split_index::complex_split_index(
     size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, complex_job_manager &man, std::size_t total_classified_points)
-    : base_split_index(index, datapoints, sl, man, total_classified_points)
+    : split_index(index, datapoints, sl, man, total_classified_points)
     , is_conjunctive(
         // One of the sub node consists purely of negative or unclassified points.
         // Consider this as a prospective candidate for a conjunctive split
@@ -287,10 +359,6 @@ complex_int_split::split_index::split_index(
     }
 
 }
-complex_int_split::split_index &
-complex_int_split::split_index::assign_if_better(complex_int_split::split_index &&other) {
-    if (std::tie(is_conjunctive, entropy) < std::tie(other.is_conjunctive, other.entropy)) {
-      *this = other;
-    }
-    return *this;
+constexpr bool complex_int_split::complex_split_index::operator<(const complex_int_split::complex_split_index &other) const {
+    return std::tie(is_conjunctive, entropy) >= std::tie(other.is_conjunctive, other.entropy);
 }
