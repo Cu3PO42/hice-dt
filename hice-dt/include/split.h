@@ -6,6 +6,7 @@
 
 #include <memory>
 #include <limits>
+#include <variant>
 #include <vector>
 
 namespace horn_verification {
@@ -28,6 +29,7 @@ protected:
     job_manager *man;
 
     static double calculate_intrinsic_value(double fraction, double total);
+
 public:
     virtual std::unique_ptr<abstract_job> make_job() const = 0;
 
@@ -47,16 +49,26 @@ protected:
         split_index() = default;
         split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man, size_t _);
 
-        split_index &assign_if_better(const split_index &other);
         double intrinsic_value_for_split(const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man);
 
         constexpr bool is_possible() const;
+
+        constexpr bool operator<(const split_index &rhs) const;
     };
+    using base_split = split_index;
+    using all_splits = std::variant<split_index>;
 
     int_split(size_t attribute, const slice &sl, job_manager &man);
 
     template<typename SplitT>
-    typename SplitT::split_index find_index(std::vector<datapoint<bool> *> &datapoints);
+    typename SplitT::all_splits find_index(std::vector<datapoint<bool> *> &datapoints);
+
+    template<typename SplitT, typename ... Splits>
+    void construct_all(std::variant<Splits...> &cur_best, size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, typename SplitT::manager &man, size_t _);
+
+    template<typename SplitT, typename SplitList>
+    void assign_better(typename SplitT::all_splits &cur_best, size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, typename SplitT::manager &man, size_t _);
+
     double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins);
 
     int threshold;
@@ -74,16 +86,17 @@ public:
 class complex_int_split : public int_split {
 private:
     using manager = complex_job_manager;
-    class split_index : public int_split::split_index {
-        using base_split_index = int_split::split_index;
+    class complex_split_index : public int_split::split_index {
     public:
-        split_index() = default;
-        split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, complex_job_manager &man, std::size_t total_classified_points);
+        complex_split_index() = default;
+        complex_split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, complex_job_manager &man, std::size_t total_classified_points);
 
         bool is_conjunctive;
 
-        split_index &assign_if_better(split_index &&other);
+        constexpr bool operator<(const complex_split_index &other) const;
     };
+    using base_split = complex_split_index;
+    using all_splits = std::variant<complex_split_index>;
 
     friend class int_split;
     double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins);
