@@ -47,7 +47,9 @@ protected:
         size_t index;
 
         split_index() = default;
-        split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man, size_t _);
+        #define SPLIT_INDEX_ARGS(T) size_t left_index, size_t right_index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, typename T::manager &man, size_t total_classified_points
+        #define SPLIT_INDEX_ARGS_VARS left_index, right_index, datapoints, sl, man, total_classified_points
+        split_index(SPLIT_INDEX_ARGS(int_split));
 
         double intrinsic_value_for_split(const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man);
 
@@ -64,10 +66,10 @@ protected:
     typename SplitT::all_splits find_index(std::vector<datapoint<bool> *> &datapoints);
 
     template<typename SplitT, typename ... Splits>
-    void construct_all(std::variant<Splits...> &cur_best, size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, typename SplitT::manager &man, size_t _);
+    void construct_all(std::variant<Splits...> &cur_best, SPLIT_INDEX_ARGS(SplitT));
 
     template<typename SplitT, typename SplitList>
-    void assign_better(typename SplitT::all_splits &cur_best, size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, typename SplitT::manager &man, size_t _);
+    void assign_better(typename SplitT::all_splits &cur_best, SPLIT_INDEX_ARGS(SplitT));
 
     double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins);
 
@@ -86,17 +88,23 @@ public:
 class complex_int_split : public int_split {
 private:
     using manager = complex_job_manager;
-    class complex_split_index : public int_split::split_index {
+    class complex_split_index_base : public int_split::split_index {
     public:
-        complex_split_index() = default;
-        complex_split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, complex_job_manager &man, std::size_t total_classified_points);
+        using split_index::split_index;
 
         bool is_conjunctive;
 
-        constexpr bool operator<(const complex_split_index &other) const;
+        constexpr bool operator<(const complex_split_index_base &other) const;
     };
-    using base_split = complex_split_index;
-    using all_splits = std::variant<complex_split_index>;
+    class split_index_le : public complex_split_index_base {
+        split_index_le(SPLIT_INDEX_ARGS(complex_int_split));
+
+    };
+    class split_index_eq : public complex_split_index_base {
+        split_index_eq(SPLIT_INDEX_ARGS(complex_int_split));
+    };
+    using base_split = complex_split_index_base;
+    using all_splits = std::variant<split_index_le, split_index_eq>;
 
     friend class int_split;
     double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins);

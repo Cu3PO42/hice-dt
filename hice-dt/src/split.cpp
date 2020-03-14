@@ -157,6 +157,7 @@ typename SplitT::all_splits int_split::find_index(std::vector<datapoint<bool> *>
     auto total_classified_points = man.num_classified_points(datapoints, sl._left_index, sl._right_index);
     auto cur = sl._left_index;
     while (cur < sl._right_index) {
+        auto left = cur;
         // Skip to riight most entry with the same value
         while (cur + 1 <= sl._right_index &&
                datapoints[cur + 1]->_int_data[attribute] == datapoints[cur]->_int_data[attribute]) {
@@ -172,7 +173,7 @@ typename SplitT::all_splits int_split::find_index(std::vector<datapoint<bool> *>
             auto attribute_value =datapoints[cur]->_int_data[attribute];
             if (!man._are_numerical_cuts_thresholded ||
                 ((-man._threshold <= attribute_value) && (attribute_value <= man._threshold))) {
-                construct_all<SplitT>(best_index, cur, datapoints, sl, static_cast<typename SplitT::manager &>(man), total_classified_points);
+                construct_all<SplitT>(best_index, left, cur, datapoints, sl, static_cast<typename SplitT::manager &>(man), total_classified_points);
             }
 
             ++cur;
@@ -184,6 +185,7 @@ typename SplitT::all_splits int_split::find_index(std::vector<datapoint<bool> *>
     cut_index = best_index_base.index;
 
     if (split_possible) {
+        // FIXME: some computations here may need to be adapted to different split_index types
         // We have found the best split threshold for the given attribute
         // Now compute the information gain to optimize across different attributes
         double best_info_gain = static_cast<SplitT *>(this)->calculate_info_gain(datapoints, best_index_base.entropy, total_classified_points);
@@ -211,18 +213,19 @@ typename SplitT::all_splits int_split::find_index(std::vector<datapoint<bool> *>
     return best_index;
 }
 
+
 template<typename SplitT, typename ... Splits>
-void int_split::construct_all(std::variant<Splits...> &cur_best, size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, typename SplitT::manager &man, size_t _) {
-    assign_better<SplitT, tlist<Splits...>>(cur_best, index, datapoints, sl, man, _);
+void int_split::construct_all(std::variant<Splits...> &cur_best, SPLIT_INDEX_ARGS(SplitT)) {
+    assign_better<SplitT, tlist<Splits...>>(cur_best, SPLIT_INDEX_ARGS_VARS);
 }
 
 template<typename SplitT, typename SplitList>
-void int_split::assign_better(typename SplitT::all_splits &cur_best, size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, typename SplitT::manager &man, size_t _) {
+void int_split::assign_better(typename SplitT::all_splits &cur_best, SPLIT_INDEX_ARGS(SplitT)) {
     if constexpr (SplitList::has) {
         auto best = get_as<typename SplitT::all_splits, typename SplitT::base_split>(&cur_best);
-        typename SplitList::head next(index, datapoints, sl, man, _);
+        typename SplitList::head next(SPLIT_INDEX_ARGS_VARS);
         if (*best < next) cur_best = std::move(next);
-        assign_better<SplitT, typename SplitList::tail>(cur_best, index, datapoints, sl, man, _);
+        assign_better<SplitT, typename SplitList::tail>(cur_best, SPLIT_INDEX_ARGS_VARS);
     }
 }
 
@@ -258,8 +261,8 @@ double int_split::calculate_info_gain(
 // =======================================
 // int_split::split_index
 // =======================================
-int_split::split_index::split_index(size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, job_manager &man, std::size_t _)
-    : index(index) {
+int_split::split_index::split_index(SPLIT_INDEX_ARGS(int_split))
+    : index(right_index) {
     auto weighted_entropy_left = man.weighted_entropy(datapoints, sl._left_index, index);
     auto weighted_entropy_right = man.weighted_entropy(datapoints, index + 1, sl._right_index);
     entropy = weighted_entropy_left + weighted_entropy_right;
@@ -317,15 +320,19 @@ double complex_int_split::calculate_info_gain(
 // =======================================
 // complext_int_split::split_index
 // =======================================
-complex_int_split::complex_split_index::complex_split_index(
-    size_t index, const std::vector<datapoint<bool> *> &datapoints, const slice &sl, complex_job_manager &man, std::size_t total_classified_points)
-    : split_index(index, datapoints, sl, man, total_classified_points)
-    , is_conjunctive(
+constexpr bool complex_int_split::complex_split_index_base::operator<(const complex_int_split::complex_split_index_base &other) const {
+    return std::tie(is_conjunctive, entropy) >= std::tie(other.is_conjunctive, other.entropy);
+}
+
+complex_int_split::split_index_le::split_index_le(SPLIT_INDEX_ARGS(complex_int_split))
+    : complex_split_index_base(SPLIT_INDEX_ARGS_VARS) {
+    is_conjunctive =
         // One of the sub node consists purely of negative or unclassified points.
         // Consider this as a prospective candidate for a conjunctive split
         man._conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS &&
         (!man.positive_points_present(datapoints, sl._left_index, index) ||
-        !man.positive_points_present(datapoints, index + 1, sl._right_index)) ) {
+        !man.positive_points_present(datapoints, index + 1, sl._right_index))
+    ;
     if (total_classified_points == 0) {
         entropy = 0.0;
     } else {
@@ -346,19 +353,57 @@ complex_int_split::complex_split_index::complex_split_index(
             man.num_points_with_classification(datapoints, index + 1, sl._right_index, true);
         double total_classified_points = negative_left + positive_left + negative_right + positive_right;
 
-        // FIXME: in the following negative_left is used after being assigned; was the original value meant?
-        // same for negative_right
-        negative_left = negative_left == 0 ? 0 : negative_left / (negative_left + positive_left);
-        positive_left = positive_left == 0 ? 0 : positive_left / (negative_left + positive_left);
-        negative_right = negative_right == 0 ? 0 : negative_right / (negative_right + positive_right);
-        positive_right = positive_right == 0 ? 0 : positive_right / (negative_right + positive_right);
+        auto negative_left_rel = negative_left == 0 ? 0 : negative_left / (negative_left + positive_left);
+        auto positive_left_rel = positive_left == 0 ? 0 : positive_left / (negative_left + positive_left);
+        auto negative_right_rel = negative_right == 0 ? 0 : negative_right / (negative_right + positive_right);
+        auto positive_right_rel = positive_right == 0 ? 0 : positive_right / (negative_right + positive_right);
 
-        double penaltyVal = (1 - negative_left * positive_right) * left2right + (1 - negative_right * positive_left) * right2left;
+        double penaltyVal = (1 - negative_left_rel * positive_right_rel) * left2right + (1 - negative_right_rel * positive_left_rel) * right2left;
         penaltyVal = 2 * penaltyVal / (2 * (left2right + right2left) + total_classified_points);
         entropy += penaltyVal;
     }
-
 }
-constexpr bool complex_int_split::complex_split_index::operator<(const complex_int_split::complex_split_index &other) const {
-    return std::tie(is_conjunctive, entropy) >= std::tie(other.is_conjunctive, other.entropy);
+
+complex_int_split::split_index_eq::split_index_eq(SPLIT_INDEX_ARGS(complex_int_split))
+    : complex_split_index_base() {
+    // FIXME: all of this code is essentially the same as split_index_le except that different index sets are used
+    // TODO: refactor!
+    auto weighted_entropy_left = man.weighted_entropy(datapoints, left_index, right_index);
+    auto weighted_entropy_right = man.weighted_entropy(datapoints, {{ sl._left_index, left_index - 1}, { right_index + 1, sl.right_index }});
+    entropy = weighted_entropy_left + weighted_entropy_right;
+
+    is_conjunctive =
+        man._conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS &&
+        (!man.positive_points_present(datapoints, {{ sl._left_index, left_index - 1}, { right_index + 1, sl.right_index }}) ||
+        !man.positive_points_present(datapoints, left_index, right_index))
+    ;
+    if (total_classified_points == 0) {
+        entropy = 0.0;
+    } else {
+        entropy /= total_classified_points;
+    }
+
+    // Add a penalty based on the number of implications in the horn constraints that are cut by the
+    // current split.
+    if (man._entropy_computation_criterion == EntropyComputation::PENALTY) {
+        // number of implications in the horn constraints cut by the current split.
+        int left2right, right2left;
+        std::tie(left2right, right2left) = man.penalty({ {left_index, right_index} }, { {sl._left_index, left_index - 1}, {right_index + 1, sl._right_index}});
+        double negative_left = man.num_points_with_classification(datapoints, {{left_index, right_index}}, false);
+        double positive_left = man.num_points_with_classification(datapoints, {{left_index, right_index}}, true);
+        double negative_right =
+            man.num_points_with_classification(datapoints, { {sl._left_index, left_index-1}, {right_index+1, sl._right_index}}, false);
+        double positive_right =
+            man.num_points_with_classification(datapoints, { {sl._left_index, left_index-1}, {right_index+1, sl._right_index}}, true);
+        double total_classified_points = negative_left + positive_left + negative_right + positive_right;
+
+        auto negative_left_rel = negative_left == 0 ? 0 : negative_left / (negative_left + positive_left);
+        auto positive_left_rel = positive_left == 0 ? 0 : positive_left / (negative_left + positive_left);
+        auto negative_right_rel = negative_right == 0 ? 0 : negative_right / (negative_right + positive_right);
+        auto positive_right_rel = positive_right == 0 ? 0 : positive_right / (negative_right + positive_right);
+
+        double penaltyVal = (1 - negative_left_rel * positive_right_rel) * left2right + (1 - negative_right_rel * positive_left_rel) * right2left;
+        penaltyVal = 2 * penaltyVal / (2 * (left2right + right2left) + total_classified_points);
+        entropy += penaltyVal;
+    }
 }
