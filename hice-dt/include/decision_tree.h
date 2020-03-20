@@ -227,9 +227,10 @@ namespace horn_verification
 		 *
 		 * @param attribute The decision attribute
 		 * @param threshold The decision threshold
+		 * @param type The constraint type
 		 */
-		int_node(std::size_t attribute, int threshold)
-			: _attribute(attribute), _threshold(threshold), _children(2)
+		int_node(std::size_t attribute, int threshold, constraint_type type = constraint_type::less_than_equals)
+			: _attribute(attribute), _threshold(threshold), _children(2), _type(type)
 		{
 			// Nothing
 		}

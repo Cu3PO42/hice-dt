@@ -200,7 +200,7 @@ typename SplitT::all_splits int_split::find_index(std::vector<datapoint<bool> *>
         // TODO: why is a case with 0 classified points not reasonable?
         assert(total_classified_points > 0);
         // Tries is the number of distinct values that were tested for splitting
-        double threshCost = log2(std::min(interval, tries)) /
+        double threshCost = log2(std::min(interval, static_cast<double>(tries))) /
                             total_classified_points;
 
         best_info_gain -= threshCost;
@@ -244,7 +244,7 @@ int_split &int_split::assign_if_better(int_split &&other) {
 
 std::unique_ptr<abstract_job> int_split::make_job() const {
     if (!split_possible) throw split_not_possible_error("This split is not possible");
-    return std::make_unique<int_split_job>(*sl, attribute, threshold);
+    return std::make_unique<int_split_job>(*sl, attribute, threshold, int_node::constraint_type::less_than_equals);
 }
 
 int_split::int_split(size_t attribute, const slice &sl, job_manager &man) : split(attribute, sl, man)
@@ -297,9 +297,8 @@ complex_int_split::complex_int_split(
     complex_job_manager &man)
     : int_split(attribute, sl, man) {
 
-    auto best_split = find_index<complex_int_split>(datapoints);
+    best_split = find_index<complex_int_split>(datapoints);
     is_conjunctive = man._conjunctive_setting == ConjunctiveSetting::PREFERENCEFORCONJUNCTS && get_as<all_splits, base_split>(&best_split)->is_conjunctive;
-    split_index_le test;
 }
 
 complex_int_split &complex_int_split::assign_if_better(complex_int_split &&other) {
@@ -319,6 +318,18 @@ complex_int_split &complex_int_split::assign_if_better(complex_int_split &&other
 double complex_int_split::calculate_info_gain(
     std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins) {
     return man->entropy(datapoints, { sl->_left_index, sl->_right_index }) - entropy;
+}
+
+std::unique_ptr<abstract_job> complex_int_split::make_job() const {
+    if (!split_possible) throw split_not_possible_error("This split is not possible");
+    return std::make_unique<int_split_job>(
+        *sl,
+        attribute,
+        threshold,
+        std::get_if<split_index_le>(&best_split)
+        ? int_node::constraint_type::less_than_equals
+        : int_node::constraint_type::equals
+    );
 }
 
 // =======================================

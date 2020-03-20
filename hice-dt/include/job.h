@@ -131,6 +131,7 @@ namespace horn_verification
 		/// The threshold to split on
 		int _threshold;
 	
+		int_node::constraint_type _type;
 	
 	public:
 
@@ -140,9 +141,10 @@ namespace horn_verification
 		 * @param sl The slice of data points to be split
 		 * @param attribute The categorical attribute to split on
 		 * @param threshold The threshold to split on
+		 * @param type The constraint type to be used
 		 */
-		int_split_job(const slice & sl, std::size_t attribute, int threshold)
-			: abstract_job(sl), _attribute(attribute), _threshold(threshold)
+		int_split_job(const slice & sl, std::size_t attribute, int threshold, int_node::constraint_type type)
+			: abstract_job(sl), _attribute(attribute), _threshold(threshold), _type(type)
 		{
 			// Nothing
 		}

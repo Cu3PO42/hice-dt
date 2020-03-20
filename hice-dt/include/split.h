@@ -115,12 +115,14 @@ private:
     double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins);
 
     bool is_conjunctive;
+    all_splits best_split;
 
 public:
     complex_int_split() = default;
     complex_int_split(size_t attribute, std::vector<datapoint<bool> *> &datapoints, const slice &sl, complex_job_manager &man);
 
     complex_int_split &assign_if_better(complex_int_split &&other);
+    std::unique_ptr<abstract_job> make_job() const override;
 };
 
 class cat_split : public split {
