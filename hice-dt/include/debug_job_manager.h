@@ -666,7 +666,7 @@ namespace horn_verification
 			
 			else if (int_split_possible && !cat_split_possible)
 			{
-				return std::unique_ptr<abstract_job> { std::make_unique<int_split_job>(sl, best_int_attribute, best_int_threshold) };
+				return std::unique_ptr<abstract_job> { std::make_unique<int_split_job>(sl, best_int_attribute, best_int_threshold, int_node::constraint_type::less_than_equals) };
 			}
 			
 			else if (!int_split_possible && cat_split_possible)
@@ -679,7 +679,7 @@ namespace horn_verification
 				
 				if (best_int_entropy <= best_cat_entropy)
 				{
-					return std::unique_ptr<abstract_job> { std::make_unique<int_split_job>(sl, best_int_attribute, best_int_threshold) };
+					return std::unique_ptr<abstract_job> { std::make_unique<int_split_job>(sl, best_int_attribute, best_int_threshold, int_node::constraint_type::less_than_equals) };
 				}
 				else
 				{

@@ -65,10 +65,17 @@ namespace horn_verification
 		assert (_slice._left_index < _slice._right_index);
 	
 		// 1) Sort datapoints 
-		auto comparer = [this](const datapoint<bool> * const a, const datapoint<bool> * const b) { return a->_int_data[this->_attribute] < b->_int_data[this->_attribute]; };
-		std::sort(datapoint_ptrs.begin() + _slice._left_index, datapoint_ptrs.begin() + _slice._right_index + 1, comparer);
-		//auto pos = _slice._left_index;
-		//for_each(datapoint_ptrs.begin() + _slice._left_index, datapoint_ptrs.begin() + _slice._right_index + 1, [&pos](const datapoint<bool> * dp) { std::cout << (pos++) << ": " << *dp << std::endl; });
+		if (_type == int_node::constraint_type::less_than_equals) {
+			auto comparer = [this](const datapoint<bool> * const a, const datapoint<bool> * const b) { return a->_int_data[this->_attribute] < b->_int_data[this->_attribute]; };
+			std::sort(datapoint_ptrs.begin() + _slice._left_index, datapoint_ptrs.begin() + _slice._right_index + 1, comparer);
+		} else {
+			auto comparer = [this](const datapoint<bool> * const a, const datapoint<bool> * const b) {
+				auto adata = a->_int_data[this->_attribute],
+					 bdata = b->_int_data[this->_attribute];
+				return std::make_pair(adata != _threshold, adata) < std::make_pair(bdata != _threshold, bdata);
+			};
+			std::sort(datapoint_ptrs.begin() + _slice._left_index, datapoint_ptrs.begin() + _slice._right_index + 1, comparer);
+		}
 	
 	
 		// 2) Find index to split at
@@ -80,7 +87,7 @@ namespace horn_verification
 		}
 	
 		// 3) Create new int node
-		auto new_node = new int_node(_attribute, _threshold);
+		auto new_node = new int_node(_attribute, _threshold, _type);
 		*(_slice._node_ptr) = new_node;
 			
 		// 4) Return new slices
