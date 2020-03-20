@@ -23,6 +23,7 @@
 #include "horn_solver.h"
 #include "job.h"
 #include "slice.h"
+#include "indices.h"
 
 namespace horn_verification {
 
@@ -227,77 +228,70 @@ protected:
      * points.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return the entropy of the given set of data points
      */
     virtual double entropy(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) = 0;
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) = 0;
 
     /**
      * Computes the entropy (with respect to the logarithm of 2) of a contiguous set of data
      * points, weighted by the number of points classified in the set.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return the entropy of the given set of data points
      */
     virtual double weighted_entropy(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) = 0;
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) = 0;
 
     /**
      * Computes the number of classified points in a contiguous set of data points.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return the number of classified points in a contiguous set of data points.
      */
     virtual unsigned int num_classified_points(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) = 0;
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) = 0;
 
     /**
      * Returns if an unclassified point is present in a contiguous set of data points.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return If an unclassified point is present in the contiguous set of data points.
      */
     static bool unclassified_points_present(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index);
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices);
 
     /**
      * Returns if a positively labeled point is present in a contiguous set of data points.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return If a positively labeled point is present in the contiguous set of data points.
      */
     static bool positive_points_present(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index);
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices);
 
     /**
      * Returns number of points with the given classification in a contiguous set of data points.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      * @param classification The classification to count the number of points for
      *
      * @return If a positively labeled point is present in the contiguous set of data points.
      */
     static int num_points_with_classification(
         const std::vector<datapoint<bool> *> &datapoint_ptrs,
-        std::size_t left_index,
-        std::size_t right_index,
+        const index_list &indices,
         bool classification);
 
     friend class int_split;

@@ -50,16 +50,18 @@ std::unique_ptr<abstract_job> simple_job_manager::find_best_split(const slice &s
 }
 
 double simple_job_manager::entropy(
-    const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
+    const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) {
     unsigned int count_f = 0;
     unsigned int count_t = 0;
 
-    for (std::size_t i = left_index; i <= right_index; ++i) {
-        if (datapoint_ptrs[i]->_is_classified) {
-            if (datapoint_ptrs[i]->_classification) {
-                ++count_t;
-            } else {
-                ++count_f;
+    for (auto &pair : indices) {
+        for (std::size_t i = pair.left; i <= pair.right; ++i) {
+            if (datapoint_ptrs[i]->_is_classified) {
+                if (datapoint_ptrs[i]->_classification) {
+                    ++count_t;
+                } else {
+                    ++count_f;
+                }
             }
         }
     }
@@ -78,19 +80,22 @@ double simple_job_manager::entropy(
 }
 
 double simple_job_manager::weighted_entropy(
-    const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
-    return entropy(datapoint_ptrs, left_index, right_index) *
-           num_classified_points(_datapoint_ptrs, left_index, right_index);
+    const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) {
+    return entropy(datapoint_ptrs, indices) *
+           num_classified_points(_datapoint_ptrs, indices);
 }
 
 unsigned int simple_job_manager::num_classified_points(
-    const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
+    const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) {
     unsigned int count = 0;
 
-    for (std::size_t i = left_index; i <= right_index; ++i) {
-        if (datapoint_ptrs[i]->_is_classified) {
-            count++;
+    for (auto &pair : indices) {
+        for (std::size_t i = pair.left; i <= pair.right; ++i) {
+            if (datapoint_ptrs[i]->_is_classified) {
+                count++;
+            }
         }
     }
+
     return count;
 }

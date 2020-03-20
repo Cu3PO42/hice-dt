@@ -109,8 +109,8 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
             size_t cur_index = 0;
             for (auto &_slice : _slices) {
                 auto entropy_val = is_weighted
-                                       ? weighted_entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index)
-                                       : entropy(_datapoint_ptrs, _slice._left_index, _slice._right_index);
+                                       ? weighted_entropy(_datapoint_ptrs, { _slice._left_index, _slice._right_index })
+                                       : entropy(_datapoint_ptrs, { _slice._left_index, _slice._right_index });
                 if (cmp(entropy_val, best_entropy)) {
                     best_entropy = entropy_val;
                     slice_index = cur_index;
@@ -137,7 +137,7 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
         // Initialize the _datapoint_ptrs_to_frac map using the classified points in _datapoint_ptrs
         initialize_datapoint_ptrs_to_frac();
 
-        if (unclassified_points_present(_datapoint_ptrs, sl._left_index, sl._right_index)) {
+        if (unclassified_points_present(_datapoint_ptrs, { sl._left_index, sl._right_index })) {
             // Update _datapoint_ptrs_to_frac with randomly selected complete horn assignments
             update_datapoint_ptrs_to_frac_with_complete_horn_assignments();
         }
@@ -160,19 +160,22 @@ std::unique_ptr<abstract_job> complex_job_manager::next_job() {
 }
 
 double complex_job_manager::entropy(
-    const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
+    const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) {
     if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
         double count_f = 0.0;
         double count_t = 0.0;
+        double sum = 0;
 
-        for (std::size_t i = left_index; i <= right_index; ++i) {
-            // assert that datapoint_ptrs[i] is present in the map _datapoint_ptrs_to_frac
-            auto it = _datapoint_ptrs_to_frac.find(datapoint_ptrs[i]);
-            assert(it != _datapoint_ptrs_to_frac.end());
-            count_t += it->second;
+        for (auto &pair : indices) {
+            for (std::size_t i = pair.left; i <= pair.right; ++i) {
+                // assert that datapoint_ptrs[i] is present in the map _datapoint_ptrs_to_frac
+                auto it = _datapoint_ptrs_to_frac.find(datapoint_ptrs[i]);
+                assert(it != _datapoint_ptrs_to_frac.end());
+                count_t += it->second;
+            }
+            sum += pair.right - pair.left + 1;
         }
 
-        double sum = right_index - left_index + 1;
         count_f = sum - count_t;
 
         // TODO: the following is the same as in the default case
@@ -189,7 +192,7 @@ double complex_job_manager::entropy(
 
     } else if (_entropy_computation_criterion == EntropyComputation::DEFAULT_ENTROPY ||
         _entropy_computation_criterion == EntropyComputation::PENALTY) {
-        return simple_job_manager::entropy(datapoint_ptrs, left_index, right_index);
+        return simple_job_manager::entropy(datapoint_ptrs, indices);
     }
     // _entropy_computation_criterion should be one of the two implemented criterions
     // Control should never reach here!
@@ -198,12 +201,16 @@ double complex_job_manager::entropy(
 }
 
 unsigned int complex_job_manager::num_classified_points(
-    const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
+    const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) {
     if (_entropy_computation_criterion == EntropyComputation::DEFAULT_ENTROPY ||
         _entropy_computation_criterion == EntropyComputation::PENALTY) {
-        return simple_job_manager::num_classified_points(datapoint_ptrs, left_index, right_index);
+        return simple_job_manager::num_classified_points(datapoint_ptrs, indices);
     } else if (_entropy_computation_criterion == EntropyComputation::HORN_ASSIGNMENTS) {
-        return right_index - left_index + 1;
+        size_t sum = 0;
+        for (auto &pair : indices) {
+            sum += pair.right - pair.left + 1;
+        }
+        return sum;
     }
     assert(false);
     return 0;
