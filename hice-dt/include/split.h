@@ -16,6 +16,7 @@ class slice;
 template<typename T> class datapoint;
 class job_manager;
 class complex_job_manager;
+class index_list;
 
 class split {
 protected:
@@ -92,15 +93,19 @@ private:
     public:
         using split_index::split_index;
 
-        bool is_conjunctive;
-
+        void compute_entropy(SPLIT_INDEX_ARGS(complex_int_split), const index_list &left_child_indices, const index_list &right_child_indices);
         constexpr bool operator<(const complex_split_index_base &other) const;
+
+        bool is_conjunctive;
     };
     class split_index_le : public complex_split_index_base {
+    public:
+        split_index_le() = default;
         split_index_le(SPLIT_INDEX_ARGS(complex_int_split));
-
     };
     class split_index_eq : public complex_split_index_base {
+    public:
+        split_index_eq() = default;
         split_index_eq(SPLIT_INDEX_ARGS(complex_int_split));
     };
     using base_split = complex_split_index_base;

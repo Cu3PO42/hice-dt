@@ -97,20 +97,24 @@ bool job_manager::is_leaf(
 }
 
 bool job_manager::unclassified_points_present(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
-    for (std::size_t i = left_index; i <= right_index; ++i) {
-        if (!datapoint_ptrs[i]->_is_classified) {
-            return true;
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) {
+    for (auto &pair : indices) {
+        for (std::size_t i = pair.left; i <= pair.right; ++i) {
+            if (!datapoint_ptrs[i]->_is_classified) {
+                return true;
+            }
         }
     }
     return false;
 }
 
 bool job_manager::positive_points_present(
-    const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) {
-    for (std::size_t i = left_index; i <= right_index; ++i) {
-        if (datapoint_ptrs[i]->_is_classified && datapoint_ptrs[i]->_classification) {
-            return true;
+    const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) {
+    for (auto &pair : indices) {
+        for (std::size_t i = pair.left; i <= pair.right; ++i) {
+            if (datapoint_ptrs[i]->_is_classified && datapoint_ptrs[i]->_classification) {
+                return true;
+            }
         }
     }
     return false;
@@ -118,13 +122,14 @@ bool job_manager::positive_points_present(
 
 int job_manager::num_points_with_classification(
     const std::vector<datapoint<bool> *> &datapoint_ptrs,
-    std::size_t left_index,
-    std::size_t right_index,
+    const index_list &indices,
     bool classification) {
     int count = 0;
-    for (std::size_t i = left_index; i <= right_index; ++i) {
-        if (datapoint_ptrs[i]->_is_classified && datapoint_ptrs[i]->_classification == classification) {
-            count += 1;
+    for (auto &pair : indices) {
+        for (std::size_t i = pair.left; i <= pair.right; ++i) {
+            if (datapoint_ptrs[i]->_is_classified && datapoint_ptrs[i]->_classification == classification) {
+                count += 1;
+            }
         }
     }
     return count;

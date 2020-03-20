@@ -153,25 +153,23 @@ public:
      * points.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return the entropy of the given set of data points
      */
     double entropy(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) override;
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) override;
 
     /**
      * Computes the number of classified points in a contiguous set of data points.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return the number of classified points in a contiguous set of data points.
      */
     unsigned int num_classified_points(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) override;
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) override;
 
     /**
      * Computes the best split of a contiguous set of data points and returns the corresponding

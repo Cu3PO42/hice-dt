@@ -59,38 +59,35 @@ protected:
      * points.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return the entropy of the given set of data points
      */
     double entropy(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) override;
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) override;
 
     /**
      * Computes the entropy (with respect to the logarithm of 2) of a contiguous set of data
      * points, weighted by the number of points classified in the set.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return the entropy of the given set of data points
      */
     double weighted_entropy(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) override;
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) override;
 
     /**
      * Computes the number of classified points in a contiguous set of data points.
      *
      * @param datapoint_ptrs Pointer to the data points
-     * @param left_index The left bound of the set of data points
-     * @param right_index The right bound of the set of data points
+     * @param indices The set of intervals of data points to be selected
      *
      * @return the number of classified points in a contiguous set of data points.
      */
     unsigned int num_classified_points(
-        const std::vector<datapoint<bool> *> &datapoint_ptrs, std::size_t left_index, std::size_t right_index) override;
+        const std::vector<datapoint<bool> *> &datapoint_ptrs, const index_list &indices) override;
 
     friend class int_split;
     friend class complex_int_split;
