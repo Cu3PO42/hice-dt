@@ -189,21 +189,9 @@ typename SplitT::all_splits int_split::find_index(std::vector<datapoint<bool> *>
         // We have found the best split threshold for the given attribute
         // Now compute the information gain to optimize across different attributes
         // NOTE: this computation is ok for both <= and ==
-        double best_info_gain = static_cast<SplitT *>(this)->calculate_info_gain(datapoints, best_index_base.entropy, total_classified_points);
+        double best_info_gain = static_cast<SplitT *>(this)->calculate_info_gain(datapoints, best_index_base.entropy, total_classified_points, tries);
 
         // NOTE: this really only makes sence for the <= split, not for ==
-        double interval = (datapoints[sl._right_index]->_int_data[attribute] -
-                           datapoints[sl._left_index]->_int_data[attribute]) /
-                          (datapoints[cut_index + 1]->_int_data[attribute] -
-                           datapoints[cut_index]->_int_data[attribute]);
-
-        // TODO: why is a case with 0 classified points not reasonable?
-        assert(total_classified_points > 0);
-        // Tries is the number of distinct values that were tested for splitting
-        double threshCost = log2(std::min(interval, static_cast<double>(tries))) /
-                            total_classified_points;
-
-        best_info_gain -= threshCost;
 
         intrinsic_value = best_index_base.intrinsic_value_for_split(datapoints, sl, man);
         gain_ratio =
@@ -251,14 +239,30 @@ int_split::int_split(size_t attribute, const slice &sl, job_manager &man) : spli
 {}
 
 double int_split::calculate_info_gain(
-    std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_points) {
+    std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_points, std::size_t tries) {
+    double res;
     if (total_classified_points == 0.0) {
-      return man->entropy(datapoints, { sl->_left_index, sl->_right_index });
+        res = man->entropy(datapoints, { sl->_left_index, sl->_right_index });
     } else {
-      return
+        res = 
           man->entropy(datapoints, { sl->_left_index, sl->_right_index }) -
           entropy / total_classified_points;
     }
+
+    double interval = (datapoints[sl->_right_index]->_int_data[attribute] -
+                        datapoints[sl->_left_index]->_int_data[attribute]) /
+                        (datapoints[cut_index + 1]->_int_data[attribute] -
+                        datapoints[cut_index]->_int_data[attribute]);
+
+    // TODO: why is a case with 0 classified points not reasonable?
+    assert(total_classified_points > 0);
+    // Tries is the number of distinct values that were tested for splitting
+    double threshCost = log2(std::min(interval, static_cast<double>(tries))) /
+                        total_classified_points;
+
+    res -= threshCost;
+
+    return res;
 }
 
 // =======================================
@@ -316,8 +320,26 @@ complex_int_split &complex_int_split::assign_if_better(complex_int_split &&other
 }
 
 double complex_int_split::calculate_info_gain(
-    std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins) {
-    return man->entropy(datapoints, { sl->_left_index, sl->_right_index }) - entropy;
+    std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_points, std::size_t tries) {
+    double res = man->entropy(datapoints, { sl->_left_index, sl->_right_index }) - entropy;
+
+    double interval = (datapoints[sl->_right_index]->_int_data[attribute] -
+                        datapoints[sl->_left_index]->_int_data[attribute]) /
+                        (datapoints[cut_index + 1]->_int_data[attribute] -
+                        datapoints[cut_index]->_int_data[attribute]);
+
+    // TODO: why is a case with 0 classified points not reasonable?
+    assert(total_classified_points > 0);
+    // Tries is the number of distinct values that were tested for splitting
+    double threshCost;
+    if (std::get_if<split_index_eq>(&best_split)) {
+        threshCost = log2(tries) / total_classified_points;
+    } else {
+        threshCost = log2(std::min(interval, static_cast<double>(tries))) /
+                        total_classified_points;
+    }
+
+    return res - threshCost;
 }
 
 std::unique_ptr<abstract_job> complex_int_split::make_job() const {

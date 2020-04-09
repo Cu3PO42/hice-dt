@@ -72,7 +72,7 @@ protected:
     template<typename SplitT, typename SplitList>
     void assign_better(typename SplitT::all_splits &cur_best, SPLIT_INDEX_ARGS(SplitT));
 
-    double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins);
+    double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins, std::size_t tries);
 
     int threshold;
     double intrinsic_value;
@@ -112,7 +112,7 @@ private:
     using all_splits = std::variant<split_index_le, split_index_eq>;
 
     friend class int_split;
-    double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins);
+    double calculate_info_gain(std::vector<datapoint<bool> *> &datapoints, double entropy, std::size_t total_classified_poins, std::size_t tries);
 
     bool is_conjunctive;
     all_splits best_split;
