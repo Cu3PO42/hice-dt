@@ -1,4 +1,5 @@
 #include <functional>
+#include <iostream>
 
 #include "job.h"
 #include "job_manager.h"
@@ -87,7 +88,7 @@ cat_split &cat_split::assign_if_better(cat_split &&other) {
 }
 
 std::unique_ptr<abstract_job> cat_split::make_job() const {
-    if (!split_possible) throw split_not_possible_error("This split is not possible");
+    if (!split_possible) throw split_not_possible_error("This cat split is not possible");
     return std::make_unique<categorical_split_job>(*sl, attribute);
 }
 
@@ -171,7 +172,14 @@ int_split &int_split::assign_if_better(int_split &&other) {
     return *this = other;
 }
 std::unique_ptr<abstract_job> int_split::make_job() const {
-    if (!split_possible) throw split_not_possible_error("This split is not possible");
+    char underlying_val = *reinterpret_cast<const char*>(&split_possible);
+    if (underlying_val != 0 && underlying_val != 1) {
+        std::cerr << "ups. " << (int)underlying_val << std::endl;
+        exit(-1);
+    }
+    assert(is_possible());
+    std::cerr << "helo i bims" << std::endl;
+    if (!is_possible()) throw split_not_possible_error("Foo. This int split is not possible");
     return std::make_unique<int_split_job>(*sl, attribute, threshold);
 }
 
@@ -196,7 +204,7 @@ double int_split::split_index::intrinsic_value_for_split(
     return calculate_intrinsic_value(n1, n1+n2) + calculate_intrinsic_value(n2, n1+n2);
 }
 constexpr bool int_split::split_index::is_possible() const {
-    return entropy < std::numeric_limits<double>::infinity();
+    return (entropy < std::numeric_limits<double>::infinity()) != 0 ? 1 : 0;
 }
 
 complex_int_split::complex_int_split(

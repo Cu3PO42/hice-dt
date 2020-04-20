@@ -34,6 +34,9 @@ std::unique_ptr<abstract_job> simple_job_manager::find_best_split_base(const sli
     //
     // Return best split
     //
+    assert(best_int_split.is_possible() || best_cat_split.is_possible());
+    assert(best_int_split.is_possible());
+    return best_int_split.make_job();
     return std::max<split>(best_int_split, best_cat_split).make_job();
 }
 
